@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+		<title>Map It Data</title>
+		<style type="text/css" title="currentStyle">
+			@import "css/demo_page.css";
+			@import "css/demo_table.css";
+		</style>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" language="javascript" src="/map-it/js/jquery.jeditable.js"></script>
+		<script type="text/javascript" language="javascript" src="/map-it/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				var oTable = $('#example').dataTable( {
+					"bProcessing": true,
+					"iDisplayLength": 25,
+					"aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
+					"aoColumns": [null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
+						sReturn = "<a href='' class='delete-row'>X</a>";
+					  return sReturn;
+				  }}],
+					"sAjaxSource": "http://librarylab.law.harvard.edu/map-it/api/admin/display/wid",
+					"fnDrawCallback": function () {
+						$('#example tbody td.callno').editable(function(value, settings) { 
+              id = $(this).siblings('.id').text();
+              library = $("#selected-library option:selected").val();
+              console.log(library + ' ' + id + ' ' + value);
+              $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value } );
+              return(value);
+            }, { 
+              type    : 'textarea',
+              submit  : 'OK',
+            });
+					},
+					"fnRender": function (oObj) {
+       return "<a href='EditData.php?id=" + oObj.aData[0] + "'>Edit</a>";
+     }
+				});
+				
+				$("select").change(function () {
+          library = $(this).val();
+          drawTable(library);
+        });
+        
+        $('#add-row').submit(function (){
+          params = $(this).serialize();
+          library = $("#selected-library option:selected").val();
+          params = params + '&library=' + library;
+          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/create/?" + params);
+          drawTable(library);
+          $(this)[0].reset();
+          return false;
+        });
+        
+        $('tbody').on("click", "a.delete-row", function(e){ 
+          id = $(this).parent().siblings('.id').text();
+          library = $("#selected-library option:selected").val();
+          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/delete", { id: id, library: library } );
+          drawTable(library);
+          e.preventDefault();
+        });
+        
+        function drawTable(library){
+          oTable.fnDestroy();
+          oTable = $('#example').dataTable( {
+            "bProcessing": true,
+            "iDisplayLength": 25,
+            "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
+            "aoColumns": [null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
+						  sReturn = "<a href='' class='delete-row'>X</a>";
+					    return sReturn;
+				    }}],
+            "sAjaxSource": "http://librarylab.law.harvard.edu/map-it/api/admin/display/" + library,
+            "fnDrawCallback": function () {
+              $('#example tbody td.callno').editable(function(value, settings) { 
+                id = $(this).siblings('.id').text();
+                library = $("#selected-library option:selected").val();
+                $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value } );
+                return(value);
+              }, { 
+                type    : 'textarea',
+                submit  : 'OK',
+              });
+            }
+          });
+        }
+
+			});
+		</script>
+	</head>
+	<body id="dt_example">
+		<div id="container">
+
+			
+			<select id="selected-library">
+			  <option value="wid" selected>Widener</option>
+			  <option value="lam">Lamont</option>
+			  <option value="law">Law</option>
+			  <option value="test">Test</option>
+			<select>
+			<div id="dynamic">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+	<thead>
+		<tr>
+			<th width="5%">ID</th>
+			<th width="15%">Floor</th>
+			<th width="15%">Row</th>
+			<th width="25%">Beginning call number</th>
+			<th width="5%">Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>ID</th>
+			<th>Floor</th>
+			<th>Row</th>
+			<th>Beginning call number</th>
+			<th>Delete</th>
+		</tr>
+	</tfoot>
+</table>
+<div style="clear:both;"></div>
+<form id="add-row">
+  <input type="text" id="add-floor" name="add-floor" placeholder="floor" /> <input type="text" id="add-row" name="add-row" placeholder="row" /> <input type="text" id="add-callno" name="add-callno" placeholder="beginning call number" /> <input type="submit" value="Add">
+</form>
+			</div>
+			</div>
+	</body>
+</html>

@@ -9,7 +9,7 @@ class Locate extends Controller {
       $db_password = $f3->get('DB_PASSWORD');
       $db_host = $f3->get('DB_HOST');
       
-      require('callno_parser.php');
+      require(dirname(__FILE__).'/callno_parser.php');
         
       /*$this->set('results', json_decode($results, true));
       $path_to_template = 'api/templates/direct_access_json.php';
@@ -24,9 +24,9 @@ class Locate extends Controller {
       //$Location = $_GET['location'];
       
       $callno_text = $f3->get('PARAMS.callno');
-      $Location = $f3->get('PARAMS.location');
+      $location = $f3->get('PARAMS.location');
       
-      if($Location == "LAW" && preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $callno_text)) {
+      if($location == "LAW" && preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $callno_text)) {
         $something = "Moody";
       }
       elseif(preg_match('/^[a-zA-Z]* +[0-9]*.*/', $callno_text)) {
@@ -37,11 +37,11 @@ class Locate extends Controller {
       
       $urlcallno = str_replace(" ","+",$callno->str_callno);
       
-      if (sizeof(explode("LAW", $Location))>1)
+      if (sizeof(explode("LAW", $location))>1)
       {
         $table = 'law_callno';
       }
-      elseif ($Location == "WID")
+      elseif ($location == "WID")
       {
         $table = 'wid_callno';
       }
@@ -115,8 +115,8 @@ class Locate extends Controller {
         array_push($JSON, $_tmparr);
         echo json_encode($JSON);
       }else {
-        
-        $maplink = "http://librarylab.law.harvard.edu/book-locator/$floor.php?row=$range";
+        $location = strtolower($location);
+        $maplink = "http://librarylab.law.harvard.edu/map-it/map/$location/$floor/$range";
       
         $FIELDS     = array('floor','range', 'maplink');
         $JSON = array();
@@ -128,6 +128,8 @@ class Locate extends Controller {
         header('Content-type: application/json');
         echo $callback . json_encode($JSON);
       }
+      
+      mysql_close();
     }
     
     function barcode() {
@@ -294,6 +296,8 @@ class Locate extends Controller {
         header('Content-type: application/json');
         echo json_encode($json);
       }
+      
+      mysql_close();
     }
 
 }
