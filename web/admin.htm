@@ -13,6 +13,7 @@
 		<script type="text/javascript" language="javascript" src="/map-it/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
+			  var key = '<?php echo $key ?>';
 				var oTable = $('#example').dataTable( {
 					"bProcessing": true,
 					"iDisplayLength": 25,
@@ -27,7 +28,7 @@
               id = $(this).siblings('.id').text();
               library = $("#selected-library option:selected").val();
               console.log(library + ' ' + id + ' ' + value);
-              $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value } );
+              $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value, key: key } );
               return(value);
             }, { 
               type    : 'textarea',
@@ -47,8 +48,8 @@
         $('#add-row').submit(function (){
           params = $(this).serialize();
           library = $("#selected-library option:selected").val();
-          params = params + '&library=' + library;
-          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/create/?" + params);
+          params = params + '&library=' + library + '&key=' + key;
+          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/create/", params);
           drawTable(library);
           $(this)[0].reset();
           return false;
@@ -57,7 +58,7 @@
         $('tbody').on("click", "a.delete-row", function(e){ 
           id = $(this).parent().siblings('.id').text();
           library = $("#selected-library option:selected").val();
-          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/delete", { id: id, library: library } );
+          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/delete", { id: id, library: library, key : key } );
           drawTable(library);
           e.preventDefault();
         });
@@ -77,7 +78,7 @@
               $('#example tbody td.callno').editable(function(value, settings) { 
                 id = $(this).siblings('.id').text();
                 library = $("#selected-library option:selected").val();
-                $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value } );
+                $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value, key: key } );
                 return(value);
               }, { 
                 type    : 'textarea',

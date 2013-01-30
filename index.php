@@ -4,6 +4,27 @@ $f3=require('lib/base.php');
 
 $f3->config('api/config.ini');
 
+$db = $f3->get('DB');
+$db_user = $f3->get('DB_USER');
+$db_password = $f3->get('DB_PASSWORD');
+$db_host = $f3->get('DB_HOST');
+        
+mysql_connect($db_host, $db_user, $db_password)
+or die ("Could not connect to resource");
+  
+mysql_select_db($db)
+or die ("Could not connect to database");
+
+$key_query  = "SELECT * FROM book_locator.key_lookup";
+      
+$result = mysql_query($key_query);
+      
+while($row = mysql_fetch_row($result)) {
+  $map_it_key = $row[1];
+}
+
+$f3->set('map_it_key',$map_it_key);
+
 $f3->set('AUTOLOAD','api/; web/;');
 
 $f3->route('GET /api/locate', 'Locate->call_number');
@@ -17,21 +38,20 @@ $f3->route('POST /api/admin/update', 'Admin->update');
 
 //$f3->route('GET /map/@floor/@row', 'Map->draw');
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
-        $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.php';
-        $f3->set('library',$params['library']);
-        $f3->set('floor',$params['floor']);
-        $f3->set('row',$params['row']);
-        //echo $template_path;
-        $view=new View;
-        echo $view->render($template_path);
-    }
-);
+    $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.php';
+    $f3->set('library',$params['library']);
+    $f3->set('floor',$params['floor']);
+    $f3->set('row',$params['row']);
+
+    $view=new View;
+    echo $view->render($template_path);
+});
 
 $f3->route('GET /admin', function($f3) {
-        $view=new View;
-        echo $view->render('web/admin.htm');
-    }
-);
+    $f3->set('key',$f3->get('map_it_key'));
+    $view=new View;
+    echo $view->render('web/admin.htm');
+});
 
 $f3->run();
 
