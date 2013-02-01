@@ -1,3 +1,32 @@
+<?php
+// An array of allowed users and their passwords
+$users = array(
+  $user => $password
+);
+
+// If there's no Authentication header, exit
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('This page requires authentication');
+}
+
+// If the user name doesn't exist, exit
+if (!isset($users[$_SERVER['PHP_AUTH_USER']])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+// Is the password doesn't match the username, exit
+if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
+{
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>

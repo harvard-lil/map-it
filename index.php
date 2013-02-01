@@ -29,11 +29,12 @@ $f3->set('AUTOLOAD','api/; web/;');
 
 $f3->route('GET /api/locate', 'Locate->call_number');
 $f3->route('GET /api/locate/@location/@callno', 'Locate->call_number');
-$f3->route('GET /api/locate/@barcode', 'Locate->barcode');
+$f3->route('GET /api/locate/barcode', 'Locate->barcode');
 
 $f3->route('GET /api/admin/display/@library', 'Admin->display');
 $f3->route('POST /api/admin/delete', 'Admin->delete');
 $f3->route('POST /api/admin/create', 'Admin->create');
+$f3->route('GET /api/admin/create/barcode', 'Admin->create_with_barcode');
 $f3->route('POST /api/admin/update', 'Admin->update');
 
 //$f3->route('GET /map/@floor/@row', 'Map->draw');
@@ -49,6 +50,8 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
 
 $f3->route('GET /admin', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
+    $f3->set('user',$f3->get('ADMIN_USER'));
+    $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $view=new View;
     echo $view->render('web/admin.htm');
 });

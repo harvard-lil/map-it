@@ -133,10 +133,11 @@ class Locate extends Controller {
     }
     
     function barcode() {
-        $f3=$this->framework;
-        $barcode = $f3->get('PARAMS.barcode');
+      $f3=$this->framework;
+      //$barcode = $f3->get('PARAMS.barcode');
+      $barcode = $_REQUEST['barcode'];
 
-        $json = array();
+      $json = array();
 
       $url = 'http://webservices.lib.harvard.edu/rest/classic/barcode/cite/' . $barcode;
       
