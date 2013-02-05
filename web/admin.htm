@@ -36,14 +36,35 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 		<style type="text/css" title="currentStyle">
 			@import "css/demo_page.css";
 			@import "css/demo_table.css";
+			@import "css/TableTools.css";
 		</style>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript" language="javascript" src="/map-it/js/jquery.jeditable.js"></script>
 		<script type="text/javascript" language="javascript" src="/map-it/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" src="/map-it/js/TableTools.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
+			  var library_name = $("#selected-library option:selected").text();
 			  var key = '<?php echo $key ?>';
 				var oTable = $('#example').dataTable( {
+				  "sDom": 'T<"clear">lfrtip',
+          "oTableTools": {
+            "aButtons": [
+              {
+                "sExtends": "csv",
+                "mColumns": [1, 2, 3]
+              },
+              {
+                "sExtends": "pdf",
+                "mColumns": [1, 2, 3],
+                "sPdfMessage": library_name
+              },
+              {
+                "sExtends": "print",
+                "mColumns": [1, 2, 3]
+              }
+            ]
+          },
 					"bProcessing": true,
 					"iDisplayLength": 25,
 					"aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
@@ -51,7 +72,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 						sReturn = "<a href='' class='delete-row'>X</a>";
 					  return sReturn;
 				  }}],
-					"sAjaxSource": "http://librarylab.law.harvard.edu/map-it/api/admin/display/wid",
+					"sAjaxSource": "http://librarylab.law.harvard.edu/map-it/api/admin/display/cab",
 					"fnDrawCallback": function () {
 						$('#example tbody td.callno').editable(function(value, settings) { 
               id = $(this).siblings('.id').text();
@@ -93,8 +114,27 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
         });
         
         function drawTable(library){
+          var library_name = $("#selected-library option:selected").text();
           oTable.fnDestroy();
           oTable = $('#example').dataTable( {
+            "sDom": 'T<"clear">lfrtip',
+            "oTableTools": {
+              "aButtons": [
+                {
+                  "sExtends": "csv",
+                  "mColumns": [1, 2, 3]
+                },
+                {
+                  "sExtends": "pdf",
+                  "mColumns": [1, 2, 3],
+                  "sPdfMessage": library_name
+                },
+                {
+                  "sExtends": "print",
+                  "mColumns": [1, 2, 3]
+                }
+              ]
+            },
             "bProcessing": true,
             "iDisplayLength": 25,
             "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
@@ -125,9 +165,22 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 
 			
 			<select id="selected-library">
-			  <option value="wid" selected>Widener</option>
+			  <option value="cab" selected>Cabot</option>
+			  <option value="che">Chemistry</option>
+			  <option value="des">Design</option>
+			  <option value="div">Divinity</option>
+			  <option value="fal">Fine Arts</option>
+			  <option value="fun">Fung</option>
+			  <option value="gut">Gutman</option>
 			  <option value="lam">Lamont</option>
 			  <option value="law">Law</option>
+			  <option value="ksg">Kennedy</option>
+			  <option value="mcz">MCZ</option>
+			  <option value="mus">Music</option>
+			  <option value="phy">Physics</option>
+			  <option value="toz">Tozzer</option>
+			  <option value="wid">Widener</option>
+			  <option value="hyl">Yenching</option>
 			  <option value="test">Test</option>
 			<select>
 			<div id="dynamic">

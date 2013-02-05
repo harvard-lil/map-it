@@ -45,7 +45,10 @@ class Locate extends Controller {
       {
         $table = 'wid_callno';
       }
-      
+      elseif ($location == "LAM")
+      {
+        $table = 'lam_callno';
+      }
       
       $hashes = array($callno->subclass, $callno->index_1, $callno->index_2, $callno->index_3);
       
@@ -126,7 +129,7 @@ class Locate extends Controller {
         array_push($JSON, $_tmparr);
         $callback = $_GET['callback'];
         header('Content-type: application/json');
-        echo $callback . json_encode($JSON);
+        echo $callback . '(' . json_encode($JSON) . ')';
       }
       
       mysql_close();
