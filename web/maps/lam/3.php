@@ -19,15 +19,29 @@ body{
 }
 
 #map3 {
-	background: url('/map-it/images/lam/lam-3.jpg') no-repeat;
 	width:900px;
 	height: 555px;
 }
 
-.rows span {
+.print-map {
+  position:relative;
+  display:inline;
+  z-index:2;
+}
+
+.map {
+  position:relative;
+  z-index:3;
+  margin-top:-565px;
+}
+
+.map span {
 	background-color: #eee;
 }
 
+.clear {
+  clear:both;
+}
 
 span.highlight {
 	background-color: #990000;
@@ -64,6 +78,30 @@ span.highlight {
 	float:left;
 }
 
+.farnsworth-top {
+	padding:268px 0px 10px 92px;
+	width:130px;
+	float:left;
+}
+
+.farnsworth-middle {
+	padding:0px 0px 0px 150px;
+	width:74px;
+	float:left;
+}
+
+.poetry {
+	padding:0px 0px 10px 367px;
+	width:274px;
+	float:left;
+}
+
+.farnsworth-bottom {
+	padding:15px 0px 10px 0px;
+	width:206px;
+	float:left;
+}
+
 .horizontal1 {
   margin-left:12px;
 }
@@ -78,6 +116,24 @@ span.highlight {
 
 .vertical2 {
   margin-top:26px;
+}
+
+.top3 {
+	display:inline-block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 45px;
+	margin-right:170px;
+}
+
+.bottom3 {
+	display:inline-block;
+	border-right: 1px solid #6a8012;
+	border-left: 1px solid #6a8012;
+	border-bottom: 1px solid #6a8012;
+	height: 5px;
+	width: 45px;
+	margin-right:170px;
 }
 
 .top4 {
@@ -158,10 +214,198 @@ span.highlight {
 	margin-left:64px;
 }
 
+.left-wall-1 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 12px;
+	width: 5px;
+	margin-top:78px;
+	float:left;
+}
+
+.floor1 {
+	display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 20px;
+	float:left;
+	margin-left:15px;
+	margin-top:45px;
+}
+
+.top-wall-2 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 38px;
+	width: 5px;
+	margin-left:100px;
+	float:left;
+}
+
+.bottom-wall-1 {
+	display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 12px;
+	float:left;
+	margin-left:25px;
+	margin-top:140px;
+}
+
+.top-wall-4 {
+	display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 70px;
+	float:left;
+}
+
+.right-wall-3 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 60px;
+	width: 5px;
+	float:left;
+}
+
+.right-wall-bottom3 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 60px;
+	width: 5px;
+	float:left;
+	margin-left:72px;
+}
+
+.right-wall-2 {
+	display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 30px;
+	float:left;
+	margin-left:45px;
+}
+
+.left-wall-2 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 24px;
+	width: 5px;
+	margin-top:32px;
+	float:left;
+}
+
+.top-wall-1 {
+	display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 8px;
+	float:left;
+}
+
+.top-wall-5 {
+	display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 70px;
+	float:left;
+	margin-left:5px;
+}
+
+.top-left2 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 38px;
+	width: 5px;
+	float:left;
+}
+
+.top-top4 {
+	display:block;
+	float:left;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 55px;
+}
+
+.top-right3 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 38px;
+	width: 5px;
+	float:left;
+	margin-left:52px;
+}
+
+.bottom-left2 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 18px;
+	width: 5px;
+	float:left;
+}
+
+.bottom-left4 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 48px;
+	width: 5px;
+	margin-top:60px;
+}
+
+.bottom-bottom2 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 24px;
+	float:left;
+	margin-left:58px;
+	margin-top:3px;
+	margin-right:15px;
+}
+
+.bottom-bottom1 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 8px;
+	float:left;
+	margin-top:3px;
+}
+
+.bottom-bottom-right1 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 8px;
+	float:left;
+	margin-top:3px;
+	margin-left:55px;
+}
+
+.bottom-right2 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 25px;
+	width: 5px;
+	float:left;
+	margin-top:-20px;
+}
+
+.bottom-right4 {
+  display:block;
+	border: 1px solid #6a8012;
+	height: 45px;
+	width: 5px;
+	float:left;
+	margin-top:-50px;
+}
+
 </style>
 </head>
 <body>
-        <div id="map3" class="rows">
+      <img src="/map-it/images/lam/lam-3.jpg" alt="Law ILS1" class="print-map" />
+        <div id="map3" class="map">
           <div class="column1">
        			<span id="row11" class="top4"></span><span id="row10" class="bottom4"></span>
        			<span id="row9" class="left3"></span>
@@ -201,6 +445,41 @@ span.highlight {
        			<span id="row44" class="top4"></span><span id="row45" class="bottom4"></span>
        			<span id="row46" class="right3 horizontal4"></span>
        			<span id="row47" class="top4"></span><span id="row48" class="bottom4"></span>
+       		</div>
+       		<div class="farnsworth-top">
+       		  <span id="row38" class="left-wall-2"></span>
+       		  <span id="row38" class="top-wall-1"></span>
+       		  <span id="row38" class="top-wall-5"></span>
+       		</div>
+       		<div class="farnsworth-middle">
+       		  <span id="row" class="top-left2"></span>
+       		  <span id="row" class="top-left2"></span>
+       		  <span id="row38" class="top-top4"></span><span id="row39" class="top-top4"></span>
+       		  <span id="row" class="top-right3"></span>
+       		</div>
+       		<div class="clear"></div>
+       		<div class="poetry">
+       		    <span id="row38" class="left-wall-1"></span>
+       		    <span id="row38" class="top-wall-2"></span>
+       		    <span id="row" class="floor1"></span>
+       		    <span id="row" class="bottom-wall-1"></span>
+       		    <span id="row" class="top-wall-4"></span>
+       		    <span id="row" class="right-wall-3"></span>
+       		    <span id="row" class="right-wall-2"></span>
+       		    <span id="row" class="right-wall-2"></span>
+       		    <span id="row" class="right-wall-bottom3"></span>
+       		</div>
+       		<div class="farnsworth-bottom">
+       		  <span id="row11" class="top3"></span><span id="row10" class="bottom3"></span>
+       		  <span id="row" class="bottom-left2"></span>
+       		  <span id="row" class="bottom-left4"></span>
+       		  <span id="row" class="bottom-bottom2"></span>
+       		  <span id="row" class="bottom-bottom1"></span>
+       		  <span id="row" class="bottom-right2"></span>
+       		  <span id="row" class="bottom-right2"></span>
+       		  <span id="row" class="bottom-bottom1"></span>
+       		  <span id="row" class="bottom-bottom-right1"></span>
+       		  <span id="row" class="bottom-right4"></span>
        		</div>
        	</div>  
 </body>

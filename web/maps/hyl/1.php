@@ -14,9 +14,20 @@ var row = '<?php echo $row; ?>';
 <script src="/map-it/js/highlight.js"></script>
 <style>
 #map1 {
-	background: url('/map-it/images/lam/lam-1.jpg') no-repeat;
-	width:920px;
-	height: 535px;
+	width:1020px;
+	height: 775px;
+}
+
+.print-map {
+  position:relative;
+  display:inline;
+  z-index:2;
+}
+
+.map {
+  position:relative;
+  z-index:3;
+  margin-top:-775px;
 }
 
 .map span {
@@ -156,7 +167,7 @@ span.highlight {
 </style>
 </head>
 <body>
- <!-- <img src="/map-it/images/lam/lam-1.jpg" alt="Lamont 1" class="print-map" /> -->
+ <img src="/map-it/images/hyl/hyl-1.jpg" alt="Yenching 1" class="print-map" />
         <div id="map1" class="map">
           <div class="column1">
        			<span id="row11" class="top4"></span><span id="row10" class="bottom4"></span>
