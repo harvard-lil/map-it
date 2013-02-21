@@ -1,8 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 <title><?php echo "Map for $library $floor $row" ?></title> 
+
+<link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
@@ -19,72 +23,72 @@ body{
 }
 
 #map2 {
-	background: url('/map-it/images/lam/lam-2.jpg') no-repeat;
 	width:700px;
-	height: 535px;
+	height: 335px;
 }
 
-.rows span {
-	background-color: #eee;
-}
-
-
-span.highlight {
-	background-color: #990000;
-	border: 1px solid #990000;
+.map {
+  margin-top: -335px;
 }
 
 .row1 {
-	padding:80px 15px 10px 85px;
+	margin:65px 15px 10px 85px;
 	width:600px;
 	float:left;
 }
 
 .row2 {
-	padding:15px 15px 10px 60px;
+	margin:18px 5px 10px 60px;
 	width:600px;
 	float:left;
 }
 
 .left2 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 24px;
 	width: 6px;
-	margin-top:26px;
+	margin-top:38px;
 }
 
 .right2 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border: 1px solid #6a8012;
 	height: 24px;
 	width: 6px;
-	margin-right: 6px;
-	margin-top:26px;
+	margin-right: 8px;
+	margin-top:38px;
 }
 
 .left3 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 38px;
 	width: 6px;
+	margin-top:24px;
+	margin-left:4px;
 }
 
 .right3 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 6px;
-	margin-right: 18.3px;
+	margin-right: 18px;
 	margin-top:24px;
 }
 
 .single3 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 6px;
@@ -98,39 +102,45 @@ span.highlight {
 }
 
 .horizontal1 {
-  margin-left:5px;
+  margin-left:8px;
 }
 
 .skinny {
-  margin-right:5.8px;
+  margin-right:5.5px;
 }
 
 .aisle {
-  display:inline-block;
-  width:30px;
+  display:block;
+  float:left;
+  height:5px;
+  width:28px;
 }
 
 .left4 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 62px;
 	width: 6px;
+	margin-left:4px;
 }
 
 .right4 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border: 1px solid #6a8012;
 	height: 62px;
 	width: 6px;
-	margin-right: 18.3px;
+	margin-right: 18px;
 }
 
 </style>
 </head>
 <body>
-        <div id="map2" class="rows">
+  <img src="/map-it/images/lam/lam-2.jpg" alt="Lamont 2" class="print-map" />
+        <div id="map2" class="map">
           <div class="row1">
        			<span id="row3" class="right3 vertical2"></span>
        			<span id="row5" class="left3"></span><span id="row6" class="right3"></span>

@@ -1,8 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 <title><?php echo "Map for $library $floor $row" ?></title> 
+
+<link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
@@ -20,7 +24,7 @@ body{
 
 #map3 {
 	width:900px;
-	height: 555px;
+	height: 565px;
 }
 
 .print-map {
@@ -35,70 +39,61 @@ body{
   margin-top:-565px;
 }
 
-.map span {
-	background-color: #eee;
-}
-
 .clear {
   clear:both;
 }
 
-span.highlight {
-	background-color: #990000;
-	border: 1px solid #990000;
-}
-
 .column1 {
-	padding:190px 15px 10px 120px;
-	width:75px;
+	margin:188px 0px 10px 120px;
+	width:65px;
 	float:left;
 }
 
 .column2 {
-	padding: 188px 0px 10px 40px;
-	width:75px;
+	margin: 188px 0px 10px 65px;
+	width:76px;
 	float:left;
 }
 
 .column3 {
-	padding:202px 0px 10px 0px;
-	width:78px;
+	margin:202px 0px 10px 0px;
+	width:80px;
 	float:left;
 }
 
 .column4 {
-	padding:188px 0px 10px 0px;
-	width:78px;
+	margin:188px 0px 10px 0px;
+	width:68px;
 	float:left;
 }
 
 .column5 {
-	padding:188px 0px 10px 65px;
+	margin:186px 0px 10px 75px;
 	width:78px;
 	float:left;
 }
 
 .farnsworth-top {
-	padding:268px 0px 10px 92px;
+	margin:265px 0px 10px 89px;
 	width:130px;
 	float:left;
 }
 
 .farnsworth-middle {
-	padding:0px 0px 0px 150px;
-	width:74px;
+	margin:0px 0px 0px 146px;
+	width:75px;
 	float:left;
 }
 
 .poetry {
-	padding:0px 0px 10px 367px;
+	margin:0px 0px 10px 367px;
 	width:274px;
 	float:left;
 }
 
 .farnsworth-bottom {
-	padding:15px 0px 10px 0px;
-	width:206px;
+	margin:15px 0px 10px 0px;
+	width:210px;
 	float:left;
 }
 
@@ -111,7 +106,7 @@ span.highlight {
 }
 
 .horizontal5 {
-  margin-left:67px;
+  margin-left:69px;
 }
 
 .vertical2 {
@@ -119,7 +114,8 @@ span.highlight {
 }
 
 .top3 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 45px;
@@ -127,7 +123,8 @@ span.highlight {
 }
 
 .bottom3 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -137,37 +134,41 @@ span.highlight {
 }
 
 .top4 {
-	display:inline-block;
+	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
+	float: left;
 }
 
 .bottom4 {
-	display:inline-block;
+	display:block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 	margin-bottom:1px;
+	float:left;
 }
 
 .top5 {
-	display:inline-block;
+	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
+	float: left;
 }
 
 .bottom5 {
-	display:inline-block;
+	display:block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 	margin-bottom:1px;
+	float: left;
 }
 
 .left3 {
@@ -175,6 +176,7 @@ span.highlight {
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
+	float:left;
 }
 
 .right3 {
@@ -182,36 +184,41 @@ span.highlight {
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
+	float:left;
 }
 
 .hall-left3 {
-  display:inline-block;
+  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
+	float:left;
 }
 
 .hall-right3 {
-  display:inline-block;
+  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 	margin-left:64px;
+	float:left;
 }
 
 .left5 {
-  display:inline-block;
+  display:block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
+	float:left;
 }
 
 .right5 {
-  display:inline-block;
+  display:block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
 	margin-left:64px;
+	float:left;
 }
 
 .left-wall-1 {
@@ -350,7 +357,7 @@ span.highlight {
 	border: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
-	margin-top:60px;
+	margin-top:73px;
 }
 
 .bottom-bottom2 {
@@ -404,7 +411,7 @@ span.highlight {
 </style>
 </head>
 <body>
-      <img src="/map-it/images/lam/lam-3.jpg" alt="Law ILS1" class="print-map" />
+ <img src="/map-it/images/lam/lam-3.jpg" alt="Lamont 3" class="print-map" />
         <div id="map3" class="map">
           <div class="column1">
        			<span id="row11" class="top4"></span><span id="row10" class="bottom4"></span>
@@ -426,7 +433,7 @@ span.highlight {
        		</div>
        		<div class="column3">
        		  <span id="row24" class="left5"></span><span id="row25" class="right5"></span>
-       		  <span id="row23" class="hall-left3 vertical2"></span><span id="row26" class="hall-right3"></span>
+       		  <span id="row23" class="hall-left3 vertical2"></span><span id="row26" class="hall-right3 vertical2"></span>
        		</div>
        		<div class="column4">
        			<span id="row37" class="top4"></span><span id="row36" class="bottom4"></span>

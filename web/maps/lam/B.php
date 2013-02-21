@@ -1,8 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 <title><?php echo "Map for $library $floor $row" ?></title> 
+
+<link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
@@ -19,24 +23,17 @@ body{
 }
 
 #map1 {
-	background: url('/map-it/images/lam/lam-B.jpg') no-repeat;
-	width:920px;
-	height: 535px;
+	width:750px;
+	height: 500px;
 }
 
-.rows span {
-	background-color: #eee;
-}
-
-
-span.highlight {
-	background-color: #990000;
-	border: 1px solid #990000;
+.map {
+  margin-top:-500px;
 }
 
 .row1 {
   margin-left:16px;
-  padding-top:18px;
+  margin-top:37px;
   height:170px;
 }
 
@@ -56,31 +53,31 @@ span.highlight {
 }
 
 .column1 {
-	padding:12px 15px 10px 122px;
-	width:75px;
+	margin:12px 15px 10px 122px;
+	width:65px;
 	float:left;
 }
 
 .column2 {
-	padding: 12px 0px 10px 40px;
+	margin: 12px 0px 10px 50px;
 	width:76px;
 	float:left;
 }
 
 .column3 {
-	padding:26px 0px 10px 0px;
-	width:78px;
+	margin:26px 0px 10px 0px;
+	width:80px;
 	float:left;
 }
 
 .column4 {
-	padding:12px 0px 10px 0px;
-	width:78px;
+	margin:12px 0px 10px 0px;
+	width:68px;
 	float:left;
 }
 
 .column5 {
-	padding:12px 0px 10px 65px;
+	margin:12px 0px 10px 74px;
 	width:78px;
 	float:left;
 }
@@ -109,7 +106,8 @@ span.highlight {
 }
 
 .vertical3 {
-  display:inline-block;
+  display:block;
+  float:left;
 	border: 1px solid #6a8012;
 	height: 46px;
 	width: 6px;	
@@ -137,23 +135,26 @@ span.highlight {
 }
 
 .horizontal2 {
-  display:inline-block;
+  display:block;
+  float:left;
   border: 1px solid #6a8012;
   height:6px;
   width:26px;
-  margin:0 0 6px -2px;
+  margin:0 0 6px 0px;
 }
 
 .horizontal3 {
-  display:inline-block;
+  display:block;
+  float:left;
   border: 1px solid #6a8012;
   height:6px;
   width:44px;
-  margin:0 0 6px -2px;
+  margin:0 0 6px 0px;
 }
 
 .horizontal6 {
-  display:inline-block;
+  display:block;
+  float:left;
   border: 1px solid #6a8012;
   height:6px;
   width:94px;
@@ -161,34 +162,38 @@ span.highlight {
 }
 
 .microfilm4 {
-  display:inline-block;
+  display:block;
+  float:left;
   border: 1px solid #6a8012;
   height:12px;
   width:32px;
-  margin:0 0 0 -2px;
+  margin:0 0 0 0px;
 }
 
 .microfilm10 {
-  display:inline-block;
+  display:block;
+  float:left;
   border: 1px solid #6a8012;
   height:12px;
   width:82px;
-  margin:0 0 0 -2px;
+  margin:0 0 0 0px;
 }
 
 .aisle {
-  margin-left:76px;
+  margin-left:80px;
 }
 
 .top4 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 }
 
 .bottom4 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -198,14 +203,16 @@ span.highlight {
 }
 
 .top5 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 }
 
 .bottom5 {
-	display:inline-block;
+	display:block;
+	float:left;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -216,6 +223,7 @@ span.highlight {
 
 .left3 {
   display:block;
+  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
@@ -223,20 +231,23 @@ span.highlight {
 
 .right3 {
   display:block;
+  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 }
 
 .hall-left3 {
-  display:inline-block;
+  display:block;
+  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 }
 
 .hall-right3 {
-  display:inline-block;
+  display:block;
+  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
@@ -244,14 +255,16 @@ span.highlight {
 }
 
 .left5 {
-  display:inline-block;
+  display:block;
+  float:left;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
 }
 
 .right5 {
-  display:inline-block;
+  display:block;
+  float:left;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
@@ -263,7 +276,8 @@ span.highlight {
 </style>
 </head>
 <body>
-        <div id="map1" class="rows">
+  <img src="/map-it/images/lam/lam-B.jpg" alt="Lamont B" class="print-map" />
+        <div id="map1" class="map">
           <div class="row1">
             <div class="leftwall">
               <span id="row55" class="vertical3"></span>
@@ -314,7 +328,7 @@ span.highlight {
        		</div>
        		<div class="column3">
        		  <span id="row24" class="left5"></span><span id="row25" class="right5"></span>
-       		  <span id="row23" class="hall-left3 space2"></span><span id="row26" class="hall-right3"></span>
+       		  <span id="row23" class="hall-left3 space2"></span><span id="row26" class="hall-right3 space2"></span>
        		</div>
        		<div class="column4">
        			<span id="row37" class="top4"></span><span id="row36" class="bottom4"></span>

@@ -14,5 +14,8 @@ body{
 .map {
   position:relative;
   z-index:3;
-  margin-top:-535px;
+}
+
+.map span {
+	background-color: #eee;
 }
