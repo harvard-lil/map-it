@@ -69,6 +69,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 					"bProcessing": true,
 					"iDisplayLength": 25,
 					"aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
+					"aaSorting": [[1, "asc"], [2, "asc"]],
 					"aoColumns": [null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
 						sReturn = "<a href='' class='delete-row'>X</a>";
 					  return sReturn;
@@ -140,6 +141,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
             "bProcessing": true,
             "iDisplayLength": 25,
             "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
+            "aaSorting": [[1, "asc"], [2, "asc"]],
             "aoColumns": [null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
 						  sReturn = "<a href='' class='delete-row'>X</a>";
 					    return sReturn;
