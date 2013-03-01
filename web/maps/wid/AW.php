@@ -1,138 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><?php echo "Map for $library $floor $row" ?></title> 
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script src="/map-it/js/highlight.js"></script>
-<script language="javascript" type="text/javascript">
-var row = '<?php echo $row ?>';
-</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <title><?php echo "Map for $library $floor $row" ?></title> 
+  
+  <link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+  <script>
+  var row = '<?php echo $row; ?>';
+  </script>
+  <script src="/map-it/js/highlight.js"></script>
 <style>
-body{
-	font-size:75%;
-	font-family:Arial, Verdana, sans-serif;
-	background:#fff;
-	color:#333;
-}
-
 #mapAW {
-	background: url('/map-it/images/wid-AW.jpg') no-repeat;
 	width:710px;
-	height: 482px;
+	height: 415px;
 }
 
-.highlight {
-	background-color: #990000 !important;
-	border: 1px solid #990000;
+.map {
+  margin-top:-415px;
 }
 
 #bottomfull {
-	padding:0px 0px 82px 124px;
+	margin:0px 0px 82px 124px;
 	float:left;
-}
-
-#bottomfull span {
-	background-color: #eee;
 }
 
 #rightcolumntop {
 	float:left;
-	padding:58px 0px 10px 3px;
+	margin:66px 0px 10px 3px;
 	width:100px;
-}
-
-#rightcolumntop span {
-	background-color: #eee;
 }
 
 #leftcolumntop {
 	float:left;
-	padding:130px 0px 10px 418px;
+	margin:138px 0px 10px 418px;
 	width:75px;
 }
 
-#leftcolumntop span {
-	background-color: #eee;
-}
-
 .left3 {
-	display:inline-block;
-	/*background-color: #fff;*/
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 36px;
 	width: 5px;
-	margin-bottom:60px;
 }
 
 .right3 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 36px;
 	width: 5px;
-	margin-right: 1.6px;
-	margin-bottom:60px;
+	margin-right: 5px;
 }
 
 .left4 {
-	display:inline-block;
-	/*background-color: #fff;*/
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
-	margin-bottom:60px;
+	margin-top:60px;
 }
 
 .right4 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
-	margin-right: 1.6px;
-	margin-bottom:60px;
-}
-
-.left5 {
-	display:inline-block;
-	background-color: #fff;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
-	height: 60px;
-	width: 5px;
-	margin-bottom:60px;
-}
-
-.left6 {
-	display:inline-block;
-	background-color: #fff;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
-	height: 72px;
-	width: 5px;
-}
-
-.right6 {
-	display:inline-block;
-	/*background-color: #fff;*/
-	border: 1px solid #6a8012;
-	height: 72px;
-	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:60px;
 }
 
 .left7 {
-	display:inline-block;
-	/*background-color: #fff;*/
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -141,36 +82,13 @@ body{
 }
 
 .right7 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 84px;
 	width: 5px;
-	margin-right: 1.6px;
-}
-
-.left8 {
-	display:inline-block;
-	/*background-color: #fff;*/
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
-	height: 96px;
-	width: 5px;
-}
-
-.right8 {
-	display:inline-block;
-	background-color: #fff;
-	border: 1px solid #6a8012;
-	height: 96px;
-	width: 5px;
-	margin-right: 1.7px;
+	margin-right: 5px;
 }
 
 .left9 {
-	display:inline-block;
-	/*background-color: #fff;*/
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -179,24 +97,10 @@ body{
 }
 
 .right9 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 108px;
 	width: 5px;
-	margin-right: 1.7px;
-}
-
-.top {
-	margin-bottom:24px;
-}
-
-.above {
-	margin-bottom:72px;
-}
-
-.bottom {
-	margin-bottom:0px;
+	margin-right: 5px;
 }
 
 .closed {
@@ -204,14 +108,12 @@ body{
 }
 
 .top5 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 }
 
 .bottom5 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -221,14 +123,12 @@ body{
 }
 
 .top6 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 }
 
 .bottom6 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -243,7 +143,8 @@ body{
 </style>
 </head>
 <body>
-        <div id="mapAW">
+  <img src="/map-it/images/wid/wid-AW.jpg" alt="Widener AW" class="print-map" />
+        <div id="mapAW" class="map">
         	<div id="leftcolumntop">
        			<span id="row1" class="top5"></span><span id="row2" class="bottom5"></span>
        			<span id="row3" class="top5"></span><span id="row4" class="bottom5"></span>
@@ -267,9 +168,9 @@ body{
        		<div class="clear"></div>
        		<div id="bottomfull">
        			<span id="row11" class="left9"></span><span id="row85" class="right9"></span>
-       			<span id="row27" class="left4 bottom"></span><span id="row69" class="right4 bottom"></span>
-       			<span id="row29" class="left4 bottom"></span><span id="row67" class="right4 bottom"></span>
-       			<span id="row31" class="left4 bottom"></span><span id="row65" class="right4 bottom"></span>
+       			<span id="row27" class="left4"></span><span id="row69" class="right4"></span>
+       			<span id="row29" class="left4"></span><span id="row67" class="right4"></span>
+       			<span id="row31" class="left4"></span><span id="row65" class="right4"></span>
        			<span id="row13" class="left9"></span><span id="row83" class="right9"></span>
        			<span id="row15" class="left9"></span><span id="row81" class="right9"></span> 			
        			<span id="row17" class="left9"></span><span id="row79" class="right9"></span>

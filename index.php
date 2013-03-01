@@ -43,6 +43,7 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $f3->set('library',$params['library']);
     $f3->set('floor',$params['floor']);
     $f3->set('row',$params['row']);
+    $f3->set('www_root',$f3->get('MAP_IT_HOME'));
 
     $view=new View;
     echo $view->render($template_path);

@@ -18,4 +18,10 @@ body{
 
 .map span {
 	background-color: #eee;
+	display:block;
+	float:left;
+}
+
+.clear {
+  clear:both;
 }

@@ -1,56 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><?php echo "Map for $library $floor $row" ?></title> 
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script src="/map-it/js/highlight.js"></script>
-<script language="javascript" type="text/javascript">
-var row = '<?php echo $row ?>';
-</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <title><?php echo "Map for $library $floor $row" ?></title> 
+  
+  <link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+  <script>
+  var row = '<?php echo $row; ?>';
+  </script>
+  <script src="/map-it/js/highlight.js"></script>
 <style>
-body{
-	font-size:75%;
-	font-family:Arial, Verdana, sans-serif;
-	background:#fff;
-	color:#333;
-}
-
 #mapP3 {
-	background: url('/map-it/images/wid-P3.jpg') no-repeat;
 	width:720px;
 	height: 835px;
 }
 
+.map {
+  margin-top:-835px;
+}
+
 #leftcolumn {
-	padding:20px 15px 10px 32px;
+	margin:4px 15px 10px 32px;
 	width:200px;
 	float:left;
 }
 
-#leftcolumn span {
-	background-color: #eee;
-}
-
 #rightcolumn {
-	padding:180px 15px 10px 40px;
+	margin:164px 15px 10px 40px;
 	width:235px;
 	float:left;
-}
-
-#rightcolumn span {
-	background-color: #eee;
-}
-
-.highlight {
-	background-color: #990000 !important;
-	border: 1px solid #990000;
-}
-
-.top {
-	margin-bottom:60px;
 }
 
 .closed {
@@ -58,17 +41,14 @@ body{
 }
 
 .bottom2 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 24px;
 	margin-left:5px;
-	background-color:teal;
 	margin-bottom:3px;
 }
 
 .top3 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 36px;
@@ -76,7 +56,6 @@ body{
 }
 
 .bottom3 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -87,7 +66,6 @@ body{
 }
 
 .top5 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
@@ -95,7 +73,6 @@ body{
 }
 
 .bottom5 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -106,14 +83,12 @@ body{
 }
 
 .top7 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 78px;
 }
 
 .bottom7 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -123,14 +98,12 @@ body{
 }
 
 .top10 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 120px;
 }
 
 .bottom10 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -140,7 +113,6 @@ body{
 }
 
 .top11 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 132px;
@@ -148,7 +120,6 @@ body{
 }
 
 .bottom11 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -159,14 +130,12 @@ body{
 }
 
 .top12 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 144px;
 }
 
 .bottom12 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -176,14 +145,12 @@ body{
 }
 
 .top18 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 212px;
 }
 
 .bottom18 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -218,7 +185,8 @@ body{
 </style>
 </head>
 <body>
-        <div id="mapP3">
+  <img src="/map-it/images/wid/wid-P3.jpg" alt="Widener P3" class="print-map" />
+        <div id="mapP3" class="map">
         	<div id="leftcolumn">
        			<span id="row66" class="bottom12"></span>
        			<span id="row67" class="top12"></span><span id="row191" class="bottom12"></span>
@@ -275,7 +243,6 @@ body{
        			<span id="row90" class="top7 right"></span><span id="row89" class="bottom7 right"></span>	
        			<span id="row88" class="top5"></span><span id="row87" class="bottom5"></span>	
        		</div>
-       		<div class="clear"></div>
        		<div id="rightcolumn">
        			<span id="row63" class="top18"></span><span id="row65" class="bottom18"></span>
        			<span id="row65" class="top18"></span><span id="row66" class="bottom18"></span>

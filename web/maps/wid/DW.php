@@ -1,137 +1,99 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><?php echo "Map for $library $floor $row" ?></title> 
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script src="/map-it/js/highlight.js"></script>
-<script language="javascript" type="text/javascript">
-var row = '<?php echo $row ?>';
-</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <title><?php echo "Map for $library $floor $row" ?></title> 
+  
+  <link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+  <script>
+  var row = '<?php echo $row; ?>';
+  </script>
+  <script src="/map-it/js/highlight.js"></script>
 <style>
-body{
-	font-size:75%;
-	font-family:Arial, Verdana, sans-serif;
-	background:#fff;
-	color:#333;
-}
-
 #mapDW {
-	background: url('/map-it/images/wid-DW.jpg') no-repeat;
 	width:710px;
 	height: 500px;
 }
 
-#toprow {
-	padding:44px 15px 10px 58px;
+.map {
+  margin-top:-500px;
 }
 
-#toprow span {
-	background-color: #eee;
+#toprow {
+	margin:44px 15px 10px 58px;
+	float:left;
 }
 
 #rightcolumn {
 	float:left;
-	padding:48px 15px 10px 32px;
+	margin:52px 15px 10px 32px;
 	width:100px;
-}
-
-#rightcolumn span {
-	background-color: #eee;
 }
 
 #leftcolumn {
 	float:left;
-	padding:28px 15px 10px 46px;
+	margin:32px 15px 10px 46px;
 	width:55px;
 }
 
-#leftcolumn span {
-	background-color: #eee;
-}
-
-.highlight {
-	background-color: #990000 !important;
-	border: 1px solid #990000;
-}
-
 .left3 {
-	display:inline-block;
-	background-color: #fff;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 36px;
 	width: 5px;
+	margin-top:84px;
 }
 
 .right3 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 36px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:84px;
 }
 
 .left4 {
-	display:inline-block;
-	background-color: #fff;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
+	margin-top:12px;
 }
 
 .right4 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:12px;
 }
 
-.left7 {
-	display:inline-block;
-	background-color: #fff;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
-	height: 84px;
-	width: 5px;
-}
-
-.right7 {
-	display:inline-block;
-	border: 1px solid #6a8012;
-	height: 84px;
-	width: 5px;
-	margin-right: 1.6px;
-}
 
 .left9 {
-	display:inline-block;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 108px;
 	width: 5px;
+	margin-top:12px;
 }
 
 .right9 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 108px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:12px;
 }
 
 .left10 {
-	display:inline-block;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -140,11 +102,10 @@ body{
 }
 
 .right10 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 120px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
 }
 
 .top {
@@ -164,7 +125,6 @@ body{
 }
 
 .top2 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 24px;
@@ -172,7 +132,6 @@ body{
 }
 
 .bottom2 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -183,14 +142,12 @@ body{
 }
 
 .top5 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 }
 
 .bottom5 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -200,14 +157,12 @@ body{
 }
 
 .top6 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 }
 
 .bottom6 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -218,7 +173,8 @@ body{
 </style>
 </head>
 <body>
-        <div id="mapDW">
+  <img src="/map-it/images/wid/wid-DW.jpg" alt="Widener DW" class="print-map" />
+        <div id="mapDW" class="map">
         	<div id="toprow">
        			<span id="row37" class="left3"></span><span id="row38" class="right3"></span>
        			<span id="row39" class="left10"></span><span id="row40" class="right10"></span>

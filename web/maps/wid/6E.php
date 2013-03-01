@@ -1,129 +1,109 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<title><?php echo "Map for $library $floor $row" ?></title> 
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script src="/map-it/js/highlight.js"></script>
-<script language="javascript" type="text/javascript">
-var row = '<?php echo $row ?>';
-</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <title><?php echo "Map for $library $floor $row" ?></title> 
+  
+  <link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+  <script>
+  var row = '<?php echo $row; ?>';
+  </script>
+  <script src="/map-it/js/highlight.js"></script>
 <style>
-body{
-	font-size:75%;
-	font-family:Arial, Verdana, sans-serif;
-	background:#fff;
-	color:#333;
-}
-
 #map6E {
-	background: url('/map-it/images/wid-6E.jpg') no-repeat;
-	width:705px;
+	width:725px;
 	height: 480px;
 }
 
-#toprow {
-	padding:58px 15px 10px 106px;
+.map {
+  margin-top:-480px;
 }
 
-#toprow span {
-	background-color: #eee;
+#toprow {
+	margin:56px 15px 10px 106px;
+	float:left;
 }
 
 #rightcolumn {
-	padding:7px 15px 10px 580px;
+	margin:7px 15px 10px 580px;
 	width:100px;
-}
-
-#rightcolumn span {
-	background-color: #eee;
-}
-
-.highlight {
-	background-color: #990000 !important;
-	border: 1px solid #990000;
+	float:left;
 }
 
 .left1 {
-	display:inline-block;
-	background-color: #fff;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 12px;
 	width: 5px;
+	margin-top:96px;
 }
 
 .right1 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 12px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:96px;
 }
 
 .left3 {
-	display:inline-block;
-	background-color: #fff;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 36px;
 	width: 5px;
+	margin-top:84px;
 }
 
 .right3 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 36px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:84px;
 }
 
 .left4 {
-	display:inline-block;
-	background-color: #fff;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
+	margin-top:12px;
 }
 
 .right4 {
-	display:inline-block;
-	background-color: #fff;
 	border: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:12px;
 }
 
 .left8 {
-	display:inline-block;
-	background-color: #fff;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
 	height: 96px;
 	width: 5px;
+	margin-top:12px;
 }
 
 .right8 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 96px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
+	margin-top:12px;
 }
 
 .left10 {
-	display:inline-block;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -132,11 +112,10 @@ body{
 }
 
 .right10 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 120px;
 	width: 5px;
-	margin-right: 1.6px;
+	margin-right: 5px;
 }
 
 .bottom {
@@ -152,14 +131,12 @@ body{
 }
 
 .top6 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 }
 
 .bottom6 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -170,7 +147,8 @@ body{
 </style>
 </head>
 <body>
-        <div id="map6E">
+  <img src="/map-it/images/wid/wid-6E.jpg" alt="Widener 6E" class="print-map" />
+        <div id="map6E" class="map">
         	<div id="toprow">
        			<span id="row1" class="left1 bottom"></span><span id="row2" class="right1 bottom"></span>
        			<span id="row3" class="left8 center"></span><span id="row4" class="right8 center"></span>

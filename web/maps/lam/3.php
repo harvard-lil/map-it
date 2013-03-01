@@ -93,7 +93,7 @@ body{
 
 .farnsworth-bottom {
 	margin:15px 0px 10px 0px;
-	width:210px;
+	width:212px;
 	float:left;
 }
 
@@ -357,7 +357,8 @@ body{
 	border: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
-	margin-top:73px;
+	margin-top:40px;
+	clear:left;
 }
 
 .bottom-bottom2 {
@@ -366,8 +367,8 @@ body{
 	height: 5px;
 	width: 24px;
 	float:left;
-	margin-left:58px;
-	margin-top:3px;
+	margin-left:51px;
+	margin-top:93px;
 	margin-right:15px;
 }
 
@@ -377,7 +378,7 @@ body{
 	height: 5px;
 	width: 8px;
 	float:left;
-	margin-top:3px;
+	margin-top:93px;
 }
 
 .bottom-bottom-right1 {
@@ -386,7 +387,7 @@ body{
 	height: 5px;
 	width: 8px;
 	float:left;
-	margin-top:3px;
+	margin-top:93px;
 	margin-left:55px;
 }
 
@@ -396,7 +397,7 @@ body{
 	height: 25px;
 	width: 5px;
 	float:left;
-	margin-top:-20px;
+	margin-top:73px;
 }
 
 .bottom-right4 {
@@ -405,7 +406,7 @@ body{
 	height: 45px;
 	width: 5px;
 	float:left;
-	margin-top:-50px;
+	margin-top:42px;
 }
 
 </style>
