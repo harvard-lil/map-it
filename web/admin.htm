@@ -27,148 +27,32 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 }
 
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 		
 		<title>Map It Data</title>
-		<style type="text/css" title="currentStyle">
-			@import "css/demo_page.css";
-			@import "css/demo_table.css";
-			@import "css/TableTools.css";
-		</style>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script type="text/javascript" language="javascript" src="/map-it/js/jquery.jeditable.js"></script>
-		<script type="text/javascript" language="javascript" src="/map-it/js/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" language="javascript" src="/map-it/js/TableTools.min.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			$(document).ready(function() {
-			  var library_name = $("#selected-library option:selected").text();
-			  var key = '<?php echo $key ?>';
-				var oTable = $('#example').dataTable( {
-				  "sDom": 'T<"clear">lfrtip',
-          "oTableTools": {
-            "aButtons": [
-              {
-                "sExtends": "csv",
-                "mColumns": [1, 2, 3]
-              },
-              {
-                "sExtends": "pdf",
-                "mColumns": [1, 2, 3],
-                "sPdfMessage": library_name
-              },
-              {
-                "sExtends": "print",
-                "mColumns": [1, 2, 3]
-              }
-            ]
-          },
-          "sPaginationType": "full_numbers",
-					"bProcessing": true,
-					"iDisplayLength": 25,
-					"aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
-					"aaSorting": [[1, "asc"], [2, "asc"]],
-					"aoColumns": [null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
-						sReturn = "<a href='' class='delete-row'>X</a>";
-					  return sReturn;
-				  }}],
-					"sAjaxSource": "http://librarylab.law.harvard.edu/map-it/api/admin/display/cab",
-					"fnDrawCallback": function () {
-						$('#example tbody td.callno').editable(function(value, settings) { 
-              id = $(this).siblings('.id').text();
-              library = $("#selected-library option:selected").val();
-              console.log(library + ' ' + id + ' ' + value);
-              $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value, key: key } );
-              return(value);
-            }, { 
-              type    : 'textarea',
-              submit  : 'OK',
-            });
-					},
-					"fnRender": function (oObj) {
-       return "<a href='EditData.php?id=" + oObj.aData[0] + "'>Edit</a>";
-     }
-				});
-				
-				$("select").change(function () {
-          library = $(this).val();
-          drawTable(library);
-        });
-        
-        $('#add-row').submit(function (){
-          params = $(this).serialize();
-          library = $("#selected-library option:selected").val();
-          params = params + '&library=' + library + '&key=' + key;
-          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/create/", params);
-          drawTable(library);
-          $(this)[0].reset();
-          return false;
-        });
-        
-        $('tbody').on("click", "a.delete-row", function(e){ 
-          id = $(this).parent().siblings('.id').text();
-          library = $("#selected-library option:selected").val();
-          $.post("http://librarylab.law.harvard.edu/map-it/api/admin/delete", { id: id, library: library, key : key } );
-          drawTable(library);
-          e.preventDefault();
-        });
-        
-        function drawTable(library){
-          var library_name = $("#selected-library option:selected").text();
-          oTable.fnDestroy();
-          oTable = $('#example').dataTable( {
-            "sDom": 'T<"clear">lfrtip',
-            "oTableTools": {
-              "aButtons": [
-                {
-                  "sExtends": "csv",
-                  "mColumns": [1, 2, 3]
-                },
-                {
-                  "sExtends": "pdf",
-                  "mColumns": [1, 2, 3],
-                  "sPdfMessage": library_name
-                },
-                {
-                  "sExtends": "print",
-                  "mColumns": [1, 2, 3]
-                }
-              ]
-            },
-            "sPaginationType": "full_numbers",
-            "bProcessing": true,
-            "iDisplayLength": 25,
-            "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }],
-            "aaSorting": [[1, "asc"], [2, "asc"]],
-            "aoColumns": [null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
-						  sReturn = "<a href='' class='delete-row'>X</a>";
-					    return sReturn;
-				    }}],
-            "sAjaxSource": "http://librarylab.law.harvard.edu/map-it/api/admin/display/" + library,
-            "fnDrawCallback": function () {
-              $('#example tbody td.callno').editable(function(value, settings) { 
-                id = $(this).siblings('.id').text();
-                library = $("#selected-library option:selected").val();
-                $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update", { library: library, id: id, callno: value, key: key } );
-                return(value);
-              }, { 
-                type    : 'textarea',
-                submit  : 'OK',
-              });
-            }
-          });
-        }
+		<link rel="stylesheet" type="text/css" href="css/demo_page.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo_table.css" />
+		<link rel="stylesheet" type="text/css" href="css/TableTools.css" />
 
-			});
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="/map-it/js/jquery.jeditable.js"></script>
+		<script type="text/javascript" src="/map-it/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="/map-it/js/TableTools.min.js"></script>
+		<script type="text/javascript">
+		  var key = '<?php echo $key ?>';
 		</script>
+		<script type="text/javascript" src="/map-it/js/admin.js"></script>
+
 	</head>
 	<body id="dt_example">
 		<div id="container">
-
-			
-			<select id="selected-library">
+			<div id="dynamic">
+			  <select id="selected-library">
 			  <option value="cab" selected>Cabot</option>
 			  <option value="che">Chemistry</option>
 			  <option value="des">Design</option>
@@ -187,7 +71,6 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 			  <option value="hyl">Yenching</option>
 			  <option value="test">Test</option>
 			<select>
-			<div id="dynamic">
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 	<thead>
 		<tr>
@@ -213,7 +96,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 </table>
 <div style="clear:both;"></div>
 <form id="add-row">
-  <input type="text" id="add-floor" name="add-floor" placeholder="floor" /> <input type="text" id="add-row" name="add-row" placeholder="row" /> <input type="text" id="add-callno" name="add-callno" placeholder="beginning call number" /> <input type="submit" value="Add">
+  <input type="text" id="add-floor" name="add-floor" placeholder="Floor" /> <input type="text" id="add-row" name="add-row" placeholder="Row" /> <input type="text" id="add-callno" name="add-callno" placeholder="Beginning call number" /> <input type="submit" value="Add">
 </form>
 			</div>
 			</div>

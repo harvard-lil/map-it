@@ -35,7 +35,8 @@ $f3->route('GET /api/admin/display/@library', 'Admin->display');
 $f3->route('POST /api/admin/delete', 'Admin->delete');
 $f3->route('POST /api/admin/create', 'Admin->create');
 $f3->route('GET /api/admin/create/barcode', 'Admin->create_with_barcode');
-$f3->route('POST /api/admin/update', 'Admin->update');
+$f3->route('POST /api/admin/update/callno', 'Admin->update_callno');
+$f3->route('POST /api/admin/update/row', 'Admin->update_row');
 
 //$f3->route('GET /map/@floor/@row', 'Map->draw');
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {

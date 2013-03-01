@@ -64,7 +64,8 @@
 }
 
 .dataTables_info {
-	width: 60%;
+  margin-top:8px;
+	width: 50%;
 	float: left;
 }
 
@@ -154,6 +155,7 @@ table.display thead th {
 	border-bottom: 1px solid black;
 	font-weight: bold;
 	cursor: pointer;
+	text-align:left;
 	* cursor: hand;
 }
 
@@ -161,6 +163,7 @@ table.display tfoot th {
 	padding: 3px 18px 3px 10px;
 	border-top: 1px solid black;
 	font-weight: bold;
+	text-align:left;
 }
 
 table.display tr.heading2 td {

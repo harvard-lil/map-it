@@ -49,6 +49,10 @@ class Locate extends Controller {
       {
         $table = 'lam_callno';
       }
+      elseif ($location == "TEST")
+      {
+        $table = 'test_callno';
+      }
       
       $hashes = array($callno->subclass, $callno->index_1, $callno->index_2, $callno->index_3);
       

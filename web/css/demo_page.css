@@ -25,11 +25,24 @@
   margin: 0 0 15px 0;
 }
 
+.dataTables_filter {
+  margin-bottom:8px;
+}
+
+.dataTables_paginate {
+  margin-bottom:8px;
+  margin-top:8px;
+}
+
 #add-row {
-  margin-top:14px;
+  margin-top:8px;
 }
 
 .delete-row {
   text-decoration:none;
   color:red;
+}
+
+input[type=text] {
+   width:185px;
 }
