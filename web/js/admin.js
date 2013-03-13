@@ -58,7 +58,7 @@ $(document).ready(function() {
     }
   });
 				
-  $("select").change(function () {
+  $("#selected-library").change(function () {
     library = $(this).val();
     drawTable(library);
   });
@@ -77,9 +77,12 @@ $(document).ready(function() {
   $('tbody').on("click", "a.delete-row", function(e){
     var position = oTable.fnGetPosition($(this).parent()[0]);
     id = oTable.fnGetData(position[0])[0];
+    var row = $(this).closest('tr');
+    var nRow = row[0];
     library = $("#selected-library option:selected").val();
     $.post("http://librarylab.law.harvard.edu/map-it/api/admin/delete", { id: id, library: library, key : key }, function(data) {
-      drawTable(library);
+      //drawTable(library);
+      oTable.fnDeleteRow(nRow);
     });
     e.preventDefault();
   });

@@ -1,0 +1,58 @@
+<?php
+// An array of allowed users and their passwords
+$users = array(
+  $user => $password
+);
+
+// If there's no Authentication header, exit
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('This page requires authentication');
+}
+
+// If the user name doesn't exist, exit
+if (!isset($users[$_SERVER['PHP_AUTH_USER']])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+// Is the password doesn't match the username, exit
+if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
+{
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+?>
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+		
+		<title>Map It App</title>
+		
+		<link href="/map-it/css/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+	</head>
+	<body>
+	  <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3 offset1">
+          <p><a href="itms-services://?action=download-manifest&url=http://librarylab.law.harvard.edu/map-it/admin/appfiles/mapit.plist" class="btn btn-large btn-primary" type="button">Install App</a></p>
+        </div>
+      </div>
+    </div>
+	</body>
+</html>
