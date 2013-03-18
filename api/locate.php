@@ -20,11 +20,9 @@ class Locate extends Controller {
       mysql_select_db($db)
       or die ("Could not connect to database");
       
-      //$callno_text = $_GET['callno'];
-      //$Location = $_GET['location'];
-      
       $callno_text = $f3->get('PARAMS.callno');
       $location = $f3->get('PARAMS.location');
+      $collection = $f3->get('PARAMS.collection');
       
       if($location == "LAW" && preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $callno_text)) {
         $something = "Moody";
@@ -37,7 +35,7 @@ class Locate extends Controller {
       
       $urlcallno = str_replace(" ","+",$callno->str_callno);
       
-      if (sizeof(explode("LAW", $location))>1)
+      /*if (sizeof(explode("LAW", $location))>1)
       {
         $table = 'law_callno';
       }
@@ -52,7 +50,9 @@ class Locate extends Controller {
       elseif ($location == "TEST")
       {
         $table = 'test_callno';
-      }
+      }*/
+      $location = strtolower($location);
+      $table = $location . "_callno";
       
       $hashes = array($callno->subclass, $callno->index_1, $callno->index_2, $callno->index_3);
       
@@ -76,7 +76,7 @@ class Locate extends Controller {
         {
           # echo "Exact value exists";
           $query = 
-          "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$callno->str_callno'";
+          "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$callno->str_callno' && `collection` = '$collection'";
           $res = mysql_query($query);
           $row = mysql_fetch_array($res);
           $floor = $row['floor'];
@@ -104,8 +104,7 @@ class Locate extends Controller {
         }	
       
         $query = 
-        "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$begin->str_callno'";
-      
+        "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$begin->str_callno' && `collection` = '$collection'";
         $res = mysql_query($query);
         $row = mysql_fetch_array($res);
         $floor = $row['floor'];
@@ -137,6 +136,9 @@ class Locate extends Controller {
       }
       
       mysql_close();
+    }
+    
+    function find_location() {
     }
     
     function barcode() {

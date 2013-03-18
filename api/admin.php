@@ -27,7 +27,7 @@ class Admin extends Controller {
       
       while($row = mysql_fetch_row($result)) {
         //$fields     = array('floor','range', 'callno');
-        $data   = array($row[0], $row[2], $row[3], $row[1], "");
+        $data   = array($row[0], $row[3], $row[4], $row[1], "");
                   
         //$_tmparr  = array_combine($fields, $data);
         array_push($json, $data);
@@ -317,6 +317,11 @@ class Admin extends Controller {
           $collection = "";
         $json['collection'] = $collection;
         
+        $collection_code = $xml->xpath("//xserverrawdata[@barcode='$barcode']/@collection");
+        $collection_code = (string) $collection_code[0]['collection'];
+        if($collection_code === "")
+          $collection_code = "";
+        
         $library = $xml->xpath("//xserverrawdata[@barcode='$barcode']/@sub-library");
         $library = (string) $library[0]['sub-library'];
         if($library === "")
@@ -331,15 +336,15 @@ class Admin extends Controller {
           $callno = preg_replace('/ /', '', $callno, 1);
         }
         
-        if($collection == "WIDLCWID")
-          $callno = "WID-LC $callno";
+        /*if($collection == "WIDLCWID")
+          $callno = "WID-LC $callno";*/
         
         $json['callno'] = $callno;
         
         
         if($callno != "") {
           
-          $select_query = "SELECT id, begin_callno FROM $table WHERE floor = '$floor' AND $table.range = '$range'";
+          $select_query = "SELECT id, begin_callno, collection FROM $table WHERE floor = '$floor' AND $table.range = '$range'";
           $select_result = mysql_query($select_query);
           
           $exists = false;
@@ -353,12 +358,14 @@ class Admin extends Controller {
               preg_match('/^[A-Z]{1,7}/', $row[1], $code);
               $jurisdiction = $code[0];
         
-              if(strpos($row[1],'WID-LC') !== false && $collection == "WIDLCWID") {
+              //if(strpos($row[1],'WID-LC') !== false && $collection == "WIDLCWID") {
+              if($row[2] === 'WIDLC' && $collection_code === 'WIDLC'){
                 $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
                 $update_result = mysql_query($update_query);
                 $exists = true;
               }
-              elseif($library === 'Widener' && (strpos($row[1], 'WID-LC') === false && $collection != "WIDLCWID")) {
+              //elseif($library === 'Widener' && (strpos($row[1], 'WID-LC') === false && $collection != "WIDLCWID")) {
+              elseif($library === 'Widener' && $row[2] !== 'WIDLC' && $collection_code !== 'WIDLC'){
                 $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
                 $update_result = mysql_query($update_query);
                 $exists = true;
@@ -382,7 +389,7 @@ class Admin extends Controller {
           }
           
           if(!$exists) {
-            $insert_query = "INSERT INTO $table SET begin_callno = '$callno', floor = '$floor', $table.range = '$range'";
+            $insert_query = "INSERT INTO $table SET begin_callno = '$callno', floor = '$floor', $table.range = '$range', collection = '$collection_code'";
             $insert_result = mysql_query($insert_query); 
           }
         }
