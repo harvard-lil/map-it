@@ -17,7 +17,7 @@ body{
 }
 
 .map span {
-	background-color: #eee;
+	/*background-color: #eee;*/
 	display:block;
 	float:left;
 }
