@@ -9,16 +9,16 @@ $(document).ready(function() {
       "aButtons": [
         {
           "sExtends": "csv",
-          "mColumns": [1, 2, 3]
+          "mColumns": [1, 2, 3, 4]
         },
         {
           "sExtends": "pdf",
-          "mColumns": [1, 2, 3],
+          "mColumns": [1, 2, 3, 4],
           "sPdfMessage": library
         },
         {
           "sExtends": "print",
-          "mColumns": [1, 2, 3]
+          "mColumns": [1, 2, 3, 4]
         }
       ]
     },
