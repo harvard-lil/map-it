@@ -25,9 +25,9 @@ $(document).ready(function() {
     "sPaginationType": "full_numbers",
     "bProcessing": true,
     "iDisplayLength": 25,
-    "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "floor", "aTargets": [ 1 ] }, { "sClass": "row", "aTargets": [ 2 ] }, { "sClass": "callno", "aTargets": [ 3 ] }, { "bVisible": false, "aTargets": [ 0 ] }],
-    "aaSorting": [[1, "asc"], [2, "asc"]],
-    "aoColumns": [null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
+    "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "collection", "aTargets": [ 1 ] }, { "sClass": "floor", "aTargets": [ 2 ] }, { "sClass": "row", "aTargets": [ 3 ] }, { "sClass": "callno", "aTargets": [ 4 ] }, { "bVisible": false, "aTargets": [ 0 ] }],
+    "aaSorting": [[2, "asc"], [3, "asc"]],
+    "aoColumns": [null, null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
       sReturn = "<a href='' class='delete-row'>X</a>";
       return sReturn;
     }}],
@@ -49,6 +49,17 @@ $(document).ready(function() {
         id = oTable.fnGetData(position[0])[0];
         library = $("#selected-library option:selected").val();
         $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/row", { library: library, id: id, row: value, key: key });
+        return(value);
+      }, { 
+        type    : 'textarea',
+        submit  : 'OK',
+      });
+      
+      $('#example tbody td.collection').editable(function(value, settings) { 
+        var position = oTable.fnGetPosition(this);
+        id = oTable.fnGetData(position[0])[0];
+        library = $("#selected-library option:selected").val();
+        $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/collection", { library: library, id: id, collection: value, key: key });
         return(value);
       }, { 
         type    : 'textarea',

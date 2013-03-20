@@ -27,7 +27,7 @@ class Admin extends Controller {
       
       while($row = mysql_fetch_row($result)) {
         //$fields     = array('floor','range', 'callno');
-        $data   = array($row[0], $row[3], $row[4], $row[1], "");
+        $data   = array($row[0], $row[2], $row[3], $row[4], $row[1], "");
                   
         //$_tmparr  = array_combine($fields, $data);
         array_push($json, $data);
@@ -465,6 +465,43 @@ class Admin extends Controller {
         if($row != "") {      
           
           $update_query = "UPDATE $table SET $table.range = '$row' WHERE id = '$id'";
+          $update_result = mysql_query($update_query);
+          
+          echo 'Updated';
+               
+        }
+        mysql_close();
+      }
+    }
+    
+    function update_collection() {
+      $f3=$this->framework;
+      $map_it_key = $f3->get('map_it_key');
+
+      if(!$_POST['key'] || !($_POST['key'] == $map_it_key)) {
+        echo "Sorry, the API key provided does not match";
+      }
+      else {
+        $db = $f3->get('DB');
+        $db_user = $f3->get('DB_USER');
+        $db_password = $f3->get('DB_PASSWORD');
+        $db_host = $f3->get('DB_HOST');
+        
+        mysql_connect($db_host, $db_user, $db_password)
+        or die ("Could not connect to resource");
+  
+        mysql_select_db($db)
+        or die ("Could not connect to database");
+        
+        $id = $_POST['id'];
+        $collection = $_POST['collection'];
+        $library = $_POST['library'];
+
+        $table = $library . "_callno";
+        
+        if($collection != "") {      
+          
+          $update_query = "UPDATE $table SET $table.collection = '$collection' WHERE id = '$id'";
           $update_result = mysql_query($update_query);
           
           echo 'Updated';
