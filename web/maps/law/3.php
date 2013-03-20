@@ -8,7 +8,6 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
-<script src="/map-it/js/jquery.scrollTo-1.4.3.1-min.js"></script>
 <script>
 var row = '<?php echo $row; ?>';
 var height = <?php echo $height; ?>;
