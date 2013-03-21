@@ -34,23 +34,7 @@ class Locate extends Controller {
       $callno = new callno($callno_text);
       
       $urlcallno = str_replace(" ","+",$callno->str_callno);
-      
-      /*if (sizeof(explode("LAW", $location))>1)
-      {
-        $table = 'law_callno';
-      }
-      elseif ($location == "WID")
-      {
-        $table = 'wid_callno';
-      }
-      elseif ($location == "LAM")
-      {
-        $table = 'lam_callno';
-      }
-      elseif ($location == "TEST")
-      {
-        $table = 'test_callno';
-      }*/
+
       $location = strtolower($location);
       $table = $location . "_callno";
       
@@ -60,7 +44,7 @@ class Locate extends Controller {
       
       $all_callno_array = array();
       
-      $query = "SELECT * FROM `$table`";
+      $query = "SELECT * FROM `$table` WHERE `collection` = '$collection'";
       $result = mysql_query($query);
       while ($row = mysql_fetch_array($result))
       {
