@@ -119,6 +119,7 @@ class Admin extends Controller {
     
         mysql_select_db($db)
         or die ("Could not connect to database");
+        $collection = $_POST['add-collection'];
         $floor = $_POST['add-floor'];
         $range = $_POST['add-row'];
         $callno = $_POST['add-callno'];
@@ -149,7 +150,7 @@ class Admin extends Controller {
         
         if($callno != "") {    
           
-          $insert_query = "INSERT INTO $table SET begin_callno = '$callno', floor = '$floor', $table.range = '$range'";
+          $insert_query = "INSERT INTO $table SET begin_callno = '$callno', floor = '$floor', $table.range = '$range', $table.collection = '$collection'";
           $insert_result = mysql_query($insert_query);
           
           echo 'Added';
@@ -428,6 +429,43 @@ class Admin extends Controller {
         if($callno != "") {      
           
           $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
+          $update_result = mysql_query($update_query);
+          
+          echo 'Updated';
+               
+        }
+        mysql_close();
+      }
+    }
+    
+    function update_floor() {
+      $f3=$this->framework;
+      $map_it_key = $f3->get('map_it_key');
+
+      if(!$_POST['key'] || !($_POST['key'] == $map_it_key)) {
+        echo "Sorry, the API key provided does not match";
+      }
+      else {
+        $db = $f3->get('DB');
+        $db_user = $f3->get('DB_USER');
+        $db_password = $f3->get('DB_PASSWORD');
+        $db_host = $f3->get('DB_HOST');
+        
+        mysql_connect($db_host, $db_user, $db_password)
+        or die ("Could not connect to resource");
+  
+        mysql_select_db($db)
+        or die ("Could not connect to database");
+        
+        $id = $_POST['id'];
+        $floor = $_POST['floor'];
+        $library = $_POST['library'];
+
+        $table = $library . "_callno";
+        
+        if($floor != "") {      
+          
+          $update_query = "UPDATE $table SET $table.floor = '$floor' WHERE id = '$id'";
           $update_result = mysql_query($update_query);
           
           echo 'Updated';

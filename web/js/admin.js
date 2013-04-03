@@ -27,7 +27,7 @@ $(document).ready(function() {
     "iDisplayLength": 25,
     "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "collection", "aTargets": [ 1 ] }, { "sClass": "floor", "aTargets": [ 2 ] }, { "sClass": "row", "aTargets": [ 3 ] }, { "sClass": "callno", "aTargets": [ 4 ] }, { "bVisible": false, "aTargets": [ 0 ] }],
     "aaSorting": [[2, "asc"], [3, "asc"]],
-    "aoColumns": [null, null, null, null, null, {"sTitle": "Delete", "fnRender": function(obj) {
+    "aoColumns": [null, null, null, { "sType": "natural" }, null, {"sTitle": "Delete", "fnRender": function(obj) {
       sReturn = "<a href='' class='delete-row'>X</a>";
       return sReturn;
     }}],
@@ -60,6 +60,17 @@ $(document).ready(function() {
         id = oTable.fnGetData(position[0])[0];
         library = $("#selected-library option:selected").val();
         $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/collection", { library: library, id: id, collection: value, key: key });
+        return(value);
+      }, { 
+        type    : 'textarea',
+        submit  : 'OK',
+      });
+      
+      $('#example tbody td.floor').editable(function(value, settings) { 
+        var position = oTable.fnGetPosition(this);
+        id = oTable.fnGetData(position[0])[0];
+        library = $("#selected-library option:selected").val();
+        $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/floor", { library: library, id: id, floor: value, key: key });
         return(value);
       }, { 
         type    : 'textarea',
@@ -156,3 +167,60 @@ $.fn.dataTableExt.oApi.fnReloadAjax = function ( oSettings, sNewSource, fnCallba
         }
     }, oSettings );
 };
+
+(function() {
+ 
+/*
+ * Natural Sort algorithm for Javascript - Version 0.7 - Released under MIT license
+ * Author: Jim Palmer (based on chunking idea from Dave Koelle)
+ * Contributors: Mike Grier (mgrier.com), Clint Priest, Kyle Adams, guillermo
+ * See: http://js-naturalsort.googlecode.com/svn/trunk/naturalSort.js
+ */
+function naturalSort (a, b) {
+    var re = /(^-?[0-9]+(\.?[0-9]*)[df]?e?[0-9]?$|^0x[0-9a-f]+$|[0-9]+)/gi,
+        sre = /(^[ ]*|[ ]*$)/g,
+        dre = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/,
+        hre = /^0x[0-9a-f]+$/i,
+        ore = /^0/,
+        // convert all to strings and trim()
+        x = a.toString().replace(sre, '') || '',
+        y = b.toString().replace(sre, '') || '',
+        // chunk/tokenize
+        xN = x.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+        yN = y.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+        // numeric, hex or date detection
+        xD = parseInt(x.match(hre)) || (xN.length != 1 && x.match(dre) && Date.parse(x)),
+        yD = parseInt(y.match(hre)) || xD && y.match(dre) && Date.parse(y) || null;
+    // first try and sort Hex codes or Dates
+    if (yD)
+        if ( xD < yD ) return -1;
+        else if ( xD > yD )  return 1;
+    // natural sorting through split numeric strings and default strings
+    for(var cLoc=0, numS=Math.max(xN.length, yN.length); cLoc < numS; cLoc++) {
+        // find floats not starting with '0', string or 0 if not defined (Clint Priest)
+        var oFxNcL = !(xN[cLoc] || '').match(ore) && parseFloat(xN[cLoc]) || xN[cLoc] || 0;
+        var oFyNcL = !(yN[cLoc] || '').match(ore) && parseFloat(yN[cLoc]) || yN[cLoc] || 0;
+        // handle numeric vs string comparison - number < string - (Kyle Adams)
+        if (isNaN(oFxNcL) !== isNaN(oFyNcL)) return (isNaN(oFxNcL)) ? 1 : -1;
+        // rely on string comparison if different types - i.e. '02' < 2 != '02' < '2'
+        else if (typeof oFxNcL !== typeof oFyNcL) {
+            oFxNcL += '';
+            oFyNcL += '';
+        }
+        if (oFxNcL < oFyNcL) return -1;
+        if (oFxNcL > oFyNcL) return 1;
+    }
+    return 0;
+}
+ 
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+    "natural-asc": function ( a, b ) {
+        return naturalSort(a,b);
+    },
+ 
+    "natural-desc": function ( a, b ) {
+        return naturalSort(a,b) * -1;
+    }
+} );
+ 
+}());
