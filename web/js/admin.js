@@ -40,8 +40,7 @@ $(document).ready(function() {
         $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/callno", { library: library, id: id, callno: value, key: key });
         return(value);
       }, { 
-        type    : 'textarea',
-        submit  : 'OK',
+        select    : true
       });
       
       $('#example tbody td.row').editable(function(value, settings) { 
@@ -51,8 +50,7 @@ $(document).ready(function() {
         $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/row", { library: library, id: id, row: value, key: key });
         return(value);
       }, { 
-        type    : 'textarea',
-        submit  : 'OK',
+        select    : true
       });
       
       $('#example tbody td.collection').editable(function(value, settings) { 
@@ -62,8 +60,7 @@ $(document).ready(function() {
         $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/collection", { library: library, id: id, collection: value, key: key });
         return(value);
       }, { 
-        type    : 'textarea',
-        submit  : 'OK',
+        select    : true
       });
       
       $('#example tbody td.floor').editable(function(value, settings) { 
@@ -73,8 +70,7 @@ $(document).ready(function() {
         $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/floor", { library: library, id: id, floor: value, key: key });
         return(value);
       }, { 
-        type    : 'textarea',
-        submit  : 'OK',
+        select    : true
       });
       
     }
