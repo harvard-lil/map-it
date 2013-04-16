@@ -80,32 +80,32 @@ var row = '<?php echo $row; ?>';
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
-              <span id="row11" class="top5"></span>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
+              <span id="row18" class="top5"></span>
+              <span id="row17" class="top6"></span><span id="row16" class="bottom6"></span>
+              <span id="row15" class="top6"></span><span id="row14" class="bottom6"></span>
               <div class="table"></div>
-              <span id="row8" class="top6"></span><span id="row7" class="bottom6"></span>
-              <span id="row5" class="top6"></span><span id="row4" class="bottom6"></span>
+              <span id="row13" class="top6"></span><span id="row12" class="bottom6"></span>
               <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row5" class="top6"></span><span id="row4" class="bottom6"></span>
+              <span id="row9" class="top6"></span><span id="row8" class="bottom6"></span>
+              <span id="row7" class="top6"></span><span id="row6" class="bottom6"></span>
               <div class="table"></div>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row11" class="top5"></span>
+              <span id="row5" class="top6"></span><span id="row4" class="bottom6"></span>
+              <span id="row3" class="top6"></span><span id="row2" class="bottom6"></span>
+              <span id="row1" class="top5"></span>
             </div>
             <div class="column2">
-              <span id="row11" class="top5 shifted"></span>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
+              <span id="row19" class="top5 shifted"></span>
+              <span id="row20" class="top6"></span><span id="row21" class="bottom6"></span>
+              <span id="row22" class="top6"></span><span id="row23" class="bottom6"></span>
               <div class="table"></div>
-              <span id="row8" class="top6"></span><span id="row7" class="bottom6"></span>
-              <span id="row5" class="top6"></span><span id="row4" class="bottom6"></span>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row5" class="top6"></span><span id="row4" class="bottom6"></span>
+              <span id="row24" class="top6"></span><span id="row25" class="bottom6"></span>
+              <span id="row26" class="top6"></span><span id="row27" class="bottom6"></span>
+              <span id="row28" class="top6"></span><span id="row29" class="bottom6"></span>
+              <span id="row30" class="top6"></span><span id="row31" class="bottom6"></span>
               <div class="table"></div>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row11" class="top6"></span><span id="row10" class="bottom6"></span>
-              <span id="row11" class="top5 shifted"></span>
+              <span id="row32" class="top6"></span><span id="row33" class="bottom6"></span>
+              <span id="row34" class="top6"></span><span id="row35" class="bottom6"></span>
+              <span id="row36" class="top5 shifted"></span>
             </div>
        		</div> 
 </body>
