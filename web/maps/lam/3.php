@@ -433,61 +433,61 @@ body{
        			<span id="row21" class="top5"></span><span id="row22" class="bottom5"></span>
        		</div>
        		<div class="column3">
-       		  <span id="row24" class="left5"></span><span id="row25" class="right5"></span>
-       		  <span id="row23" class="hall-left3 vertical2"></span><span id="row26" class="hall-right3 vertical2"></span>
+       		  <span id="row23" class="left5"></span><span id="row25" class="right5"></span>
+       		  <span class="hall-left3 vertical2 row23addl"></span><span class="hall-right3 vertical2 row25addl"></span>
        		</div>
        		<div class="column4">
-       			<span id="row37" class="top4"></span><span id="row36" class="bottom4"></span>
-       			<span id="row35" class="left3"></span>
-       			<span id="row34" class="top5"></span><span id="row33" class="bottom5"></span>
-       			<span id="row32" class="left3"></span>
-       			<span id="row31" class="top4"></span><span id="row30" class="bottom4"></span>
-       			<span id="row29" class="left3"></span>
-       			<span id="row28" class="top5"></span><span id="row27" class="bottom5"></span>
+       			<span id="row24" class="top4"></span><span id="row35" class="bottom4"></span>
+       			<span id="row34" class="left3"></span>
+       			<span id="row33" class="top5"></span><span id="row32" class="bottom5"></span>
+       			<span id="row31" class="left3"></span>
+       			<span id="row30" class="top4"></span><span id="row29" class="bottom4"></span>
+       			<span id="row28" class="left3"></span>
+       			<span id="row27" class="top5"></span><span id="row26" class="bottom5"></span>
        		</div>
        		<div class="column5">
-       			<span id="row38" class="top4"></span><span id="row39" class="bottom4"></span>
-       			<span id="row40" class="right3 horizontal4"></span>
-       			<span id="row41" class="top4"></span><span id="row42" class="bottom4"></span>
-       			<span id="row43" class="right3 horizontal4"></span>
-       			<span id="row44" class="top4"></span><span id="row45" class="bottom4"></span>
-       			<span id="row46" class="right3 horizontal4"></span>
-       			<span id="row47" class="top4"></span><span id="row48" class="bottom4"></span>
+       			<span id="row36" class="top4"></span><span id="row37" class="bottom4"></span>
+       			<span id="row38" class="right3 horizontal4"></span>
+       			<span id="row39" class="top4"></span><span id="row40" class="bottom4"></span>
+       			<span id="row41" class="right3 horizontal4"></span>
+       			<span id="row42" class="top4"></span><span id="row43" class="bottom4"></span>
+       			<span id="row44" class="right3 horizontal4"></span>
+       			<span id="row45" class="top4"></span><span id="row46" class="bottom4"></span>
        		</div>
        		<div class="farnsworth-top">
-       		  <span id="row38" class="left-wall-2"></span>
-       		  <span id="row38" class="top-wall-1"></span>
-       		  <span id="row38" class="top-wall-5"></span>
+       		  <span id="row55" class="left-wall-2"></span>
+       		  <span id="row56" class="top-wall-1"></span>
+       		  <span class="top-wall-5 row56addl"></span>
        		</div>
        		<div class="farnsworth-middle">
-       		  <span id="row" class="top-left2"></span>
-       		  <span id="row" class="top-left2"></span>
-       		  <span id="row38" class="top-top4"></span><span id="row39" class="top-top4"></span>
-       		  <span id="row" class="top-right3"></span>
+       		  <span id="row58" class="top-left2"></span>
+       		  <span id="row59" class="top-left2"></span>
+       		  <span id="row57" class="top-top4"></span><span id="row60" class="top-top4"></span>
+       		  <span id="row61" class="top-right3"></span>
        		</div>
        		<div class="clear"></div>
        		<div class="poetry">
-       		    <span id="row38" class="left-wall-1"></span>
-       		    <span id="row38" class="top-wall-2"></span>
-       		    <span id="row" class="floor1"></span>
-       		    <span id="row" class="bottom-wall-1"></span>
-       		    <span id="row" class="top-wall-4"></span>
-       		    <span id="row" class="right-wall-3"></span>
-       		    <span id="row" class="right-wall-2"></span>
-       		    <span id="row" class="right-wall-2"></span>
-       		    <span id="row" class="right-wall-bottom3"></span>
+       		    <span id="row54" class="left-wall-1"></span>
+       		    <span id="row" class="top-wall-2"></span>
+       		    <span id="row47" class="floor1"></span>
+       		    <span id="row53" class="bottom-wall-1"></span>
+       		    <span id="row48" class="top-wall-4"></span>
+       		    <span id="row49" class="right-wall-3"></span>
+       		    <span id="row50" class="right-wall-2"></span>
+       		    <span id="row51" class="right-wall-2"></span>
+       		    <span id="row52" class="right-wall-bottom3"></span>
        		</div>
        		<div class="farnsworth-bottom">
-       		  <span id="row11" class="top3"></span><span id="row10" class="bottom3"></span>
-       		  <span id="row" class="bottom-left2"></span>
-       		  <span id="row" class="bottom-left4"></span>
-       		  <span id="row" class="bottom-bottom2"></span>
-       		  <span id="row" class="bottom-bottom1"></span>
-       		  <span id="row" class="bottom-right2"></span>
-       		  <span id="row" class="bottom-right2"></span>
-       		  <span id="row" class="bottom-bottom1"></span>
-       		  <span id="row" class="bottom-bottom-right1"></span>
-       		  <span id="row" class="bottom-right4"></span>
+       		  <span id="row68" class="top3"></span><span id="row67" class="bottom3"></span>
+       		  <span class="bottom-left2"></span>
+       		  <span id="row66" class="bottom-left4"></span>
+       		  <span id="row65" class="bottom-bottom2"></span>
+       		  <span class="bottom-bottom1 row64addl"></span>
+       		  <span id="row64" class="bottom-right2"></span>
+       		  <span id="row63" class="bottom-right2"></span>
+       		  <span class="bottom-bottom1 row63addl"></span>
+       		  <span class="bottom-bottom-right1"></span>
+       		  <span id="row62" class="bottom-right4"></span>
        		</div>
        	</div>  
 </body>

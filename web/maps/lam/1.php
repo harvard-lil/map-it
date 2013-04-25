@@ -173,35 +173,35 @@
        			<span id="row2" class="top4"></span><span id="row1" class="bottom4"></span>
        		</div>
        		<div class="column2">
-       			<span id="row12" class="top4 horizontal1"></span><span id="row13" class="bottom4 horizontal1"></span>
-       			<span id="row14" class="right3 horizontal5"></span>
-       			<span id="row15" class="top5"></span><span id="row16" class="bottom5"></span>
-       			<span id="row17" class="right3 horizontal5"></span>
-       			<span id="row18" class="top4 horizontal1"></span><span id="row19" class="bottom4 horizontal1"></span>
-       			<span id="row20" class="right3 horizontal5"></span>
-       			<span id="row21" class="top5"></span><span id="row22" class="bottom5"></span>
+       			<span id="row23" class="top4 horizontal1"></span><span id="row12" class="bottom4 horizontal1"></span>
+       			<span id="row13" class="right3 horizontal5"></span>
+       			<span id="row14" class="top5"></span><span id="row15" class="bottom5"></span>
+       			<span id="row16" class="right3 horizontal5"></span>
+       			<span id="row17" class="top4 horizontal1"></span><span id="row18" class="bottom4 horizontal1"></span>
+       			<span id="row19" class="right3 horizontal5"></span>
+       			<span id="row20" class="top5"></span><span id="row21" class="bottom5"></span>
        		</div>
        		<div class="column3">
-       		  <span id="row24" class="left5"></span><span id="row25" class="right5"></span>
-       		  <span id="row23" class="hall-left3 vertical2"></span><span id="row26" class="hall-right3 vertical2"></span>
+       		  <span id="row22" class="left5"></span><span id="row25" class="right5"></span>
+       		  <span class="hall-left3 vertical2 row22addl"></span><span class="hall-right3 vertical2 row25addl"></span>
        		</div>
        		<div class="column4">
-       			<span id="row37" class="top4"></span><span id="row36" class="bottom4"></span>
-       			<span id="row35" class="left3"></span>
-       			<span id="row34" class="top5"></span><span id="row33" class="bottom5"></span>
-       			<span id="row32" class="left3"></span>
-       			<span id="row31" class="top4"></span><span id="row30" class="bottom4"></span>
-       			<span id="row29" class="left3"></span>
-       			<span id="row28" class="top5"></span><span id="row27" class="bottom5"></span>
+       			<span id="row24" class="top4"></span><span id="row35" class="bottom4"></span>
+       			<span id="row34" class="left3"></span>
+       			<span id="row33" class="top5"></span><span id="row32" class="bottom5"></span>
+       			<span id="row31" class="left3"></span>
+       			<span id="row30" class="top4"></span><span id="row29" class="bottom4"></span>
+       			<span id="row28" class="left3"></span>
+       			<span id="row27" class="top5"></span><span id="row26" class="bottom5"></span>
        		</div>
        		<div class="column5">
-       			<span id="row38" class="top4"></span><span id="row39" class="bottom4"></span>
-       			<span id="row40" class="right3 horizontal4"></span>
-       			<span id="row41" class="top4"></span><span id="row42" class="bottom4"></span>
-       			<span id="row43" class="right3 horizontal4"></span>
-       			<span id="row44" class="top4"></span><span id="row45" class="bottom4"></span>
-       			<span id="row46" class="right3 horizontal4"></span>
-       			<span id="row47" class="top4"></span><span id="row48" class="bottom4"></span>
+       			<span id="row36" class="top4"></span><span id="row37" class="bottom4"></span>
+       			<span id="row38" class="right3 horizontal4"></span>
+       			<span id="row39" class="top4"></span><span id="row40" class="bottom4"></span>
+       			<span id="row41" class="right3 horizontal4"></span>
+       			<span id="row42" class="top4"></span><span id="row43" class="bottom4"></span>
+       			<span id="row44" class="right3 horizontal4"></span>
+       			<span id="row45" class="top4"></span><span id="row46" class="bottom4"></span>
        		</div>
        	</div>  
 </body>

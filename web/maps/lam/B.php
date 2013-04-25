@@ -34,7 +34,7 @@ body{
 .row1 {
   margin-left:16px;
   margin-top:37px;
-  height:170px;
+  height:167px;
 }
 
 .leftwall {
@@ -53,13 +53,13 @@ body{
 }
 
 .column1 {
-	margin:12px 15px 10px 122px;
+	margin:0px 15px 10px 122px;
 	width:65px;
 	float:left;
 }
 
 .column2 {
-	margin: 12px 0px 10px 50px;
+	margin: 0px 0px 10px 50px;
 	width:76px;
 	float:left;
 }
@@ -77,7 +77,7 @@ body{
 }
 
 .column5 {
-	margin:12px 0px 10px 74px;
+	margin:0px 0px 10px 74px;
 	width:78px;
 	float:left;
 }
@@ -161,9 +161,21 @@ body{
   margin:0 0 6px 0;
 }
 
+.microcubeleft {
+  border: 1px solid #6a8012;
+  height:12px;
+  width:12px;
+  margin:60px 0 0 37px;
+}
+
+.microcuberight {
+  border: 1px solid #6a8012;
+  height:12px;
+  width:12px;
+  margin:60px 0 0 245px;
+}
+
 .microfilm4 {
-  display:block;
-  float:left;
   border: 1px solid #6a8012;
   height:12px;
   width:32px;
@@ -171,8 +183,6 @@ body{
 }
 
 .microfilm10 {
-  display:block;
-  float:left;
   border: 1px solid #6a8012;
   height:12px;
   width:82px;
@@ -183,18 +193,35 @@ body{
   margin-left:80px;
 }
 
+.micro5 {
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 20px;
+	margin:0px 0px 5px 5px;
+}
+
+.micro6 {
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 20px;
+	margin:0px 0px 5px 35px;
+}
+
+.micro8 {
+	border: 1px solid #6a8012;
+	height: 5px;
+	width: 35px;
+	margin:0px 0px 5px 12px;
+}
+
 .top4 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 }
 
 .bottom4 {
-	display:block;
-	float:left;
-	border-right: 1px solid #6a8012;
+  border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	height: 5px;
@@ -203,16 +230,12 @@ body{
 }
 
 .top5 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 }
 
 .bottom5 {
-	display:block;
-	float:left;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -222,32 +245,24 @@ body{
 }
 
 .left3 {
-  display:block;
-  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 }
 
 .right3 {
-  display:block;
-  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 }
 
 .hall-left3 {
-  display:block;
-  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 }
 
 .hall-right3 {
-  display:block;
-  float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
@@ -255,23 +270,17 @@ body{
 }
 
 .left5 {
-  display:block;
-  float:left;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
 }
 
 .right5 {
-  display:block;
-  float:left;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
 	margin-left:64px;
 }
-
-.vertical
 
 </style>
 </head>
@@ -280,36 +289,39 @@ body{
         <div id="map1" class="map">
           <div class="row1">
             <div class="leftwall">
-              <span id="row55" class="vertical3"></span>
-              <span id="row55" class="vertical2"></span>
-              <span id="row60" class="vertical6"></span>
+              <span id="row50" class="vertical3"></span>
+              <span class="vertical2 row50addl"></span>
+              <span class="vertical6 row50addl"></span>
             </div>
             <div class="backwall">
-              <span id="row60" class="horizontal6"></span>
-              <span id="row60" class="microfilm10"></span>
-              <span id="row60" class="horizontal3"></span>
-              <span id="row60" class="microfilm4"></span>
-              <span id="row60" class="horizontal2"></span>
+              <span id="row51" class="horizontal6"></span>
+              <span id="row51a" class="microfilm10"></span>
+              <span id="row51b" class="horizontal3"></span>
+              <span id="row51c" class="microfilm4"></span>
+              <span id="row51d" class="horizontal2"></span>
+              <span id="row105" class="microcubeleft"></span>
             </div>
             <div class="backdesk">
-              <span id="row55" class="vertical3"></span>
-              <span id="row55" class="vertical3 aisle"></span>
+              <span class="vertical3 row51daddl"></span>
+              <span id="row41" class="vertical3 aisle"></span>
             </div>
             <div class="backwall">
-              <span id="row60" class="horizontal2"></span>
-              <span id="row60" class="microfilm4"></span>
-              <span id="row60" class="horizontal3"></span>
-              <span id="row60" class="microfilm10"></span>
-              <span id="row60" class="horizontal6"></span> 
+              <span id="row42" class="horizontal2"></span>
+              <span id="row42a" class="microfilm4"></span>
+              <span id="row42b" class="horizontal3"></span>
+              <span id="row42c" class="microfilm10"></span>
+              <span id="row42d" class="horizontal6"></span> 
+              <span id="row101" class="microcuberight"></span>
             </div>
             <div class="leftwall">
-              <span id="row55" class="vertical4"></span>
-              <span id="row60" class="vertical7"></span>
+              <span id="row43" class="vertical4"></span>
+              <span class="vertical7 row43addl"></span>
             </div>
           </div>
           <div class="clear"></div>
           <div class="column1">
-       			<span id="row11" class="top4"></span><span id="row10" class="bottom4"></span>
+            <span id="row104" class="micro6"></span>
+       			<span id="row49" class="top4"></span><span id="row10" class="bottom4"></span>
        			<span id="row9" class="left3"></span>
        			<span id="row8" class="top4"></span><span id="row7" class="bottom4"></span>
        			<span id="row6" class="left3"></span>
@@ -318,35 +330,37 @@ body{
        			<span id="row2" class="top4"></span><span id="row1" class="bottom4"></span>
        		</div>
        		<div class="column2">
-       			<span id="row12" class="top4 space1"></span><span id="row13" class="bottom4 space1"></span>
-       			<span id="row14" class="right3 space5"></span>
-       			<span id="row15" class="top5"></span><span id="row16" class="bottom5"></span>
-       			<span id="row17" class="right3 space5"></span>
-       			<span id="row18" class="top4 space1"></span><span id="row19" class="bottom4 space1"></span>
-       			<span id="row20" class="right3 space5"></span>
-       			<span id="row21" class="top5"></span><span id="row22" class="bottom5"></span>
+       		  <span id="row103" class="micro8"></span>
+       			<span id="row48" class="top4 space1"></span><span id="row11" class="bottom4 space1"></span>
+       			<span id="row12" class="right3 space5"></span>
+       			<span id="row13" class="top5"></span><span id="row14" class="bottom5"></span>
+       			<span id="row15" class="right3 space5"></span>
+       			<span id="row16" class="top4 space1"></span><span id="row17" class="bottom4 space1"></span>
+       			<span id="row18" class="right3 space5"></span>
+       			<span id="row19" class="top5"></span><span id="row20" class="bottom5"></span>
        		</div>
        		<div class="column3">
-       		  <span id="row24" class="left5"></span><span id="row25" class="right5"></span>
-       		  <span id="row23" class="hall-left3 space2"></span><span id="row26" class="hall-right3 space2"></span>
+       		  <span id="row47" class="left5"></span><span id="row46" class="right5"></span>
+       		  <span class="hall-left3 space2 row47addl"></span><span class="hall-right3 space2 row46addl"></span>
        		</div>
        		<div class="column4">
-       			<span id="row37" class="top4"></span><span id="row36" class="bottom4"></span>
-       			<span id="row35" class="left3"></span>
-       			<span id="row34" class="top5"></span><span id="row33" class="bottom5"></span>
-       			<span id="row32" class="left3"></span>
-       			<span id="row31" class="top4"></span><span id="row30" class="bottom4"></span>
+       			<span id="row45" class="top4"></span><span id="row30" class="bottom4"></span>
        			<span id="row29" class="left3"></span>
        			<span id="row28" class="top5"></span><span id="row27" class="bottom5"></span>
+       			<span id="row26" class="left3"></span>
+       			<span id="row25" class="top4"></span><span id="row24" class="bottom4"></span>
+       			<span id="row23" class="left3"></span>
+       			<span id="row22" class="top5"></span><span id="row21" class="bottom5"></span>
        		</div>
        		<div class="column5">
-       			<span id="row38" class="top4"></span><span id="row39" class="bottom4"></span>
-       			<span id="row40" class="right3 space4"></span>
-       			<span id="row41" class="top4"></span><span id="row42" class="bottom4"></span>
-       			<span id="row43" class="right3 space4"></span>
-       			<span id="row44" class="top4"></span><span id="row45" class="bottom4"></span>
-       			<span id="row46" class="right3 space4"></span>
-       			<span id="row47" class="top4"></span><span id="row48" class="bottom4"></span>
+       		  <span id="row102" class="micro5"></span>
+       			<span id="row44" class="top4"></span><span id="row31" class="bottom4"></span>
+       			<span id="row32" class="right3 space4"></span>
+       			<span id="row33" class="top4"></span><span id="row34" class="bottom4"></span>
+       			<span id="row35" class="right3 space4"></span>
+       			<span id="row36" class="top4"></span><span id="row37" class="bottom4"></span>
+       			<span id="row38" class="right3 space4"></span>
+       			<span id="row39" class="top4"></span><span id="row40" class="bottom4"></span>
        		</div>
        	</div>  
 </body>

@@ -50,8 +50,6 @@ body{
 }
 
 .left1 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -61,8 +59,6 @@ body{
 }
 
 .right1 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 12px;
 	width: 6px;
@@ -70,8 +66,6 @@ body{
 }
 
 .left2 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -81,8 +75,6 @@ body{
 }
 
 .right2 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 24px;
 	width: 6px;
@@ -91,8 +83,6 @@ body{
 }
 
 .left3 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -102,8 +92,6 @@ body{
 }
 
 .right3 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 6px;
@@ -131,8 +119,6 @@ body{
 }
 
 .left5 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -141,8 +127,6 @@ body{
 }
 
 .right5 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 65px;
 	width: 6px;
@@ -150,8 +134,6 @@ body{
 }
 
 .single5 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 65px;
 	width: 6px;

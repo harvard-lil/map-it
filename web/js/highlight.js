@@ -1,15 +1,26 @@
 $(document).ready(function(){
   var multipleRows = new Array();
+  var rowMarkers = new Array();
   var $paneTarget = $('body');
-  if(row.indexOf(":") !== -1) {
-    multipleRows = row.split(":");
+  if(row.indexOf("-") !== -1) {
+    rowMarkers = row.split("-");
+    var start = parseInt(rowMarkers[0]);
+    var end = parseInt(rowMarkers[1]);
+    for (var i = start; i <= end; i++) {
+      multipleRows.push(i);
+    }
   }
   else {
     multipleRows[0] = row;
   }
   $.each(multipleRows, function( key, value ) {
 		rowID = '#row' + value;
+		rowAddl = '.row' + value + 'addl';
 		$(rowID).delay(800).animate({'backgroundColor' : '#FF4105'},
+			function() {
+    			$(this).css('border', '1px solid #FF4105');
+  		});
+  	$(rowAddl).delay(800).animate({'backgroundColor' : '#FF4105'},
 			function() {
     			$(this).css('border', '1px solid #FF4105');
   		});
