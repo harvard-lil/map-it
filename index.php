@@ -57,7 +57,7 @@ $f3->route('GET /admin', function($f3) {
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $view=new View;
-    echo $view->render('web/admin.htm');
+    echo $view->render('web/admin.html');
 });
 
 $f3->route('GET /admin/app', function($f3) {
@@ -65,7 +65,15 @@ $f3->route('GET /admin/app', function($f3) {
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $view=new View;
-    echo $view->render('web/app.htm');
+    echo $view->render('web/app.html');
+});
+
+$f3->route('GET /admin/check', function($f3) {
+    $f3->set('key',$f3->get('map_it_key'));
+    $f3->set('user',$f3->get('ADMIN_USER'));
+    $f3->set('password',$f3->get('ADMIN_PASSWORD'));
+    $view=new View;
+    echo $view->render('web/check.html');
 });
 
 $f3->run();

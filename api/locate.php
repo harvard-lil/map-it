@@ -177,7 +177,7 @@ class Locate extends Controller {
       if($callno === "")
         $callno = "";
       
-      $collection = $xml->xpath("//item[@barcode='$barcode']/@collection");
+      $collection = $xml->xpath("//xserverrawdata[@barcode='$barcode']/@collection");
       $collection = (string) $collection[0]['collection'];
       if($collection === "")
         $collection = "";
@@ -192,9 +192,6 @@ class Locate extends Controller {
       elseif(preg_match('/^[a-zA-Z]* +[0-9]*.*/', $callno)) {
         $callno = preg_replace('/ /', '', $callno, 1);
       }
-      
-      if($collection == "WIDLCWID")
-        $callno = "WID-LC $callno";
       
       $callno_text = $callno;
       
@@ -215,6 +212,10 @@ class Locate extends Controller {
       {
         $table = 'wid_callno';
       }
+      elseif ($library == "Lamont")
+      {
+        $table = 'lam_callno';
+      }
       
       $hashes = array($callno->subclass, $callno->index_1, $callno->index_2, $callno->index_3);
       
@@ -222,7 +223,7 @@ class Locate extends Controller {
       
       $all_callno_array = array();
       
-      $query = "SELECT * FROM `$table`";
+      $query = "SELECT * FROM `$table` WHERE `collection` = '$collection'";
       $result = mysql_query($query);
       while ($row = mysql_fetch_array($result))
       {
@@ -237,7 +238,7 @@ class Locate extends Controller {
         {
           # echo "Exact value exists";
           $query = 
-          "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$callno->str_callno'";
+          "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$callno->str_callno' && `collection` = '$collection'";
           $res = mysql_query($query);
           $row = mysql_fetch_array($res);
           $floor = $row['floor'];
@@ -264,7 +265,7 @@ class Locate extends Controller {
         }	
       
         $query = 
-        "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$begin->str_callno'";
+        "SELECT `floor`, `range` FROM `$table` WHERE `begin_callno` = '$begin->str_callno' && `collection` = '$collection'";
       
         $res = mysql_query($query);
         $row = mysql_fetch_array($res);
