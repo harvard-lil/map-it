@@ -39,7 +39,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 		<link href="/map-it/css/bootstrap.css" rel="stylesheet">
 		<style type="text/css">
       body {
-        padding-top: 60px;
+        padding-top: 25px;
       }
     </style>
 
@@ -50,11 +50,19 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
 	<body>
 	  <div class="container-fluid">
       <div class="row-fluid">
+        <div class="span2">
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a href="/map-it/admin">Map It Admin</a></li>
+            <li><a href="/map-it/admin/data">Data Editing</a></li>
+            <li class="active"><a href="/map-it/admin/check">Barcode  Check</a></li>
+            <li><a href="/map-it/admin/app">iOS App</a></li>
+          </ul>
+        </div>
         <div class="span6 offset1">
           <h3>Input a barcode to check item location</h3>
           <form class="form-inline" id="check">
-            <input type="text" class="input-medium" id="barcode" placeholder="Barcode">
-            <button type="submit" class="btn">Check</button>
+            <input type="text" class="input-large" id="barcode" placeholder="Barcode">
+            <button type="submit" class="btn btn-primary">Check</button>
           </form>
           <div id="results"></div>
         </div>

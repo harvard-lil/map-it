@@ -81,7 +81,7 @@ $(document).ready(function() {
     drawTable(library);
   });
         
-  $('#add-row').submit(function (){
+  $('#add-data').submit(function (){
     params = $(this).serialize();
     library = $("#selected-library option:selected").val();
     params = params + '&library=' + library + '&key=' + key;

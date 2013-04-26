@@ -3,17 +3,7 @@
  * General page setup
  */
 #dt_example {
-	font: 80%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-	margin: 0;
-	padding: 0;
-	color: #333;
-	background-color: #fff;
-}
-
-#dt_example #container {
-	width: 800px;
-	margin: 30px auto;
-	padding: 0;
+	margin: 25px 0 0 0;
 }
 
 #selected-library {
@@ -25,6 +15,10 @@
   margin: 0 0 15px 0;
 }
 
+#example_length select {
+  width:75px;
+}
+
 .dataTables_filter {
   margin-bottom:8px;
 }
@@ -34,15 +28,11 @@
   margin-top:8px;
 }
 
-#add-row {
+#add-data {
   margin-top:8px;
 }
 
 .delete-row {
   text-decoration:none;
   color:red;
-}
-
-input[type=text] {
-   width:175px;
 }
