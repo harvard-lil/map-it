@@ -195,11 +195,17 @@ class Locate extends Controller {
       
       $callno_text = $callno;
       
-      include("callno_parser.php");
-      mysql_connect("localhost", "locator_user", "locate88")
-      or die ("Could not connect to resource");
+      $db = $f3->get('DB');
+      $db_user = $f3->get('DB_USER');
+      $db_password = $f3->get('DB_PASSWORD');
+      $db_host = $f3->get('DB_HOST');
       
-      mysql_select_db("book_locator")
+      require(dirname(__FILE__).'/callno_parser.php');
+        
+      mysql_connect($db_host, $db_user, $db_password)
+      or die ("Could not connect to resource");
+
+      mysql_select_db($db)
       or die ("Could not connect to database");
       
       $callno = new callno($callno_text);
