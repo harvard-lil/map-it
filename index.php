@@ -30,6 +30,8 @@ $f3->set('AUTOLOAD','api/; web/;');
 $f3->route('GET /api/locate', 'Locate->call_number');
 $f3->route('GET /api/locate/@location/@collection/@callno', 'Locate->call_number');
 $f3->route('GET /api/locate/barcode', 'Locate->barcode');
+$f3->route('GET /api/locate/allin', 'Locate->allin');
+$f3->route('GET /api/locate/transfer', 'Locate->transfer');
 
 $f3->route('GET /api/admin/display/@library', 'Admin->display');
 $f3->route('POST /api/admin/delete', 'Admin->delete');
