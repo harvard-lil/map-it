@@ -20,8 +20,19 @@ body{
 	/*background-color: #eee;*/
 	display:block;
 	float:left;
+	overflow:hidden;
+}
+
+.map span img {
+  display:none;
 }
 
 .clear {
   clear:both;
+}
+
+@media print {
+   .map span img{
+      display: block;
+   }
 }

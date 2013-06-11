@@ -18,11 +18,11 @@ $(document).ready(function(){
 		rowAddl = '.row' + value + 'addl';
 		$(rowID).delay(800).animate({'backgroundColor' : '#FF4105'},
 			function() {
-    			$(this).css('border', '1px solid #FF4105');
+    			$(this).css('border', '1px solid #FF4105').append('<img class="img_color" src="/map-it/images/orange.png">');
   		});
   	$(rowAddl).delay(800).animate({'backgroundColor' : '#FF4105'},
 			function() {
-    			$(this).css('border', '1px solid #FF4105');
+    			$(this).css('border', '1px solid #FF4105').append('<img class="img_color" src="/map-it/images/orange.png">');
   		});
   	});
 
