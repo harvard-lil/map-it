@@ -1,17 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><?php echo "Map for $library $floor $row" ?></title> 
-
-<!--<link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />-->
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
-<script>
-var row = '<?php echo $row; ?>';
-</script>
-<script src="/map-it/js/highlight.js"></script>
+<include href="{{ @header }}" />
 <style>
 #map1 {
 	width:400px;
@@ -32,16 +19,6 @@ var row = '<?php echo $row; ?>';
 
 .clear {
   clear:both;
-}
-
-.map span {
-	/*background-color: #eee;*/
-}
-
-
-span.highlight {
-	background-color: #990000;
-	border: 1px solid #990000;
 }
 
 .main {
@@ -81,14 +58,12 @@ span.highlight {
 }
 
 .top2 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 34px;
 }
 
 .bottom2 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -98,7 +73,6 @@ span.highlight {
 }
 
 .top3 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 6px;
 	width: 50px;
@@ -106,7 +80,6 @@ span.highlight {
 }
 
 .stairs4 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 70px;
@@ -116,7 +89,6 @@ span.highlight {
 }
 
 .top4 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 70px;
@@ -124,7 +96,6 @@ span.highlight {
 }
 
 .top5 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 83px;
@@ -132,7 +103,6 @@ span.highlight {
 }
 
 .bottom5 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -142,7 +112,6 @@ span.highlight {
 }
 
 .top6 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 105px;
@@ -150,14 +119,12 @@ span.highlight {
 }
 
 .top7 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 115px;
 }
 
 .bottom7 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -179,14 +146,12 @@ span.highlight {
 }
 
 .top8 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 135px;
 }
 
 .bottom8 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -204,7 +169,6 @@ span.highlight {
 }
 
 .left3 {
-  display:inline-block;
 	border: 1px solid #6a8012;
 	height: 50px;
 	width: 6px;

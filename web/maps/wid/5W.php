@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <title><?php echo "Map for $library $floor $row" ?></title> 
-  
-  <link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
-  
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
-  <script>
-  var row = '<?php echo $row; ?>';
-  </script>
-  <script src="/map-it/js/highlight.js"></script>
+<include href="{{ @header }}" />
 <style>
 #map5W {
 	width:725px;

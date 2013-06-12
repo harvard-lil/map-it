@@ -17,9 +17,9 @@ or die ("Could not connect to database");
 
 $key_query  = "SELECT * FROM book_locator.key_lookup";
       
-$result = mysql_query($key_query);
+$key_result = mysql_query($key_query);
       
-while($row = mysql_fetch_row($result)) {
+while($row = mysql_fetch_row($key_result)) {
   $map_it_key = $row[1];
 }
 
@@ -49,9 +49,12 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $f3->set('floor',$params['floor']);
     $f3->set('row',$params['row']);
     $f3->set('www_root',$f3->get('MAP_IT_HOME'));
+    $f3->set('ga_key', $f3->get('GOOGLE_ANALYTICS_KEY'));
+    $f3->set('ga_domain', $f3->get('GOOGLE_ANALYTICS_DOMAIN'));
+    $f3->set('header','web/header.html');
 
-    $view=new View;
-    echo $view->render($template_path);
+    $template = new Template;
+    echo $template->render($template_path);
 });
 
 $f3->route('GET /admin', function($f3) {

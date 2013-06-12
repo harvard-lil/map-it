@@ -1,17 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><?php echo "Map for $library $floor $row" ?></title> 
-
-<link rel="stylesheet" type="text/css" href="/map-it/css/map.css" />
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
-<script>
-var row = '<?php echo $row; ?>';
-</script>
-<script src="/map-it/js/highlight.js"></script>
+<include href="{{ @header }}" />
 <style>
 #map1 {
 	width:450px;
