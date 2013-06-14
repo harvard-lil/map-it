@@ -126,7 +126,8 @@
 </style>
 </head>
 <body>
-  <img src="http://library.harvard.edu/sites/all/themes/HarvardLibraryPortalTheme/logo.png"><h2>{{@display}} Floor {{@floor}} Row {{@row}}</h2>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/wid/wid-1E.jpg" alt="Widener 1E" class="print-map" />
         <div id="map1E" class="map">
         	<div id="toprow">
@@ -180,5 +181,6 @@
        			<span id="row88" class="top5"></span><span id="row89" class="bottom5"></span>
        			<span id="row90" class="top5"></span>
        		</div>
-       	</div>  
+       	</div> 
+    </div>
 </body>

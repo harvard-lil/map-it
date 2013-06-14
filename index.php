@@ -4,6 +4,8 @@ $f3=require('lib/base.php');
 
 $f3->config('api/config.ini');
 
+$f3->set('CACHE',FALSE);
+
 $db = $f3->get('DB');
 $db_user = $f3->get('DB_USER');
 $db_password = $f3->get('DB_PASSWORD');
@@ -66,6 +68,7 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $libraries = $f3->get('libraries');
     $f3->set('display',$libraries[$params['library']]);
     $f3->set('header','web/header.html');
+    $f3->set('headermap', 'web/headermap.html');
 
     $template = new Template;
     echo $template->render($template_path);

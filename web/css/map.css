@@ -3,6 +3,7 @@ body{
 	font-family:Arial, Verdana, sans-serif;
 	background:#fff;
 	color:#333;
+	padding-top:20px;
 }
 
 .print-map {
@@ -14,6 +15,10 @@ body{
 .map {
   position:relative;
   z-index:3;
+}
+
+.harvard-logo {
+  margin-bottom:10px;
 }
 
 .map span {
