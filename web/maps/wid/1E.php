@@ -126,6 +126,7 @@
 </style>
 </head>
 <body>
+  <img src="http://library.harvard.edu/sites/all/themes/HarvardLibraryPortalTheme/logo.png"><h2>{{@display}} Floor {{@floor}} Row {{@row}}</h2>
   <img src="/map-it/images/wid/wid-1E.jpg" alt="Widener 1E" class="print-map" />
         <div id="map1E" class="map">
         	<div id="toprow">

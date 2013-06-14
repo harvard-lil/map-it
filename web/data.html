@@ -62,26 +62,10 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
         </ul>
       </div>
       <div class="span9">
-
         <select id="selected-library">
-          <option value="cab">Cabot</option>
-          <option value="che">Chemistry</option>
-          <option value="des">Design</option>
-          <option value="div">Divinity</option>
-          <option value="fal">Fine Arts</option>
-          <option value="fun">Fung</option>
-          <option value="doc">Gov Docs</option>
-          <option value="gut">Gutman</option>
-          <option value="lam">Lamont</option>
-          <option value="law">Law</option>
-          <option value="ksg">Kennedy</option>
-          <option value="mcz">MCZ</option>
-          <option value="mus">Music</option>
-          <option value="phy">Physics</option>
-          <option value="toz">Tozzer</option>
-          <option value="wid">Widener</option>
-          <option value="hyl">Yenching</option>
-          <option value="test">Test</option>
+          <?php foreach($libraries as $code => $library) {
+            echo "<option value='$code'>$library</option>";
+          }?>
         <select>
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
           <thead>
