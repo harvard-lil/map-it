@@ -21,8 +21,6 @@
 }
 
 .left3 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -32,8 +30,6 @@
 }
 
 .right3 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 36px;
 	width: 5px;
@@ -42,8 +38,6 @@
 }
 
 .left6 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -52,8 +46,6 @@
 }
 
 .right6 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 72px;
 	width: 5px;
@@ -61,8 +53,6 @@
 }
 
 .left7 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -71,8 +61,6 @@
 }
 
 .right7 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 84px;
 	width: 5px;
@@ -80,8 +68,6 @@
 }
 
 .left8 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -90,8 +76,6 @@
 }
 
 .right8 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 96px;
 	width: 5px;
@@ -112,16 +96,12 @@
 }
 
 .top5 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 }
 
 .bottom5 {
-	display:block;
-	float:left;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -136,6 +116,8 @@
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/wid/wid-4W.jpg" alt="Widener 4W" class="print-map" />
         <div id="map4W" class="map">
         	<div id="rightcolumntop">
@@ -192,4 +174,6 @@
        			<span id="row23" class="left3 closed"></span>
        		</div>
        	</div>  
+  </div>
 </body>
+</html>

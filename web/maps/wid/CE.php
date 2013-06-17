@@ -10,19 +10,19 @@
 }
 
 #toprow {
-	margin:72px 15px 10px 112px;
+	margin:68px 15px 10px 112px;
 	float:left;
 }
 
 #rightcolumn {
 	float:left;
-	margin:32px 15px 10px 18px;
+	margin:30px 15px 10px 18px;
 	width:100px;
 }
 
 #leftcolumn {
 	float:left;
-	margin:68px 15px 10px 402px;
+	margin:66px 15px 10px 402px;
 	width:55px;
 }
 
@@ -138,6 +138,8 @@
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/wid/wid-CE.jpg" alt="Widener CE" class="print-map" />
         <div id="mapCE" class="map">
         	<div id="toprow">
@@ -189,4 +191,6 @@
        			<span id="row71" class="top6"></span><span id="row72" class="bottom6"></span>
        		</div>
        	</div>  
+  </div>
 </body>
+</html>

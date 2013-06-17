@@ -10,7 +10,7 @@
 }
 
 #topfull {
-	margin:18px 300px 0px 52px;
+	margin:22px 300px 0px 52px;
 	float:left;
 	height:200px;
 }
@@ -199,6 +199,8 @@
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/wid/wid-P2.jpg" alt="Widener P2" class="print-map" />
         <div id="mapP2" class="map">
         	<div id="topfull">
@@ -254,4 +256,6 @@
        			<span id="row74" class="wall4"></span>
        		</div>
        	</div>  
+  </div>
 </body>
+</html>

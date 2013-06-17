@@ -16,7 +16,7 @@
 
 #rightcolumntop {
 	float:left;
-	margin:120px 400px 70px 24px;
+	margin:120px 400px 66px 24px;
 	width:100px;
 }
 
@@ -177,6 +177,8 @@
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/wid/wid-DE.jpg" alt="Widener DE" class="print-map" />
         <div id="mapDE" class="map">
         	<div id="leftcolumntop">
@@ -230,4 +232,6 @@
        			<span id="row2" class="left4"></span><span id="row1" class="right4"></span>      			
        		</div>
        	</div>  
+  </div>
 </body>
+</html>

@@ -132,6 +132,8 @@
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/wid/wid-6E.jpg" alt="Widener 6E" class="print-map" />
         <div id="map6E" class="map">
         	<div id="toprow">
@@ -186,4 +188,6 @@
        			<span id="row91" class="top6"></span>
        		</div>
        	</div>  
+  </div>
 </body>
+</html>
