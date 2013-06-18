@@ -32,10 +32,12 @@ $library_query  = "SELECT * FROM book_locator.libraries ORDER BY display ASC";
 $library_result = mysql_query($library_query);
       
 while($row = mysql_fetch_row($library_result)) {
-  $libraries[$row[1]] = $row[2];
+  $library_names[$row[1]] = $row[2];
+  $library_codes[$row[2]] = $row[1];
 }
 
-$f3->set('libraries', $libraries);
+$f3->set('library_names', $library_names);
+$f3->set('library_codes', $library_codes);
 
 $f3->set('map_it_key',$map_it_key);
 
@@ -65,8 +67,8 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $f3->set('www_root',$f3->get('MAP_IT_HOME'));
     $f3->set('ga_key', $f3->get('GOOGLE_ANALYTICS_KEY'));
     $f3->set('ga_domain', $f3->get('GOOGLE_ANALYTICS_DOMAIN'));
-    $libraries = $f3->get('libraries');
-    $f3->set('display',$libraries[$params['library']]);
+    $library_names = $f3->get('library_names');
+    $f3->set('display',$library_names[$params['library']]);
     $f3->set('header','web/header.html');
     $f3->set('headermap', 'web/headermap.html');
 
@@ -76,7 +78,7 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
 
 $f3->route('GET /admin', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
-    $f3->set('libraries',$f3->get('libraries'));
+    $f3->set('library_names',$f3->get('library_names'));
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $view=new View;

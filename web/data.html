@@ -63,7 +63,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
       </div>
       <div class="span9">
         <select id="selected-library">
-          <?php foreach($libraries as $code => $library) {
+          <?php foreach($library_names as $code => $library) {
             echo "<option value='$code'>$library</option>";
           }?>
         <select>

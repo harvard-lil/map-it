@@ -66,26 +66,6 @@ class Admin extends Controller {
           $id = $_POST['id'];
           $library = $_POST['library'];
           
-          /*switch ($library) {
-              case "wid":
-                  $table= "wid_callno";
-                  break;
-              case "cab":
-                  $table = "cab_callno";
-                  break;
-              case "lam":
-                  $table = "lam_callno";
-                  break;
-              case "law":
-                  $table = "law_callno";
-                  break;
-              case "mcz":
-                  $table = "mcz_callno";
-                  break;
-              case "test":
-                  $table = "test_callno";
-                  break;
-          }*/
           $table = $library . "_callno";
           
           if($id != "") {
@@ -124,27 +104,6 @@ class Admin extends Controller {
         $range = $_POST['add-row'];
         $callno = $_POST['add-callno'];
         $library = $_POST['library'];
-
-        /*switch ($library) {
-            case "wid":
-                $table= "wid_callno";
-                break;
-            case "lam":
-                $table = "lam_callno";
-                break;
-            case "cab":
-                $table = "cab_callno";
-                break;
-            case "law":
-                $table = "law_callno";
-                break;
-            case "mcz":
-                $table = "mcz_callno";
-                break;
-            case "test":
-                $table = "test_callno";
-                break;
-        }*/
         
         $table = $library . "_callno";
         
@@ -186,59 +145,8 @@ class Admin extends Controller {
         $range = $_REQUEST['range'];
         $moody = false;
         
-        switch ($library) {
-            case "Widener":
-                $table = "wid_callno";
-                break;
-            case "Cabot":
-                $table = "cab_callno";
-                break;
-            case "Chemistry":
-                $table = "che_callno";
-                break;
-            case "Design":
-                $table = "des_callno";
-                break;
-            case "Divinity":
-                $table = "div_callno";
-                break;
-            case "Fine Arts":
-                $table = "fal_callno";
-                break;
-            case "Fung":
-                $table = "fun_callno";
-                break;
-            case "Gutman":
-                $table = "gut_callno";
-                break;
-            case "Kennedy":
-                $table = "ksg_callno";
-                break;
-            case "Lamont":
-                $table = "lam_callno";
-                break;
-            case "Law":
-                $table = "law_callno";
-                break;
-            case "MCZ":
-                $table = "mcz_callno";
-                break;
-            case "Music":
-                $table = "mus_callno";
-                break;
-            case "Physics":
-                $table = "phy_callno";
-                break;
-            case "Tozzer":
-                $table = "toz_callno";
-                break;
-            case "Yenching":
-                $table = "hyl_callno";
-                break;
-            case "Test":
-                $table = "test_callno";
-                break;
-        }
+        $library_codes = $f3->get('library_codes');
+        $table = $library_codes[$library] . "_callno";
         
         $json = array();
         
