@@ -12,7 +12,7 @@ class Admin extends Controller {
       $json = array();
       
       
-      $add  = "SELECT * FROM book_locator.$table";
+      $add  = "SELECT * FROM $db.$table";
       
       $result = mysql_query($add);
       
@@ -114,7 +114,7 @@ class Admin extends Controller {
         
         $json = array();
         
-        $url = 'http://webservices.lib.harvard.edu/rest/classic/barcode/cite/' . $barcode;
+        $url = $f3->get('BARCODE_API') . $barcode;
         
         $ch = curl_init();
         
@@ -159,7 +159,7 @@ class Admin extends Controller {
           }
         }
         
-        $url = "http://hollis-coda.hul.harvard.edu/availability.ashx?hreciid=|library%2fm%2faleph|$hollis&output=xml";
+        $url = $f3->get('HOLLIS_API') . $hollis;
           
         $ch = curl_init();
         
