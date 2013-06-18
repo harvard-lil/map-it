@@ -17,7 +17,7 @@ or die ("Could not connect to resource");
 mysql_select_db($db)
 or die ("Could not connect to database");
 
-$key_query  = "SELECT * FROM book_locator.key_lookup";
+$key_query  = "SELECT * FROM $db.key_lookup";
       
 $key_result = mysql_query($key_query);
       
@@ -27,7 +27,7 @@ while($row = mysql_fetch_row($key_result)) {
 
 $libraries = array();
 
-$library_query  = "SELECT * FROM book_locator.libraries ORDER BY display ASC";
+$library_query  = "SELECT * FROM $db.libraries ORDER BY display ASC";
       
 $library_result = mysql_query($library_query);
       
@@ -58,7 +58,6 @@ $f3->route('POST /api/admin/update/floor', 'Admin->update_floor');
 $f3->route('POST /api/admin/update/row', 'Admin->update_row');
 $f3->route('POST /api/admin/update/collection', 'Admin->update_collection');
 
-//$f3->route('GET /map/@floor/@row', 'Map->draw');
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.php';
     $f3->set('library',$params['library']);
@@ -78,7 +77,6 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
 
 $f3->route('GET /admin', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
-    $f3->set('library_names',$f3->get('library_names'));
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $view=new View;
@@ -87,7 +85,6 @@ $f3->route('GET /admin', function($f3) {
 
 $f3->route('GET /admin/data', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
-    $f3->set('libraries',$f3->get('libraries'));
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $view=new View;
