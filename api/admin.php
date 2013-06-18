@@ -4,16 +4,7 @@ class Admin extends Controller {
 
     function display() {
       $f3=$this->framework;
-      $db = $f3->get('DB');
-      $db_user = $f3->get('DB_USER');
-      $db_password = $f3->get('DB_PASSWORD');
-      $db_host = $f3->get('DB_HOST');
-      
-      mysql_connect($db_host, $db_user, $db_password)
-      or die ("Could not connect to resource");
-
-      mysql_select_db($db)
-      or die ("Could not connect to database");
+      $this->connect_db();
       
       $library = $f3->get('PARAMS.library');
       $table = $library . "_callno";
@@ -49,17 +40,7 @@ class Admin extends Controller {
           echo "Sorry, the API key provided does not match";
         }
         else {
-          $db = $f3->get('DB');
-          $db_user = $f3->get('DB_USER');
-          $db_password = $f3->get('DB_PASSWORD');
-          $db_host = $f3->get('DB_HOST');
-          
-          mysql_connect($db_host, $db_user, $db_password)
-          or die ("Could not connect to resource");
-    
-          mysql_select_db($db)
-          or die ("Could not connect to database");
-          
+          $this->connect_db();
           //$id = $f3->get('PARAMS.id');
           //$library = $f3->get('PARAMS.library');
   
@@ -89,16 +70,8 @@ class Admin extends Controller {
         echo "Sorry, the API key provided does not match";
       }
       else {
-        $db = $f3->get('DB');
-        $db_user = $f3->get('DB_USER');
-        $db_password = $f3->get('DB_PASSWORD');
-        $db_host = $f3->get('DB_HOST');
-          
-        mysql_connect($db_host, $db_user, $db_password)
-        or die ("Could not connect to resource");
-    
-        mysql_select_db($db)
-        or die ("Could not connect to database");
+        $this->connect_db();
+        
         $collection = $_POST['add-collection'];
         $floor = $_POST['add-floor'];
         $range = $_POST['add-row'];
@@ -128,16 +101,7 @@ class Admin extends Controller {
         echo "Sorry, the API key provided does not match";
       }
       else {
-        $db = $f3->get('DB');
-        $db_user = $f3->get('DB_USER');
-        $db_password = $f3->get('DB_PASSWORD');
-        $db_host = $f3->get('DB_HOST');
-            
-        mysql_connect($db_host, $db_user, $db_password)
-        or die ("Could not connect to resource");
-      
-        mysql_select_db($db)
-        or die ("Could not connect to database");
+        $this->connect_db();
           
         $barcode = $_REQUEST['barcode'];
         $library = $_REQUEST['library'];
@@ -317,16 +281,7 @@ class Admin extends Controller {
         echo "Sorry, the API key provided does not match";
       }
       else {
-        $db = $f3->get('DB');
-        $db_user = $f3->get('DB_USER');
-        $db_password = $f3->get('DB_PASSWORD');
-        $db_host = $f3->get('DB_HOST');
-        
-        mysql_connect($db_host, $db_user, $db_password)
-        or die ("Could not connect to resource");
-  
-        mysql_select_db($db)
-        or die ("Could not connect to database");
+        $this->connect_db();
         
         $id = $_POST['id'];
         $callno = $_POST['callno'];
@@ -354,16 +309,7 @@ class Admin extends Controller {
         echo "Sorry, the API key provided does not match";
       }
       else {
-        $db = $f3->get('DB');
-        $db_user = $f3->get('DB_USER');
-        $db_password = $f3->get('DB_PASSWORD');
-        $db_host = $f3->get('DB_HOST');
-        
-        mysql_connect($db_host, $db_user, $db_password)
-        or die ("Could not connect to resource");
-  
-        mysql_select_db($db)
-        or die ("Could not connect to database");
+        $this->connect_db();
         
         $id = $_POST['id'];
         $floor = $_POST['floor'];
@@ -391,16 +337,7 @@ class Admin extends Controller {
         echo "Sorry, the API key provided does not match";
       }
       else {
-        $db = $f3->get('DB');
-        $db_user = $f3->get('DB_USER');
-        $db_password = $f3->get('DB_PASSWORD');
-        $db_host = $f3->get('DB_HOST');
-        
-        mysql_connect($db_host, $db_user, $db_password)
-        or die ("Could not connect to resource");
-  
-        mysql_select_db($db)
-        or die ("Could not connect to database");
+        $this->connect_db();
         
         $id = $_POST['id'];
         $row = $_POST['row'];
@@ -428,16 +365,7 @@ class Admin extends Controller {
         echo "Sorry, the API key provided does not match";
       }
       else {
-        $db = $f3->get('DB');
-        $db_user = $f3->get('DB_USER');
-        $db_password = $f3->get('DB_PASSWORD');
-        $db_host = $f3->get('DB_HOST');
-        
-        mysql_connect($db_host, $db_user, $db_password)
-        or die ("Could not connect to resource");
-  
-        mysql_select_db($db)
-        or die ("Could not connect to database");
+        $this->connect_db();
         
         $id = $_POST['id'];
         $collection = $_POST['collection'];
@@ -455,6 +383,20 @@ class Admin extends Controller {
         }
         mysql_close();
       }
+    }
+    
+    function connect_db() {
+      $f3=$this->framework;
+      $db = $f3->get('DB');
+      $db_user = $f3->get('DB_USER');
+      $db_password = $f3->get('DB_PASSWORD');
+      $db_host = $f3->get('DB_HOST');
+            
+      mysql_connect($db_host, $db_user, $db_password)
+      or die ("Could not connect to resource");
+      
+      mysql_select_db($db)
+      or die ("Could not connect to database");
     }
 
 }

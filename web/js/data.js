@@ -53,7 +53,7 @@ $(document).ready(function() {
         select    : true
       });
       
-      $('#example tbody td.collection').editable(function(value, settings) { 
+      $('#example tbody td.collection').editable(function(value, settings) {
         var position = oTable.fnGetPosition(this);
         id = oTable.fnGetData(position[0])[0];
         library = $("#selected-library option:selected").val();
