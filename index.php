@@ -79,6 +79,7 @@ $f3->route('GET /admin', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
+    $f3->set('www', $f3->get('MAP_IT_HOME'));
     $view=new View;
     echo $view->render('web/data.html');
 });
@@ -87,6 +88,7 @@ $f3->route('GET /admin/data', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
+    $f3->set('www', $f3->get('MAP_IT_HOME'));
     $view=new View;
     echo $view->render('web/data.html');
 });

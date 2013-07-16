@@ -31,13 +31,13 @@ $(document).ready(function() {
       sReturn = "<a href='' class='delete-row'>X</a>";
       return sReturn;
     }}],
-    "sAjaxSource": "http://librarylab.law.harvard.edu/map-it/api/admin/display/cab",
+    "sAjaxSource": www + "api/admin/display/cab",
     "fnDrawCallback": function () {
       $('#example tbody td.callno').editable(function(value, settings) { 
         var position = oTable.fnGetPosition(this);
         id = oTable.fnGetData(position[0])[0];
         library = $("#selected-library option:selected").val();
-        $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/callno", { library: library, id: id, callno: value, key: key });
+        $.post(www + "api/admin/update/callno", { library: library, id: id, callno: value, key: key });
         return(value);
       }, { 
         select    : true
@@ -47,7 +47,7 @@ $(document).ready(function() {
         var position = oTable.fnGetPosition(this);
         id = oTable.fnGetData(position[0])[0];
         library = $("#selected-library option:selected").val();
-        $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/row", { library: library, id: id, row: value, key: key });
+        $.post(www + "api/admin/update/row", { library: library, id: id, row: value, key: key });
         return(value);
       }, { 
         select    : true
@@ -57,7 +57,7 @@ $(document).ready(function() {
         var position = oTable.fnGetPosition(this);
         id = oTable.fnGetData(position[0])[0];
         library = $("#selected-library option:selected").val();
-        $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/collection", { library: library, id: id, collection: value, key: key });
+        $.post(www + "api/admin/update/collection", { library: library, id: id, collection: value, key: key });
         return(value);
       }, { 
         select    : true
@@ -67,7 +67,7 @@ $(document).ready(function() {
         var position = oTable.fnGetPosition(this);
         id = oTable.fnGetData(position[0])[0];
         library = $("#selected-library option:selected").val();
-        $.post("http://librarylab.law.harvard.edu/map-it/api/admin/update/floor", { library: library, id: id, floor: value, key: key });
+        $.post(www + "api/admin/update/floor", { library: library, id: id, floor: value, key: key });
         return(value);
       }, { 
         select    : true
@@ -85,7 +85,7 @@ $(document).ready(function() {
     params = $(this).serialize();
     library = $("#selected-library option:selected").val();
     params = params + '&library=' + library + '&key=' + key;
-    $.post("http://librarylab.law.harvard.edu/map-it/api/admin/create/", params, function(data) {
+    $.post(www + "api/admin/create/", params, function(data) {
       drawTable(library);
       //$(this)[0].reset();
     });
@@ -98,7 +98,7 @@ $(document).ready(function() {
     var row = $(this).closest('tr');
     var nRow = row[0];
     library = $("#selected-library option:selected").val();
-    $.post("http://librarylab.law.harvard.edu/map-it/api/admin/delete", { id: id, library: library, key : key }, function(data) {
+    $.post(www + "api/admin/delete", { id: id, library: library, key : key }, function(data) {
       //drawTable(library);
       oTable.fnDeleteRow(nRow);
     });
@@ -106,7 +106,7 @@ $(document).ready(function() {
   });
         
   function drawTable(library){
-    oTable.fnReloadAjax("http://librarylab.law.harvard.edu/map-it/api/admin/display/" + library);
+    oTable.fnReloadAjax(www + "api/admin/display/" + library);
   }
 });
 			
