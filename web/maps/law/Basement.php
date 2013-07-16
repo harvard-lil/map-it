@@ -10,7 +10,7 @@
 }
 
 .main {
-  margin:18px 15px 10px 5px;
+  margin:12px 15px 10px 5px;
   width:540px;
   position:relative;
   float:left;
@@ -137,7 +137,9 @@
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-basement.jpg" alt="Law basement" class="print-map" />
+  <div class="container">
+  <include href="{{ @headermap }}" />
+  <img src="/map-it/images/law/law-basement.jpg" alt="Law basement" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="wall">
@@ -184,4 +186,5 @@
               <span id="row15" class="top5"></span><span id="row16" class="bottom5"></span>
             </div>
        		</div> 
+  </div>       		
 </body>

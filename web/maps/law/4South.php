@@ -41,7 +41,7 @@
 }
 
 .table {
-  height:75px;
+  height:55px;
   width:150px;
   float:left;
 }
@@ -87,7 +87,9 @@
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-4S.jpg" alt="Law 4 South" class="print-map" />
+  <div class="container">
+    <include href="{{ @headermap }}" />
+    <img src="/map-it/images/law/law-4S.jpg" alt="Law 4 South" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -131,4 +133,5 @@
               <span id="row11" class="top5"></span><span id="row10" class="bottom5"></span>
             </div>
        		</div> 
+  </div>
 </body>

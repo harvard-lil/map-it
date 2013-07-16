@@ -36,13 +36,13 @@
 }
 
 .column1 {
-	padding:15px 15px 10px 8px;
+	padding:8px 15px 10px 8px;
 	width:145px;
 	float:left;
 }
 
 .column2 {
-	padding: 15px 0px 10px 25px;
+	padding: 8px 0px 10px 25px;
 	width:145px;
 	float:left;
 }
@@ -76,7 +76,7 @@
 	border: 1px solid #6a8012;
 	height: 6px;
 	width: 50px;
-	margin-bottom:-22px;
+	margin-top: 63px;
 }
 
 .stairs4 {
@@ -177,7 +177,9 @@
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-ILSBasement.jpg" alt="Law ILSBasement" class="print-map" />
+  <div class="container">
+    <include href="{{ @headermap }}" />
+    <img src="/map-it/images/law/law-ILSBasement.jpg" alt="Law ILSBasement" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -249,4 +251,5 @@
             </div>
        		</div>
        	</div>  
+  </div>
 </body>

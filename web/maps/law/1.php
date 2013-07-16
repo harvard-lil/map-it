@@ -116,7 +116,9 @@
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-1.jpg" alt="Law 1" class="print-map" />
+  <div class="container">
+    <include href="{{ @headermap }}" />
+    <img src="/map-it/images/law/law-1.jpg" alt="Law 1" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -153,4 +155,5 @@
               <span id="row38" class="top3"></span><span id="row37" class="bottom3"></span>
             </div>
        		</div> 
+  </div>
 </body>

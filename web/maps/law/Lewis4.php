@@ -21,16 +21,6 @@
   clear:both;
 }
 
-.map span {
-	/*background-color: #eee;*/
-}
-
-
-span.highlight {
-	background-color: #990000;
-	border: 1px solid #990000;
-}
-
 .main {
   padding:6px 15px 10px 5px;
   width:390px;
@@ -71,11 +61,11 @@ span.highlight {
 
 .reshelving {
   display:block;
-  height:112px;
+  height:115px;
+  width:20px;
 }
 
 .top3 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 6px;
 	width: 55px;
@@ -84,14 +74,12 @@ span.highlight {
 }
 
 .top5 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 90px;
 }
 
 .bottom5 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -101,7 +89,6 @@ span.highlight {
 }
 
 .top7 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 115px;
@@ -109,7 +96,6 @@ span.highlight {
 }
 
 .bottom7 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -124,14 +110,12 @@ span.highlight {
 }
 
 .top8 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 135px;
 }
 
 .bottom8 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -141,7 +125,6 @@ span.highlight {
 }
 
 .left5 {
-  display:inline-block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 6px;
@@ -150,7 +133,6 @@ span.highlight {
 }
 
 .right5 {
-  display:inline-block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 6px;
@@ -159,7 +141,6 @@ span.highlight {
 }
 
 .left8 {
-  display:inline-block;
 	border: 1px solid #6a8012;
 	height: 135px;
 	width: 6px;
@@ -168,7 +149,9 @@ span.highlight {
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-ILS4.jpg" alt="Yenching 1" class="print-map" />
+  <div class="container">
+    <include href="{{ @headermap }}" />
+    <img src="/map-it/images/law/law-ILS4.jpg" alt="Yenching 1" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <span id="row" class="top3"></span><span id="row" class="top3"></span>
@@ -222,5 +205,6 @@ span.highlight {
               <span id="row" class="left8"></span>
             </div>
        		</div>
-       	</div>  
+       	</div> 
+  </div>
 </body>

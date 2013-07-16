@@ -17,26 +17,26 @@
 }
 
 .column1 {
-	margin:68px 15px 10px 10px;
+	margin:54px 15px 10px 10px;
 	width:95px;
 	float:left;
 }
 
 .column2 {
-	margin: 120px 0px 10px 10px;
+	margin: 110px 0px 10px 10px;
 	width:120px;
 	float:left;
 }
 
 .column3 {
-	margin: 95px 0px 10px 50px;
+	margin: 84px 0px 10px 50px;
 	width:95px;
 	float:left;
 }
 
 .table {
   width:100px;
-  height:55px;
+  height:35px;
   float:left;
 }
 
@@ -90,13 +90,15 @@
 	border-bottom: 1px solid #6a8012;
 	height: 7px;
 	width: 100px;
-	margin-bottom:13px;
+	margin-bottom:11px;
 }
 
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-4ref.jpg" alt="Law 4 Reference" class="print-map" />
+  <div class="container">
+    <include href="{{ @headermap }}" />
+    <img src="/map-it/images/law/law-4ref.jpg" alt="Law 4 Reference" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -131,4 +133,5 @@
               <span id="row11" class="top3"></span><span id="row4" class="bottom3"></span>
             </div>
        		</div> 
+  </div>
 </body>

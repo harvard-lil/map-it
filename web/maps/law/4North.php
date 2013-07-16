@@ -17,13 +17,13 @@
 }
 
 .column1 {
-	margin:80px 15px 10px 70px;
+	margin:54px 15px 10px 70px;
 	width:195px;
 	float:left;
 }
 
 .column2 {
-	margin: 80px 0px 10px 30px;
+	margin: 54px 0px 10px 30px;
 	width:175px;
 	float:left;
 }
@@ -41,7 +41,7 @@
 }
 
 .table {
-  height:75px;
+  height:55px;
   width:150px;
   float:left;
 }
@@ -87,7 +87,9 @@
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-4N.jpg" alt="Law 4 North" class="print-map" />
+  <div class="container">
+    <include href="{{ @headermap }}" />
+    <img src="/map-it/images/law/law-4N.jpg" alt="Law 4 North" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">  
@@ -131,4 +133,5 @@
               <span id="row5" class="top7"></span><span id="row4" class="bottom7"></span>
             </div>
        		</div> 
+  </div>
 </body>

@@ -10,20 +10,20 @@
 }
 
 .main {
-  margin:18px 15px 10px 5px;
+  margin:8px 15px 10px 5px;
   width:440px;
   position:relative;
   float:left;
 }
 
 .column1 {
-	margin:12px 15px 10px 42px;
+	margin:2px 15px 10px 42px;
 	width:120px;
 	float:left;
 }
 
 .column2 {
-	margin: 12px 0px 10px 80px;
+	margin: 2px 0px 10px 80px;
 	width:145px;
 	float:left;
 }
@@ -40,7 +40,7 @@
 }
 
 .table {
-  height:75px;
+  height:55px;
   width:100px;
   float:left;
 }
@@ -63,7 +63,9 @@
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-2.jpg" alt="Law 2" class="print-map" />
+  <div class="container">
+  <include href="{{ @headermap }}" />
+  <img src="/map-it/images/law/law-2.jpg" alt="Law 2" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -95,4 +97,5 @@
               <span id="row36" class="top5 shifted"></span>
             </div>
        		</div> 
+  </div>
 </body>

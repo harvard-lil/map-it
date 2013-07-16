@@ -21,16 +21,6 @@
   clear:both;
 }
 
-.map span {
-	background-color: #eee;
-}
-
-
-span.highlight {
-	background-color: #990000;
-	border: 1px solid #990000;
-}
-
 .main {
   padding:34px 15px 10px 8px;
   width:390px;
@@ -80,7 +70,6 @@ span.highlight {
 }
 
 .top2 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 34px;
@@ -92,7 +81,6 @@ span.highlight {
 }
 
 .bottom2 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -102,16 +90,14 @@ span.highlight {
 }
 
 .top3 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 6px;
 	width: 50px;
 	margin-left:8px;
-	margin-bottom:-22px;
+	margin-top:65px;
 }
 
 .top4 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 70px;
@@ -120,14 +106,12 @@ span.highlight {
 }
 
 .top5 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 90px;
 }
 
 .bottom5 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -137,7 +121,6 @@ span.highlight {
 }
 
 .top6 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 105px;
@@ -145,7 +128,6 @@ span.highlight {
 }
 
 .top7 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 115px;
@@ -153,7 +135,6 @@ span.highlight {
 }
 
 .bottom7 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -172,14 +153,12 @@ span.highlight {
 }
 
 .top8 {
-	display:inline-block;
 	border: 1px solid #6a8012;
 	height: 7px;
 	width: 135px;
 }
 
 .bottom8 {
-	display:inline-block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -189,7 +168,6 @@ span.highlight {
 }
 
 .left3 {
-  display:inline-block;
 	border: 1px solid #6a8012;
 	height: 50px;
 	width: 6px;
@@ -198,7 +176,9 @@ span.highlight {
 </style>
 </head>
 <body>
- <img src="/map-it/images/law/law-ILS1.jpg" alt="Law ILS1" class="print-map" />
+  <div class="container">
+    <include href="{{ @headermap }}" />
+    <img src="/map-it/images/law/law-ILS1.jpg" alt="Law ILS1" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -248,4 +228,5 @@ span.highlight {
             </div>
        		</div>
        	</div>  
+  </div>
 </body>
