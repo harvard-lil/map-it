@@ -5,6 +5,7 @@ $f3=require('lib/base.php');
 $f3->config('api/config.ini');
 
 $f3->set('CACHE',FALSE);
+$f3->clear('CACHE');
 
 $db = $f3->get('DB');
 $db_user = $f3->get('DB_USER');
@@ -73,6 +74,11 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
 
     $template = new Template;
     echo $template->render($template_path);
+});
+
+$f3->route('GET /', function($f3) {
+    $view=new View;
+    echo $view->render('web/index.html');
 });
 
 $f3->route('GET /admin', function($f3) {

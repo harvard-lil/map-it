@@ -29,8 +29,6 @@ body{
 }
 
 .left2 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -40,8 +38,6 @@ body{
 }
 
 .right2 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 24px;
 	width: 6px;
@@ -50,8 +46,6 @@ body{
 }
 
 .left3 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -62,8 +56,6 @@ body{
 }
 
 .right3 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 6px;
@@ -72,8 +64,6 @@ body{
 }
 
 .single3 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 6px;
@@ -102,8 +92,6 @@ body{
 }
 
 .left4 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -113,8 +101,6 @@ body{
 }
 
 .right4 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 62px;
 	width: 6px;
@@ -122,8 +108,6 @@ body{
 }
 
 .left5 {
-	display:block;
-	float:left;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	border-top: 1px solid #6a8012;
@@ -133,8 +117,6 @@ body{
 }
 
 .right5 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 74px;
 	width: 6px;
@@ -144,6 +126,8 @@ body{
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/lam/lam-2.jpg" alt="Lamont 2" class="print-map" />
         <div id="map2" class="map">
           <div class="row1">
@@ -190,5 +174,6 @@ body{
        			<span id="row71" class="left2"></span><span id="row72" class="right2"></span>
        			<span id="row73" class="left2"></span><span id="row74" class="right2"></span>
        		</div>
-       	</div>  
+       	</div>
+  </div>
 </body>
