@@ -193,6 +193,12 @@ class Locate extends Controller {
         $callno = preg_replace('/ /', '', $callno, 1);
       }
       
+      $folio = false;
+      
+      if(preg_match('/\s(F|PF)\z/i', $callno)) {
+        $folio = true;
+      }
+      
       $callno_text = $callno;
       
       $db = $f3->get('DB');
@@ -293,6 +299,7 @@ class Locate extends Controller {
         $json = array();
         $json['floor'] = $floor;
         $json['range'] = $range;
+        if($folio) $json['range'] = 'FOLIO';
         $json['library'] = $library;
         header('Content-type: application/json');
         echo json_encode($json);
