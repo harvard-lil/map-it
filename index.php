@@ -77,8 +77,15 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
 });
 
 $f3->route('GET /', function($f3) {
+    $f3->set('www_root',$f3->get('MAP_IT_HOME'));
     $view=new View;
     echo $view->render('web/index.html');
+});
+
+$f3->route('GET /documentation', function($f3) {
+    $f3->set('www_root',$f3->get('MAP_IT_HOME'));
+    $view=new View;
+    echo $view->render('web/documentation.html');
 });
 
 $f3->route('GET /admin', function($f3) {

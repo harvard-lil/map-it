@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Map It</title>
+    <title>API Documentation | Map It</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,8 +35,8 @@
   		<div class="row">
     		<div class="span2">
  				<ul class="nav">
-            		<li class="active"><a href="<?php echo $www_root ?>">Home</a></li>
-            		<li><a href="<?php echo $www_root ?>documentation">API Docs</a></li>
+            		<li><a href="<?php echo $www_root ?>">Home</a></li>
+            		<li class="active"><a href="<?php echo $www_root ?>documentation">API Docs</a></li>
           		</ul>		
 
 			
@@ -49,56 +49,27 @@
 
 		</div><!--end span2-->	
 
-        <div class="offset1 span9">
-        	<div class="row">
-        		<div class="span9 text-block opening-row">
-					<h1>Map It helps you find things in the library</h1>
-					<h3><span class="grey">The Harvard Library has miles of shelves.  Map It will tell you which one is home to the item you need.</span></h3>
+    <div class="offset1 span9">
+      <div class="row">
+        <div class="span9 text-block opening-row">
+					<h1>The API is simple</h1>
+					<h3><span class="grey">Tell Map It the library, collection code and call number. You'll get a level, shelf and link to a map in return.</span></h3>
 				</div>
+			</div>
+			<div class="row">
+				  <p>Form a request</p>
+				  <pre>http://librarylab.law.harvard.edu/map-it/api/locate/lam/gen/PS3620.A957%20D38%202011</pre>
+				  
+				  <p>Get JSON response</p>
+				  <pre>{
+    "floor": "3",
+    "range": "53",
+    "maplink": "http://librarylab.law.harvard.edu/map-it/map/lam/3/53"
+}
+</pre>
         		
-    		</div><!--row-->
-    		
-    	<div class="row">
-        		<div class="span9 text-block">
-					
-					<img class="map-example" src="images/map-example.png"/>
-				</div>
-    		</div><!--row-->
-    		<hr>
-        	<div class="row">
-        		<div class="span9 text-block">
-					<h1>Helping Users, Helping Staff</h1>	
-					<p>We want to reduce the time that library users and staff spend locating materials.</p>
-					<ul>
-						<li>&#187; Users will be better able to locate items for their research and scholarship</li>
-						<li>&#187; Users will be able to more independently navigate the stacks and collections</li>
-						<li>&#187; Staff will spend less time directing users</li>					
-					</ul>
-				</div>
-    		</div><!--row-->
-    		<!--
-    		<hr>
-    		<hr>
-    		<div class="row">
-        		<div class="span9 text-block">
-					<h1>Investigators</h1>
-					<p></p>
-				</div>-->
-    		</div><!--row-->
-    		<div class="row">
-        		<div class="span3 description" id="people1"></div>
-      			<div class="span3 description" id="people2"></div>
-    			<div class="span3 description" id="people3"></div>
-      		</div>
-
-    		<div class="row">
-    			<div class="span3 description" id="people4"></div>
-      			<div class="span3 description" id="people5"></div>
-				
-			</div><!--row-->
-
-      		
-      	</div><!--end span9 block, which sides beside the nav span2 block-->
+    	</div><!--row-->  		
+    </div><!--end span9 block, which sides beside the nav span2 block-->
     	
       
     	<footer>
