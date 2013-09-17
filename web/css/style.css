@@ -472,6 +472,12 @@ hr {
   border: 2px solid #999;
 }
 
+.hollis-example {
+  border: 1px solid #999;
+  padding:4px;
+  margin-bottom:10px;
+}
+
 .center {
 	text-align:center;
 }

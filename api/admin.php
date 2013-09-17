@@ -7,18 +7,18 @@ class Admin extends Controller {
       $this->connect_db();
       
       $library = $f3->get('PARAMS.library');
-      $table = $library . "_callno";
+      //$table = $library . "_callno";
       
       $json = array();
       
+      //$add  = "SELECT * FROM $db.$table";
+      $select = "SELECT * FROM $db.all_callno WHERE library = '$library'";
       
-      $add  = "SELECT * FROM $db.$table";
-      
-      $result = mysql_query($add);
+      $result = mysql_query($select);
       
       while($row = mysql_fetch_row($result)) {
         //$fields     = array('floor','range', 'callno');
-        $data   = array($row[0], $row[2], $row[3], $row[4], $row[1], "");
+        $data   = array($row[0], $row[3], $row[4], $row[5], $row[2], "");
                   
         //$_tmparr  = array_combine($fields, $data);
         array_push($json, $data);
@@ -47,11 +47,11 @@ class Admin extends Controller {
           $id = $_POST['id'];
           $library = $_POST['library'];
           
-          $table = $library . "_callno";
+          //$table = $library . "_callno";
           
           if($id != "") {
           
-            $insert_query = "DELETE FROM $table WHERE id = '$id'";
+            $insert_query = "DELETE FROM all_callno WHERE id = '$id'";
             $insert_result = mysql_query($insert_query);
             
             echo 'Deleted';
@@ -78,11 +78,11 @@ class Admin extends Controller {
         $callno = $_POST['add-callno'];
         $library = $_POST['library'];
         
-        $table = $library . "_callno";
+        //$table = $library . "_callno";
         
         if($callno != "") {    
           
-          $insert_query = "INSERT INTO $table SET begin_callno = '$callno', floor = '$floor', $table.range = '$range', $table.collection = '$collection'";
+          $insert_query = "INSERT INTO all_callno SET begin_callno = '$callno', floor = '$floor', all_callno.range = '$range', all_callno.collection = '$collection', library = '$library'";
           $insert_result = mysql_query($insert_query);
           
           echo 'Added';
@@ -110,7 +110,8 @@ class Admin extends Controller {
         $moody = false;
         
         $library_codes = $f3->get('library_codes');
-        $table = $library_codes[$library] . "_callno";
+        $this_library = $library_codes[$library];
+        //$table = $library_codes[$library] . "_callno";
         
         $json = array();
         
@@ -217,7 +218,7 @@ class Admin extends Controller {
         
         if($callno != "") {
           
-          $select_query = "SELECT id, begin_callno, collection FROM $table WHERE floor = '$floor' AND $table.range = '$range'";
+          $select_query = "SELECT id, begin_callno, collection, library FROM $table WHERE floor = '$floor' AND $table.range = '$range'";
           $select_result = mysql_query($select_query);
           
           $exists = false;
@@ -233,28 +234,28 @@ class Admin extends Controller {
         
               //if(strpos($row[1],'WID-LC') !== false && $collection == "WIDLCWID") {
               if($row[2] === 'WIDLC' && $collection_code === 'WIDLC'){
-                $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
+                $update_query = "UPDATE all_callno SET begin_callno = '$callno' WHERE id = '$id'";
                 $update_result = mysql_query($update_query);
                 $exists = true;
               }
               //elseif($library === 'Widener' && (strpos($row[1], 'WID-LC') === false && $collection != "WIDLCWID")) {
               elseif($library === 'Widener' && $row[2] !== 'WIDLC' && $collection_code !== 'WIDLC'){
-                $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
+                $update_query = "UPDATE all_callno SET begin_callno = '$callno' WHERE id = '$id'";
                 $update_result = mysql_query($update_query);
                 $exists = true;
               }
               elseif($library === 'Law School' && !preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $row[1]) && !$moody) {
-                $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
+                $update_query = "UPDATE all_callno SET begin_callno = '$callno' WHERE id = '$id'";
                 $update_result = mysql_query($update_query);
                 $exists = true;
               }
               elseif($library === 'Lamont') {
-                $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
+                $update_query = "UPDATE all_callno SET begin_callno = '$callno' WHERE id = '$id'";
                 $update_result = mysql_query($update_query);
                 $exists = true;
               }
               elseif((preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $row[1]) && $moody) && ($jurisdiction == $existing_jurisdiction)) {
-                $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
+                $update_query = "UPDATE all_callno SET begin_callno = '$callno' WHERE id = '$id'";
                 $update_result = mysql_query($update_query);
                 $exists = true;
               }
@@ -262,7 +263,7 @@ class Admin extends Controller {
           }
           
           if(!$exists) {
-            $insert_query = "INSERT INTO $table SET begin_callno = '$callno', floor = '$floor', $table.range = '$range', collection = '$collection_code'";
+            $insert_query = "INSERT INTO all_callno SET begin_callno = '$callno', floor = '$floor', $table.range = '$range', collection = '$collection_code', library = '$this_library'";
             $insert_result = mysql_query($insert_query); 
           }
         }
@@ -287,11 +288,11 @@ class Admin extends Controller {
         $callno = $_POST['callno'];
         $library = $_POST['library'];
 
-        $table = $library . "_callno";
+        //$table = $library . "_callno";
         
         if($callno != "") {      
           
-          $update_query = "UPDATE $table SET begin_callno = '$callno' WHERE id = '$id'";
+          $update_query = "UPDATE all_callno SET begin_callno = '$callno' WHERE id = '$id'";
           $update_result = mysql_query($update_query);
           
           echo 'Updated';
@@ -315,11 +316,11 @@ class Admin extends Controller {
         $floor = $_POST['floor'];
         $library = $_POST['library'];
 
-        $table = $library . "_callno";
+        //$table = $library . "_callno";
         
         if($floor != "") {      
           
-          $update_query = "UPDATE $table SET $table.floor = '$floor' WHERE id = '$id'";
+          $update_query = "UPDATE all_callno SET all_callno.floor = '$floor' WHERE id = '$id'";
           $update_result = mysql_query($update_query);
           
           echo 'Updated';
@@ -343,11 +344,11 @@ class Admin extends Controller {
         $row = $_POST['row'];
         $library = $_POST['library'];
 
-        $table = $library . "_callno";
+        //$table = $library . "_callno";
         
         if($row != "") {      
           
-          $update_query = "UPDATE $table SET $table.range = '$row' WHERE id = '$id'";
+          $update_query = "UPDATE all_callno SET all_callno.range = '$row' WHERE id = '$id'";
           $update_result = mysql_query($update_query);
           
           echo 'Updated';
@@ -371,11 +372,11 @@ class Admin extends Controller {
         $collection = $_POST['collection'];
         $library = $_POST['library'];
 
-        $table = $library . "_callno";
+        //$table = $library . "_callno";
         
         if($collection != "") {      
           
-          $update_query = "UPDATE $table SET $table.collection = '$collection' WHERE id = '$id'";
+          $update_query = "UPDATE all_callno SET all_callno.collection = '$collection' WHERE id = '$id'";
           $update_result = mysql_query($update_query);
           
           echo 'Updated';
