@@ -210,6 +210,10 @@ class Admin extends Controller {
           $callno = preg_replace('/ /', '', $callno, 1);
         }
         
+        if(preg_match('/\s(F|PF)\z/i', $callno)) {
+          $collection_code = 'FOLIO';
+        }
+        
         /*if($collection == "WIDLCWID")
           $callno = "WID-LC $callno";*/
         
@@ -218,7 +222,7 @@ class Admin extends Controller {
         
         if($callno != "") {
           
-          $select_query = "SELECT id, begin_callno, collection, library FROM $table WHERE floor = '$floor' AND $table.range = '$range'";
+          $select_query = "SELECT id, begin_callno, collection, library FROM all_callno WHERE floor = '$floor' AND all_callno.range = '$range' && collection = '$collection_code' && library = '$this_library'";
           $select_result = mysql_query($select_query);
           
           $exists = false;
@@ -263,7 +267,8 @@ class Admin extends Controller {
           }
           
           if(!$exists) {
-            $insert_query = "INSERT INTO all_callno SET begin_callno = '$callno', floor = '$floor', $table.range = '$range', collection = '$collection_code', library = '$this_library'";
+            $insert_query = "INSERT INTO all_callno SET begin_callno = '$callno', floor = '$floor', all_callno.range = '$range', collection = '$collection_code', library = '$this_library'";
+            echo $insert_query;
             $insert_result = mysql_query($insert_query); 
           }
         }
