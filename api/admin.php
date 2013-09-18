@@ -268,7 +268,6 @@ class Admin extends Controller {
           
           if(!$exists) {
             $insert_query = "INSERT INTO all_callno SET begin_callno = '$callno', floor = '$floor', all_callno.range = '$range', collection = '$collection_code', library = '$this_library'";
-            echo $insert_query;
             $insert_result = mysql_query($insert_query); 
           }
         }
