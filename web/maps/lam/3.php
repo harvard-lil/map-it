@@ -397,6 +397,8 @@ body{
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
  <img src="/map-it/images/lam/lam-3.jpg" alt="Lamont 3" class="print-map" />
         <div id="map3" class="map">
           <div class="column1">
@@ -475,4 +477,5 @@ body{
        		  <span id="row62" class="bottom-right4"></span>
        		</div>
        	</div>  
+      </div>
 </body>
