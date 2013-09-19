@@ -56,7 +56,7 @@ $f3->route('POST /api/admin/update/row', 'Admin->update_row');
 $f3->route('POST /api/admin/update/collection', 'Admin->update_collection');
 
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
-    $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.php';
+    $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.html';
     $f3->set('library',$params['library']);
     $f3->set('floor',$params['floor']);
     $f3->set('row',$params['row']);
