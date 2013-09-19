@@ -217,6 +217,8 @@
 </style>
 </head>
 <body>
+  <div class="container">
+  <include href="{{ @headermap }}" />
  <img src="/map-it/images/lam/lam-D.jpg" alt="Lam D" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
@@ -331,5 +333,6 @@
               <span class="top1 row8addl"></span><span class="bottom1 row7addl"></span>
               <span class="top1 row6addl"></span><span class="bottom1 row5addl"></span>
             </div>
-       		</div> 
+          </div>
+       </div> 
 </body>

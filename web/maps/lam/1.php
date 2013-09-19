@@ -56,91 +56,71 @@
 }
 
 .top4 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
-	float: left;
 }
 
 .bottom4 {
-	display:block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 	margin-bottom:1px;
-	float:left;
 }
 
 .top5 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
-	float: left;
 }
 
 .bottom5 {
-	display:block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 	margin-bottom:1px;
-	float: left;
 }
 
 .left3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 }
 
 .right3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 }
 
 .hall-left3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 }
 
 .hall-right3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 	margin-left:64px;
-	float:left;
 }
 
 .left5 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
-	float:left;
 }
 
 .right5 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
 	margin-left:64px;
-	float:left;
 }
 
 </style>

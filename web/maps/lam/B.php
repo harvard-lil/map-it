@@ -84,44 +84,36 @@ body{
 }
 
 .vertical2 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 24px;
 	width: 6px;	
 }
 
 .vertical3 {
-  display:block;
-  float:left;
 	border: 1px solid #6a8012;
 	height: 46px;
 	width: 6px;	
 }
 
 .vertical4 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 60px;
 	width: 6px;	
 }
 
 .vertical6 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 6px;	
 }
 
 .vertical7 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 92px;
 	width: 6px;	
 }
 
 .horizontal2 {
-  display:block;
-  float:left;
   border: 1px solid #6a8012;
   height:6px;
   width:26px;
@@ -129,8 +121,6 @@ body{
 }
 
 .horizontal3 {
-  display:block;
-  float:left;
   border: 1px solid #6a8012;
   height:6px;
   width:44px;
@@ -138,8 +128,6 @@ body{
 }
 
 .horizontal6 {
-  display:block;
-  float:left;
   border: 1px solid #6a8012;
   height:6px;
   width:94px;
@@ -270,6 +258,8 @@ body{
 </style>
 </head>
 <body>
+  <div class="container">
+    <include href="{{ @headermap }}" />
   <img src="/map-it/images/lam/lam-B.jpg" alt="Lamont B" class="print-map" />
         <div id="map1" class="map">
           <div class="row1">
@@ -348,4 +338,5 @@ body{
        			<span id="row39" class="top4"></span><span id="row40" class="bottom4"></span>
        		</div>
        	</div>  
+    </div>
 </body>
