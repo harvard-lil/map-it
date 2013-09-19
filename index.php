@@ -39,7 +39,7 @@ $f3->set('library_codes', $library_codes);
 
 $f3->set('map_it_key',$map_it_key);
 
-//$f3->set('AUTOLOAD','api/; web/;');
+$f3->set('AUTOLOAD','api/; web/;');
 
 $f3->route('GET /api/locate', 'Locate->call_number');
 $f3->route('GET /api/locate/@location/@collection/@callno', 'Locate->call_number');
