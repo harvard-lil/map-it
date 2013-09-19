@@ -59,7 +59,7 @@ body{
 }
 
 .farnsworth-top {
-	margin:265px 0px 10px 89px;
+	margin:267px 0px 10px 89px;
 	width:130px;
 	float:left;
 }
@@ -99,8 +99,6 @@ body{
 }
 
 .top3 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 45px;
@@ -108,8 +106,6 @@ body{
 }
 
 .bottom3 {
-	display:block;
-	float:left;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
@@ -119,162 +115,126 @@ body{
 }
 
 .top4 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
-	float: left;
 }
 
 .bottom4 {
-	display:block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	height: 5px;
 	width: 60px;
 	margin-bottom:1px;
-	float:left;
 }
 
 .top5 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
-	float: left;
 }
 
 .bottom5 {
-	display:block;
 	border-right: 1px solid #6a8012;
 	border-left: 1px solid #6a8012;
 	border-bottom: 1px solid #6a8012;
 	height: 5px;
 	width: 72px;
 	margin-bottom:1px;
-	float: left;
 }
 
 .left3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 }
 
 .right3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 }
 
 .hall-left3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 }
 
 .hall-right3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 	margin-left:64px;
-	float:left;
 }
 
 .left5 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
-	float:left;
 }
 
 .right5 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 80px;
 	width: 5px;
 	margin-left:64px;
-	float:left;
 }
 
 .left-wall-1 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 12px;
 	width: 5px;
 	margin-top:78px;
-	float:left;
 }
 
 .floor1 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 20px;
-	float:left;
 	margin-left:15px;
 	margin-top:45px;
 }
 
 .top-wall-2 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
 	margin-left:100px;
-	float:left;
 }
 
 .bottom-wall-1 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 12px;
-	float:left;
 	margin-left:25px;
 	margin-top:140px;
 }
 
 .top-wall-4 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 70px;
-	float:left;
 }
 
 .right-wall-3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 60px;
 	width: 5px;
-	float:left;
 }
 
 .right-wall-bottom3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 60px;
 	width: 5px;
-	float:left;
 	margin-left:72px;
 }
 
 .right-wall-2 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 30px;
-	float:left;
 	margin-left:45px;
 }
 
@@ -288,57 +248,44 @@ body{
 }
 
 .top-wall-1 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 8px;
-	float:left;
 }
 
 .top-wall-5 {
-	display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 70px;
-	float:left;
 	margin-left:5px;
 }
 
 .top-left2 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 }
 
 .top-top4 {
-	display:block;
-	float:left;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 55px;
 }
 
 .top-right3 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 38px;
 	width: 5px;
-	float:left;
 	margin-left:52px;
 }
 
 .bottom-left2 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 18px;
 	width: 5px;
-	float:left;
 }
 
 .bottom-left4 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 48px;
 	width: 5px;
@@ -347,50 +294,40 @@ body{
 }
 
 .bottom-bottom2 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 24px;
-	float:left;
 	margin-left:51px;
 	margin-top:93px;
 	margin-right:15px;
 }
 
 .bottom-bottom1 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 8px;
-	float:left;
 	margin-top:93px;
 }
 
 .bottom-bottom-right1 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 5px;
 	width: 8px;
-	float:left;
 	margin-top:93px;
 	margin-left:55px;
 }
 
 .bottom-right2 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 25px;
 	width: 5px;
-	float:left;
 	margin-top:73px;
 }
 
 .bottom-right4 {
-  display:block;
 	border: 1px solid #6a8012;
 	height: 45px;
 	width: 5px;
-	float:left;
 	margin-top:42px;
 }
 
