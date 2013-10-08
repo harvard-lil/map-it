@@ -390,6 +390,31 @@ class Admin extends Controller {
       }
     }
     
+    function send_feedback() {
+      $user_email = $_POST['user_email'];
+      $feedback_text = $_POST['feedback_text'];
+      $visited_page = $_POST['visited_page'];
+      
+      $from = "<".stripslashes($user_email).">";
+      //$to="acain@law.harvard.edu" . ', ';
+      //$to.="acain@law.harvard.edu";
+      $to = "acain@law.harvard.edu";
+      $subject="New Map It feedback item";
+      $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."</body></html>";
+    
+      // now we'll build the message headers
+      $headers = "From: $from\n" .
+                "MIME-Version: 1.0\n" .   
+              "Content-type: text/html; charset=iso-8859-1";
+    
+      if(mail($to, $subject, stripslashes($message), $headers)) {
+        echo "sent";
+      }
+      else {
+        echo "feedback not sent";
+      }
+    }
+    
     function connect_db() {
       $f3=$this->framework;
       $db = $f3->get('DB');

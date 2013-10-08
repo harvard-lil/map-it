@@ -32,7 +32,7 @@ function cmp_callno($callno1, $callno2)
 		{
 			if ($callno1->us_doc == $callno2->us_doc)
 			{
-				if ($callno1->rock_ref == $callno2->rock_ref)
+				if ($callno1->moody == $callno2->moody)
 				{
 					if ($callno1->collection == $callno2->collection)
 					{
@@ -58,7 +58,7 @@ function cmp_callno($callno1, $callno2)
 					}
 					return ($callno1->collection < $callno2->collection) ? -1 : 1;
 				}
-				return ($callno1->rock_ref < $callno2->rock_ref) ? -1 : 1;
+				return ($callno1->moody < $callno2->moody) ? -1 : 1;
 			}
 			return ($callno1->us_doc < $callno2->us_doc) ? -1 : 1;
 		}
@@ -88,7 +88,7 @@ class callno
 	public $collection;		# Whether an item is in a collection or not (0)
 	public $size;			# Whether an item is regular or x-SIZE (2)
 	public $prefix;
-	public $rock_ref;		# Whether it's a RockRef or not
+	public $moody;		# Whether it's a RockRef or not
 	public $us_doc;			# Whether it's a US DOCS or not
 	public $cutter_k;		# Whether it's a CUTTER K or not
 	public $old_wid;
@@ -133,14 +133,12 @@ class callno
 			return;
 		}
 	
-		# Determine whether the CallNo is a RockRef or not
-		$rref_expl = explode("RREF ", $inp);
-		if (sizeof($rref_expl) == 1) # Not a rock ref
-			$this->rock_ref = 0;
-		else
+		# Determine whether the CallNo is a Moody or not
+	  if (preg_match('/^[-\/\A-Z]{1,11} +[0-9]{3}[. A-Z].*/', $this->str_callno) || preg_match('/^[-\/\A-Z]{1,11} +[0-9]{3}[. A-Z]*/', $this->str_callno)) {
+			$this->moody = 0;
+		}else
 		{
-			$this->rock_ref = 1;
-			$inp = $rref_expl[1];
+			$this->moody = 1;
 		}
 	
 		# Factor out the COLLECTION factor.
@@ -208,7 +206,9 @@ class callno
 		$split = explode(" ", $inp);
 		
 		# Parse out the subclass
-		if($this->prefix == '0')
+		if($this->moody == '0')
+		  $this->subclass = $this->parse_moody_subclass($this->str_callno);
+		elseif($this->prefix == '0')
 			$this->subclass = $this->parse_old_subclass($split[0]);
 		else
 			$this->subclass = $this->parse_subclass($split[0]);
@@ -434,6 +434,85 @@ class callno
 		}
 	}
 
+	function parse_moody_subclass($inp)
+	{
+		$ret_string = ""; //echo $inp . '<br />';
+		
+		if(isInteger($inp)){
+			return $inp;
+		}
+		else {
+		preg_match("/[-\/\A-Z]+/", $inp, $matches);
+		$letters = $matches[0];
+		$letters = str_replace('-', '', $letters);
+		$letters = str_replace('/', '', $letters);
+		preg_match("/[0-9\.]+/", $inp, $matches);
+		$numbers = $matches[0];
+		
+		//echo $letters . ' + ' . $numbers;
+		
+		$inp = $letters . $numbers;
+	
+		$letter = $inp[0];
+		$ret_string .= (ord($letter) - 64);
+	
+		# Check if there's a subclass, or null
+		if (isInteger($inp[1])) #subclass = null
+		{
+			$ret_string .= "0000";
+			$int_start_index = 1;
+		}
+		else
+		{
+			$subclass = (ord($inp[1]) - 64);
+			if (strlen($subclass) == 1)
+				$subclass = "0" . $subclass;
+			$ret_string .= $subclass;
+			if (isInteger($inp[2])) # No secondary subclass (KJD)
+			{
+				$ret_string .= "00";
+				$int_start_index = 2;
+			}
+			else			
+			{
+				$subclass = (ord($inp[2]) - 64);
+				if (strlen($subclass) == 1)
+					$subclass = "0" . $subclass;
+				$ret_string .= $subclass;			
+				$int_start_index = 3;
+			}
+		}
+		
+		$pref = "";
+		$int_part = substr($inp, $int_start_index, strlen($inp) - $int_start_index);
+		
+		$dec_split = explode(".", $int_part);
+		if (sizeof($dec_split) > 0)
+			$before_dec = $dec_split[0];
+		if (sizeof($dec_split) > 1)
+			$after_dec = $dec_split[1];
+			
+			
+		if (isset($before_dec))    	
+		{
+			for ($i=0;$i<(4 - strlen($before_dec));$i++)
+			{
+				$pref = "0" . $pref;
+			}
+			$pref .= $before_dec;
+		}
+		
+		$ret_string .= $pref;
+		if (isset($after_dec))
+			$ret_string .= "." . $after_dec;
+	
+	#	for ($i=$int_start_index;$i<strlen($inp);$i++)
+	#		$ret_string .= $inp[$i];
+		//echo '<br />';
+		return $ret_string;
+		}
+	}
+	
 	function parse_index($inp, $ind)
 	{
 		# echo "Parsing index: ".$inp."<br/>";
