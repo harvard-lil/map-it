@@ -35,7 +35,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
   <meta name="viewport" content="width=device-width">
   <link rel="icon" href="/map-it/images/favicon.png" type="image/x-icon" />
 		
-		<title>Map It Check</title>
+		<title>Map It App</title>
 		
 		<link href="/map-it/css/bootstrap.css" rel="stylesheet">
 		<style type="text/css">
@@ -45,7 +45,6 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
     </style>
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="/map-it/js/check.js"></script>
 
 	</head>
 	<body>
@@ -55,17 +54,13 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
           <ul class="nav nav-tabs nav-stacked">
             <li><a href="/map-it/admin">Map It Admin</a></li>
             <li><a href="/map-it/admin/data">Data Editing</a></li>
-            <li class="active"><a href="/map-it/admin/check">Barcode  Check</a></li>
-            <li><a href="/map-it/admin/app">iOS App</a></li>
+            <li><a href="/map-it/admin/check">Barcode  Check</a></li>
+            <li class="active"><a href="/map-it/admin/app">iOS App</a></li>
           </ul>
         </div>
         <div class="span6 offset1">
-          <h3>Input a barcode to check item location</h3>
-          <form class="form-inline" id="check">
-            <input type="text" class="input-large" id="barcode" placeholder="Barcode">
-            <button type="submit" class="btn btn-primary">Check</button>
-          </form>
-          <div id="results"></div>
+          <h3>Visit this page with an iOS device to install</h3>
+          <p><a href="itms-services://?action=download-manifest&url=<?php echo $www ?>admin/appfiles/mapit.plist" class="btn btn-large btn-primary" type="button">Install App</a></p>
         </div>
       </div>
     </div>
