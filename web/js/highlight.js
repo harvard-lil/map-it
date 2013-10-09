@@ -28,6 +28,24 @@ $(document).ready(function(){
 
   	//$paneTarget.stop().scrollTo( '#row' + multipleRows[0], 800, {offset: {top:height, left:0} } //);
   	$paneTarget.stop().scrollTo( '#row' + multipleRows[0], 800, {offset: {top:-100, left:0}});
+  	
+  	
+  	$("input#submit-feedback").click(function(){
+      var data = $('form.feedback').serializeArray();
+      data.push({name: 'visited_page', value: $(location).attr('href')});
+        $.ajax({
+            type: "POST",
+            url: "/map-it/api/admin/feedback", //process to mail
+            data: data,
+            success: function(msg){
+                $("#feedback-form").modal('hide'); //hide popup 
+            },
+            error: function(){
+                alert("failure");
+            }
+        });
+      return false;
+    });
 });
 
 /**

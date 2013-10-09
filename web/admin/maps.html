@@ -1,0 +1,121 @@
+<?php
+// An array of allowed users and their passwords
+$users = array(
+  $user => $password
+);
+
+// If there's no Authentication header, exit
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('This page requires authentication');
+}
+
+// If the user name doesn't exist, exit
+if (!isset($users[$_SERVER['PHP_AUTH_USER']])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+// Is the password doesn't match the username, exit
+if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
+{
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+?>
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="/map-it/images/favicon.png" type="image/x-icon" />
+		
+		<title>Map It Maps</title>
+		
+		<link href="/map-it/css/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+      body {
+        padding-top: 25px;
+      }
+    </style>
+
+		<script>
+		  var www = '<?php echo $www ?>';
+		</script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+	</head>
+	<body>
+	  <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a href="/map-it/admin">Map It Admin</a></li>
+            <li><a href="/map-it/admin/data">Data Editing</a></li>
+            <li><a href="/map-it/admin/check">Barcode  Check</a></li>
+            <li class="active"><a href="/map-it/admin/maps">Maps</a></li>
+            <li><a href="/map-it/admin/app">iOS App</a></li>
+          </ul>
+        </div>
+        <div class="span6 offset1">
+          <h3>Map It Maps</h3>
+          <h4>Lamont</h4>
+          <ul class="unstyled">
+            <li><a href="/map-it/map/lam/D/7" target="_blank">Lamont D</a></li>
+            <li><a href="/map-it/map/lam/B/7" target="_blank">Lamont B</a></li>
+            <li><a href="/map-it/map/lam/A/7" target="_blank">Lamont A</a></li>
+            <li><a href="/map-it/map/lam/1/7" target="_blank">Lamont 1</a></li>
+            <li><a href="/map-it/map/lam/2/7" target="_blank">Lamont 2</a></li>
+            <li><a href="/map-it/map/lam/3/7" target="_blank">Lamont 3</a></li>
+          </ul>
+          <h4>Law</h4>
+          <ul class="unstyled">
+            <li><a href="/map-it/map/law/Basement/7" target="_blank">Langdell Basement</a></li>
+            <li><a href="/map-it/map/law/1/7" target="_blank">Langdell 1</a></li>
+            <li><a href="/map-it/map/law/2/7" target="_blank">Langdell 2</a></li>
+            <li><a href="/map-it/map/law/3/7" target="_blank">Langdell 3</a></li>
+            <li><a href="/map-it/map/law/4Bridge/7" target="_blank">Langdell 4 Bridge</a></li>
+            <li><a href="/map-it/map/law/4North/7" target="_blank">Langdell 4 North</a></li>
+            <li><a href="/map-it/map/law/4South/7" target="_blank">Langdell 4 South</a></li>
+            <li><a href="/map-it/map/law/LewisBasement/7" target="_blank">Lewis Basement</a></li>
+            <li><a href="/map-it/map/law/Lewis1/7" target="_blank">Lewis 1</a></li>
+            <li><a href="/map-it/map/law/Lewis3/7" target="_blank">Lewis 3</a></li>
+            <li><a href="/map-it/map/law/Lewis4/7" target="_blank">Lewis 4</a></li>
+          </ul>
+          <h4>Widener</h4>
+          <ul class="unstyled">
+            <li><a href="/map-it/map/wid/DW/7" target="_blank">Widener D West</a></li>
+            <li><a href="/map-it/map/wid/DE/7" target="_blank">Widener D East</a></li>
+            <li><a href="/map-it/map/wid/CW/7" target="_blank">Widener C West</a></li>
+            <li><a href="/map-it/map/wid/CE/7" target="_blank">Widener C East</a></li>
+            <li><a href="/map-it/map/wid/BW/7" target="_blank">Widener B West</a></li>
+            <li><a href="/map-it/map/wid/BE/7" target="_blank">Widener B East</a></li>
+            <li><a href="/map-it/map/wid/AW/7" target="_blank">Widener A West</a></li>
+            <li><a href="/map-it/map/wid/AE/7" target="_blank">Widener A East</a></li>
+            <li><a href="/map-it/map/wid/1W/7" target="_blank">Widener 1 West</a></li>
+            <li><a href="/map-it/map/wid/1E/7" target="_blank">Widener 1 East</a></li>
+            <li><a href="/map-it/map/wid/2W/7" target="_blank">Widener 2 West</a></li>
+            <li><a href="/map-it/map/wid/2E/7" target="_blank">Widener 2 East</a></li>
+            <li><a href="/map-it/map/wid/3W/7" target="_blank">Widener 3 West</a></li>
+            <li><a href="/map-it/map/wid/3E/7" target="_blank">Widener 3 East</a></li>
+            <li><a href="/map-it/map/wid/4W/7" target="_blank">Widener 4 West</a></li>
+            <li><a href="/map-it/map/wid/4E/7" target="_blank">Widener 4 East</a></li>
+            <li><a href="/map-it/map/wid/5W/7" target="_blank">Widener 5 West</a></li>
+            <li><a href="/map-it/map/wid/5E/7" target="_blank">Widener 5 East</a></li>
+            <li><a href="/map-it/map/wid/6W/7" target="_blank">Widener 5 West</a></li>
+            <li><a href="/map-it/map/wid/6E/7" target="_blank">Widener 5 East</a></li>
+            <li><a href="/map-it/map/wid/DW/7" target="_blank">Widener D West</a></li>
+            <li><a href="/map-it/map/wid/DE/7" target="_blank">Widener D East</a></li>
+            <li><a href="/map-it/map/wid/P2/7" target="_blank">Widener Pusey 2</a></li>
+            <li><a href="/map-it/map/wid/P3/7" target="_blank">Widener Pusey 3</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+	</body>
+</html>

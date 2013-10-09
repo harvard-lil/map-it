@@ -55,12 +55,13 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
             <li><a href="/map-it/admin">Map It Admin</a></li>
             <li><a href="/map-it/admin/data">Data Editing</a></li>
             <li><a href="/map-it/admin/check">Barcode  Check</a></li>
+            <li><a href="/map-it/admin/maps">Maps</a></li>
             <li class="active"><a href="/map-it/admin/app">iOS App</a></li>
           </ul>
         </div>
         <div class="span6 offset1">
           <h3>Visit this page with an iOS device to install</h3>
-          <p><a href="itms-services://?action=download-manifest&url=http://librarylab.law.harvard.edu/map-it/admin/appfiles/mapit.plist" class="btn btn-large btn-primary" type="button">Install App</a></p>
+          <p><a href="itms-services://?action=download-manifest&url=<?php echo $www ?>admin/appfiles/mapit.plist" class="btn btn-large btn-primary" type="button">Install App</a></p>
         </div>
       </div>
     </div>

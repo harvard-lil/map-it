@@ -54,6 +54,7 @@ $f3->route('POST /api/admin/update/callno', 'Admin->update_callno');
 $f3->route('POST /api/admin/update/floor', 'Admin->update_floor');
 $f3->route('POST /api/admin/update/row', 'Admin->update_row');
 $f3->route('POST /api/admin/update/collection', 'Admin->update_collection');
+$f3->route('POST /api/admin/feedback', 'Admin->send_feedback');
 
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.html';
@@ -90,7 +91,7 @@ $f3->route('GET /admin', function($f3) {
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $f3->set('www', $f3->get('MAP_IT_HOME'));
     $view=new View;
-    echo $view->render('web/data.html');
+    echo $view->render('web/admin/data.html');
 });
 
 $f3->route('GET /admin/data', function($f3) {
@@ -99,23 +100,34 @@ $f3->route('GET /admin/data', function($f3) {
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $f3->set('www', $f3->get('MAP_IT_HOME'));
     $view=new View;
-    echo $view->render('web/data.html');
+    echo $view->render('web/admin/data.html');
 });
 
 $f3->route('GET /admin/app', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
+    $f3->set('www',$f3->get('MAP_IT_HOME'));
     $view=new View;
-    echo $view->render('web/app.html');
+    echo $view->render('web/admin/app.html');
 });
 
 $f3->route('GET /admin/check', function($f3) {
     $f3->set('key',$f3->get('map_it_key'));
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
+    $f3->set('www',$f3->get('MAP_IT_HOME'));
     $view=new View;
-    echo $view->render('web/check.html');
+    echo $view->render('web/admin/check.html');
+});
+
+$f3->route('GET /admin/maps', function($f3) {
+    $f3->set('key',$f3->get('map_it_key'));
+    $f3->set('user',$f3->get('ADMIN_USER'));
+    $f3->set('password',$f3->get('ADMIN_PASSWORD'));
+    $f3->set('www',$f3->get('MAP_IT_HOME'));
+    $view=new View;
+    echo $view->render('web/admin/maps.html');
 });
 
 $f3->run();

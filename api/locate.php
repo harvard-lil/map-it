@@ -197,7 +197,7 @@ class Locate extends Controller {
       elseif(preg_match('/^[a-zA-Z]* +[0-9]*.*/', $callno)) {
         $callno = preg_replace('/ /', '', $callno, 1);
       }
-      
+
       $folio = false;
       
       if(preg_match('/\s(F|PF)\z/i', $callno)) {

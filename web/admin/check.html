@@ -44,6 +44,9 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
       }
     </style>
 
+		<script>
+		  var www = '<?php echo $www ?>';
+		</script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="/map-it/js/check.js"></script>
 
@@ -56,6 +59,7 @@ if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
             <li><a href="/map-it/admin">Map It Admin</a></li>
             <li><a href="/map-it/admin/data">Data Editing</a></li>
             <li class="active"><a href="/map-it/admin/check">Barcode  Check</a></li>
+            <li><a href="/map-it/admin/maps">Maps</a></li>
             <li><a href="/map-it/admin/app">iOS App</a></li>
           </ul>
         </div>
