@@ -55,6 +55,7 @@ $f3->route('POST /api/admin/update/floor', 'Admin->update_floor');
 $f3->route('POST /api/admin/update/row', 'Admin->update_row');
 $f3->route('POST /api/admin/update/collection', 'Admin->update_collection');
 $f3->route('POST /api/admin/feedback', 'Admin->send_feedback');
+$f3->route('GET /api/admin/mail', 'Admin->mail_test');
 
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.html';
