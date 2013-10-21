@@ -399,7 +399,7 @@ class Admin extends Controller {
       //$to="acain@law.harvard.edu" . ', ';
       //$to.="acain@law.harvard.edu";
       $to = "acain@law.harvard.edu";
-      $subject="New Map It feedback item";
+      $subject="[map-it] New Map It feedback item";
       $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."</body></html>";
     
       // now we'll build the message headers
