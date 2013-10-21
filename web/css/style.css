@@ -291,7 +291,8 @@ h3.type-leading{
 /*/ about us page/*/
 
 .text-block {
-	color:#ff5b27;
+	/*color:#ff5b27;*/
+	color:#666666;
 
 	font-weight: bold;
 
