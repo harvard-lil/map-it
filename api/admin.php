@@ -396,9 +396,9 @@ class Admin extends Controller {
       $visited_page = $_POST['visited_page'];
       
       $from = "<".stripslashes($user_email).">";
-      //$to="acain@law.harvard.edu" . ', ';
-      //$to.="acain@law.harvard.edu";
-      $to = "acain@law.harvard.edu";
+      $to="acain@law.harvard.edu" . ', ';
+      $to.="hlcollmgmt@harvard.edu";
+      //$to = "acain@law.harvard.edu";
       $subject="[map-it] New Map It feedback item";
       $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."</body></html>";
     
