@@ -86,7 +86,7 @@ class Locate extends Controller {
         {
           $cur = $all_callno_array[$j];
           
-          echo $callno->str_callno . " ::: " . $cur->str_callno . "<br>";
+          //echo $callno->str_callno . " ::: " . $cur->str_callno . "<br>";
           if (cmp_callno($cur, $callno) == 0)
           {
             $begin = $all_callno_array[$j-1];
