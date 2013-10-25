@@ -32,6 +32,13 @@ class Locate extends Controller {
         $callno_text = preg_replace('/ /', '', $callno_text, 1);
       }
       
+      $folio = false;
+      
+      if(preg_match('/\s(F|PF)\z/i', $callno_text)) {
+        $folio = true;
+        $collection = 'FOLIO';
+      }
+      
       $callno = new callno($callno_text);
       
       $urlcallno = str_replace(" ","+",$callno->str_callno);
@@ -79,7 +86,7 @@ class Locate extends Controller {
         {
           $cur = $all_callno_array[$j];
           
-          //echo $callno->str_callno . " ::: " . $cur->str_callno . "<br>";
+          echo $callno->str_callno . " ::: " . $cur->str_callno . "<br>";
           if (cmp_callno($cur, $callno) == 0)
           {
             $begin = $all_callno_array[$j-1];
