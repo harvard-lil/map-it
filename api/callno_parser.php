@@ -30,7 +30,7 @@ function cmp_callno($callno1, $callno2)
 	{
 		if ($callno1->cutter_k == $callno2->cutter_k)
 		{
-			if ($callno1->us_doc == $callno2->us_doc)
+			if ($callno1->folio == $callno2->folio)
 			{
 				if ($callno1->moody == $callno2->moody)
 				{
@@ -60,7 +60,7 @@ function cmp_callno($callno1, $callno2)
 				}
 				return ($callno1->moody < $callno2->moody) ? -1 : 1;
 			}
-			return ($callno1->us_doc < $callno2->us_doc) ? -1 : 1;
+			return ($callno1->folio < $callno2->folio) ? -1 : 1;
 		}
 		return ($callno1->cutter_k < $callno2->cutter_k) ? -1 : 1;
 	}
@@ -88,8 +88,8 @@ class callno
 	public $collection;		# Whether an item is in a collection or not (0)
 	public $size;			# Whether an item is regular or x-SIZE (2)
 	public $prefix;
-	public $moody;		# Whether it's a RockRef or not
-	public $us_doc;			# Whether it's a US DOCS or not
+	public $moody;		# Whether it's a Moody or not
+	public $folio;			# Whether it's a FOLIO or not
 	public $cutter_k;		# Whether it's a CUTTER K or not
 	public $old_wid;
 	
@@ -122,15 +122,13 @@ class callno
 			$inp = $cutter_expl[1];			
 		}
 	
-		$usdoc_expl = explode("US DOCS ", $inp);
-		if (sizeof($usdoc_expl) == 1) # Not a US doc
-			$this->us_doc = false;
+    # Determine whether this is a folio or not
+		if(preg_match('/\s(F|PF)\z/i', $this->str_callno)) {
+			$this->folio = 0;
+		}
 		else
 		{
-			$this->us_doc = true;
-			$inp = $usdoc_expl[1];
-			$this->parse_usdoc($inp);
-			return;
+			$this->folio = 1;
 		}
 	
 		# Determine whether the CallNo is a Moody or not
