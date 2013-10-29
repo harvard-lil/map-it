@@ -32,12 +32,12 @@ class Locate extends Controller {
         $callno_text = preg_replace('/ /', '', $callno_text, 1);
       }
       
-      $folio = false;
+      /*$folio = false;
       
       if(preg_match('/\s(F|PF)\z/i', $callno_text)) {
         $folio = true;
         $collection = 'FOLIO';
-      }
+      }*/
       
       $callno = new callno($callno_text);
       
