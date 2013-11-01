@@ -91,6 +91,7 @@ $f3->route('GET /admin', function($f3) {
     $f3->set('user',$f3->get('ADMIN_USER'));
     $f3->set('password',$f3->get('ADMIN_PASSWORD'));
     $f3->set('www', $f3->get('MAP_IT_HOME'));
+    $f3->set('db', $f3->get('DB'));
     $view=new View;
     echo $view->render('web/admin/data.html');
 });

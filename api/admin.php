@@ -7,6 +7,7 @@ class Admin extends Controller {
       $this->connect_db();
       
       $library = $f3->get('PARAMS.library');
+      $db = $f3->get('DB');
       //$table = $library . "_callno";
       
       $json = array();
