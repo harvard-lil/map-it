@@ -7,6 +7,7 @@ class Admin extends Controller {
       $this->connect_db();
       
       $library = $f3->get('PARAMS.library');
+      $db = $f3->get('DB');
       //$table = $library . "_callno";
       
       $json = array();
@@ -398,7 +399,7 @@ class Admin extends Controller {
       $from = "<".stripslashes($user_email).">";
       //$to="acain@law.harvard.edu" . ', ';
       //$to.="hlcollmgmt@harvard.edu";
-      $to = "acain@law.harvard.edu, hlcollmgmt@harvard.edu";
+      $to = "acain@law.harvard.edu, hlcollmgmt@gmail.com";
       //$to = "acain@law.harvard.edu";
       $subject="[map-it] New Map It feedback item";
       $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."</body></html>";
