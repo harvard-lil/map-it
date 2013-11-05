@@ -101,6 +101,8 @@ class callno
 		$inp = strtoupper($inp);
 		$inp = str_replace("."," ", $inp);
 		$inp = preg_replace('/\s+/', ' ', $inp);
+		$inp = split('(V.', $inp);
+		$inp = $inp[0];
 		
 		# NEW ITEMS
 		$is_new = explode("NEW ", $inp);
