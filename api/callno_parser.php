@@ -367,7 +367,7 @@ class callno
 		else {
 		preg_match("/[A-Z]+/", $inp, $matches);
 		$letters = $matches[0];
-		$letters = substr($letters, 0, 3);
+		//$letters = substr($letters, 0, 3);
 		preg_match("/[0-9\.]+/", $inp, $matches);
 		$numbers = $matches[0];
 		
