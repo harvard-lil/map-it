@@ -101,8 +101,9 @@ class callno
 		$inp = strtoupper($inp);
 		$inp = str_replace("."," ", $inp);
 		$inp = preg_replace('/\s+/', ' ', $inp);
-		$inp = split('(V.', $inp);
-		$inp = $inp[0];
+		$inp_expl = explode('(', $inp);
+		if(sizeof($inp_expl) > 1)
+		  $inp = $inp_expl[0];
 		
 		# NEW ITEMS
 		$is_new = explode("NEW ", $inp);
@@ -366,7 +367,7 @@ class callno
 		else {
 		preg_match("/[A-Z]+/", $inp, $matches);
 		$letters = $matches[0];
-		//$letters = substr($letters, 0, 3);
+		$letters = substr($letters, 0, 3);
 		preg_match("/[0-9\.]+/", $inp, $matches);
 		$numbers = $matches[0];
 		
@@ -416,7 +417,7 @@ class callno
 			
 		if (isset($before_dec))    	
 		{
-			for ($i=0;$i<(4 - strlen($before_dec));$i++)
+			for ($i=0;$i<(5 - strlen($before_dec));$i++)
 			{
 				$pref = "0" . $pref;
 			}

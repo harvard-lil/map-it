@@ -124,7 +124,6 @@ class Locate extends Controller {
         array_push($JSON, $_tmparr);
         $callback = $_GET['callback'];
         header('Content-type: application/json');
-        //echo $callback . '' . json_encode($JSON) . '';
         echo $callback . '(' . json_encode($JSON) . ')';
       }
       
