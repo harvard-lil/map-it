@@ -24,7 +24,7 @@ $(document).ready(function() {
     },
     "sPaginationType": "bootstrap",
     "bProcessing": true,
-    "iDisplayLength": 25,
+    "iDisplayLength":100,
     "aoColumnDefs": [{ "sClass": "id", "bSearchable": false, "aTargets": [ 0 ] }, { "sClass": "collection", "aTargets": [ 1 ] }, { "sClass": "floor", "aTargets": [ 2 ] }, { "sClass": "row", "aTargets": [ 3 ] }, { "sClass": "callno", "aTargets": [ 4 ] }, { "bVisible": false, "aTargets": [ 0 ] }],
     "aaSorting": [[2, "asc"], [3, "asc"]],
     "aoColumns": [null, null, null, { "sType": "natural" }, null, {"sTitle": "Delete", "fnRender": function(obj) {
