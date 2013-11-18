@@ -3,10 +3,11 @@
 #map1 {
 	width:550px;
 	height: 400px;
+	margin-left:-270px;
 }
 
 .map {
-  top:158px;
+  top:138px;
 }
 
 .main {
@@ -40,58 +41,58 @@
 }
 
 .wall8 {
-  border: 1px solid #6a8012;
+  border: 1px solid;
 	height: 7px;
 	width: 130px;
 }
 
 .wall5 {
-  border: 1px solid #6a8012;
+  border: 1px solid;
 	height: 7px;
 	width: 85px;
 	margin-left:15px;
 }
 
 .top3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 60px;
 }
 
 .bottom3 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 60px;
 	margin-bottom:13px;
 }
 
 .top4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 70px;
 }
 
 .bottom4 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 70px;
 	margin-bottom:13px;
 }
 
 .top5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 90px;
 }
 
 .bottom5 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 90px;
 	margin-bottom:13px;
@@ -106,30 +107,30 @@
 }
 
 .top6 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 100px;
 }
 
 .bottom6 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 100px;
 	margin-bottom:13px;
 }
 
 .top7 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 120px;
 }
 
 .bottom7 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 120px;
 	margin-bottom:13px;
@@ -139,8 +140,9 @@
 </head>
 <body>
   <div class="container">
-  <include href="{{ @headermap }}" />
-  <img src="/map-it/images/law/law-basement.jpg" alt="Law basement" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/law/law-basement.jpg" alt="Law basement" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="wall">
@@ -186,6 +188,8 @@
               <span id="row65" class="top5"></span><span id="row66" class="bottom5"></span>
               <span id="row67" class="top5"></span><span id="row68" class="bottom5"></span>
             </div>
-       		</div> 
+       	</div> 
+       </div>
+       <include href="{{ @footer }}" />
   </div>       		
 </body>

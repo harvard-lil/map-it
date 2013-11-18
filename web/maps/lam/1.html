@@ -3,10 +3,11 @@
 #map1 {
 	width:750px;
 	height: 500px;
+	margin-left:-370px;
 }
 
 .map {
-  top: 157px;
+  top: 137px;
 }
 
 .column1 {
@@ -56,68 +57,68 @@
 }
 
 .top4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 60px;
 }
 
 .bottom4 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	width: 60px;
 	margin-bottom:1px;
 }
 
 .top5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 72px;
 }
 
 .bottom5 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	width: 72px;
 	margin-bottom:1px;
 }
 
 .left3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 38px;
 	width: 5px;
 }
 
 .right3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 38px;
 	width: 5px;
 }
 
 .hall-left3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 38px;
 	width: 5px;
 }
 
 .hall-right3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 38px;
 	width: 5px;
 	margin-left:64px;
 }
 
 .left5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 80px;
 	width: 5px;
 }
 
 .right5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 80px;
 	width: 5px;
 	margin-left:64px;
@@ -127,8 +128,9 @@
 </head>
 <body>
   <div class="container">
-  <include href="{{ @headermap }}" />
- <img src="/map-it/images/lam/lam-1.jpg" alt="Lamont 1" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/lam/lam-1.jpg" alt="Lamont 1" class="print-map" />
         <div id="map1" class="map">
           <div class="column1">
        			<span id="row11" class="top4"></span><span id="row10" class="bottom4"></span>
@@ -171,5 +173,7 @@
        			<span id="row45" class="top4"></span><span id="row46" class="bottom4"></span>
        		</div>
        	</div> 
+    </div>
+    <include href="{{ @footer }}" />
   </div>
 </body>

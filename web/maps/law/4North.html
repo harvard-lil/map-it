@@ -3,10 +3,11 @@
 #map1 {
 	width:500px;
 	height: 1000px;
+	margin-left:-269px;
 }
 
 .map {
-  top:157px;
+  top:137px;
 }
 
 .main {
@@ -47,15 +48,15 @@
 }
 
 .top5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 8px;
 	width: 110px;
 }
 
 .bottom5 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 8px;
 	width: 110px;
 	margin-bottom:13px;
@@ -70,15 +71,15 @@
 }
 
 .top7 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 8px;
 	width: 150px;
 }
 
 .bottom7 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 8px;
 	width: 150px;
 	margin-bottom:11px;
@@ -88,8 +89,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-    <img src="/map-it/images/law/law-4N.jpg" alt="Law 4 North" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/law/law-4N.jpg" alt="Law 4 North" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">  
@@ -132,6 +134,8 @@
               <span id="row44" class="top7"></span><span id="row45" class="bottom7"></span>
               <span id="row46" class="top7"></span><span id="row47" class="bottom7"></span>
             </div>
-       		</div> 
+       	</div> 
+       </div>
+       <include href="{{ @footer }}" />
   </div>
 </body>

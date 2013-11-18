@@ -3,10 +3,11 @@
 #map6E {
 	width:725px;
 	height: 480px;
+	margin-left:-354px;
 }
 
 .map {
-  top:157px;
+  top:137px;
 }
 
 #toprow {
@@ -21,16 +22,16 @@
 }
 
 .left1 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 12px;
 	width: 5px;
 	margin-top:96px;
 }
 
 .right1 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 12px;
 	width: 5px;
 	margin-right: 5px;
@@ -38,16 +39,16 @@
 }
 
 .left3 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 36px;
 	width: 5px;
 	margin-top:84px;
 }
 
 .right3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 36px;
 	width: 5px;
 	margin-right: 5px;
@@ -55,16 +56,16 @@
 }
 
 .left4 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 48px;
 	width: 5px;
 	margin-top:12px;
 }
 
 .right4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 48px;
 	width: 5px;
 	margin-right: 5px;
@@ -72,16 +73,16 @@
 }
 
 .left8 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 96px;
 	width: 5px;
 	margin-top:12px;
 }
 
 .right8 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 96px;
 	width: 5px;
 	margin-right: 5px;
@@ -89,15 +90,15 @@
 }
 
 .left10 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 120px;
 	width: 5px;
 }
 
 .right10 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 120px;
 	width: 5px;
 	margin-right: 5px;
@@ -116,15 +117,15 @@
 }
 
 .top6 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 72px;
 }
 
 .bottom6 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: 5px;
 	width: 72px;
@@ -133,8 +134,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-  <img src="/map-it/images/wid/wid-6E.jpg" alt="Widener 6E" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/wid/wid-6E.jpg" alt="Widener 6E" class="print-map" />
         <div id="map6E" class="map">
         	<div id="toprow">
        			<span id="row1" class="left1 bottom"></span><span id="row2" class="right1 bottom"></span>
@@ -189,4 +191,6 @@
        		</div>
        	</div>  
        </div>
+       <include href="{{ @footer }}" />
+    </div>
 </body>

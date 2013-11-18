@@ -10,10 +10,11 @@ body{
 #mapA {
 	width:700px;
 	height: 335px;
+	margin-left: -346px;
 }
 
 .map {
-  top: 169px;
+  top: 149px;
 }
 
 .row1 {
@@ -35,32 +36,32 @@ body{
 }
 
 .left1 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 12px;
 	width: 6px;
 	margin-left:3px;
 }
 
 .right1 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 12px;
 	width: 6px;
 	margin-right: 6px;
 }
 
 .left2 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 24px;
 	width: 6px;
 	margin-top:40px;
 }
 
 .right2 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 24px;
 	width: 6px;
 	margin-right: 6px;
@@ -68,16 +69,16 @@ body{
 }
 
 .left3 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 38px;
 	width: 6px;
 	margin-top:26px;
 }
 
 .right3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 38px;
 	width: 6px;
 	margin-right: 20px;
@@ -104,22 +105,22 @@ body{
 }
 
 .left5 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 65px;
 	width: 6px;
 }
 
 .right5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 65px;
 	width: 6px;
 	margin-right: 22px;
 }
 
 .single5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 65px;
 	width: 6px;
 	margin-right:10px;
@@ -134,6 +135,8 @@ body{
 </head>
 <body>
   <div class="container">
+    
+    <div class="wrapper">
     <include href="{{ @headermap }}" />
   <img src="/map-it/images/lam/lam-A.jpg" alt="Lamont A" class="print-map" />
         <div id="mapA" class="map">
@@ -190,5 +193,7 @@ body{
        		  <span id="row2" class="left1"></span><span id="row1" class="right1"></span>
        		</div>
        	</div> 
+      </div>
+      <include href="{{ @footer }}" />
   </div>
 </body>

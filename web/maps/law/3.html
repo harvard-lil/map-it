@@ -3,10 +3,11 @@
 #map1 {
 	width:450px;
 	height: 850px;
+	margin-left:-240px;
 }
 
 .map {
-  top:294px;
+  top:274px;
 }
 
 .main {
@@ -29,7 +30,7 @@
 }
 
 .top4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 70px;
 	margin-bottom:12px;
@@ -50,15 +51,15 @@
 }
 
 .top5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 85px;
 }
 
 .bottom5 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 85px;
 	margin-bottom:12px;
@@ -69,15 +70,15 @@
 }
 
 .top6 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 100px;
 }
 
 .bottom6 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 100px;
 	margin-bottom:11px;
@@ -91,8 +92,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-    <img src="/map-it/images/law/law-3.jpg" alt="Law 3" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/law/law-3.jpg" alt="Law 3" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -123,6 +125,8 @@
               <span id="row20" class="top6"></span><span id="row21" class="bottom6"></span>
               <span id="row22" class="top5 shifted top-space"></span><span id="row23" class="bottom5 shifted"></span>
             </div>
-       		</div> 
+       	</div> 
+       </div>
+       <include href="{{ @footer }}" />
   </div>     		
 </body>

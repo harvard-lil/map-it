@@ -3,10 +3,11 @@
 #mapP2 {
 	width:930px;
 	height: 682px;
+	margin-left:-482px;
 }
 
 .map {
-  top:172px;
+  top:152px;
 }
 
 #topfull {
@@ -33,7 +34,7 @@
 }
 
 .left2 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 24px;
 	width: 5px;
 	margin-top:36px;
@@ -41,16 +42,16 @@
 }
 
 .left4 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 48px;
 	width: 5px;
 	margin-top:24px;
 }
 
 .right4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 48px;
 	width: 5px;
 	margin-right: 5px;
@@ -58,23 +59,23 @@
 }
 
 .wall4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 48px;
 	width: 5px;
 	margin-top:1px;
 }
 
 .wall7{
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 84px;
 	width: 5px;
 	margin:4px 0px;
 }
 
 .left5 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 60px;
 	width: 5px;
 	margin-top:12px;
@@ -82,7 +83,7 @@
 
 
 .right5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 60px;
 	width: 5px;
 	margin-right: 11.5px;
@@ -90,31 +91,31 @@
 }
 
 .left6 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 72px;
 	width: 5px;
 }
 
 .right6 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 72px;
 	width: 5px;
 	margin-right: 11.5px;
 }
 
 .left7 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 84px;
 	width: 5px;
 	margin-top:160px;
 }
 
 .right7 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 84px;
 	width: 5px;
 	margin-right: 11px;
@@ -122,16 +123,16 @@
 }
 
 .left8 {
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 96px;
 	width: 5px;
 	margin-top:160px;
 }
 
 .right8 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 96px;
 	width: 5px;
 	margin-right: 11px;
@@ -139,14 +140,14 @@
 }
 
 .left11 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 132px;
 	width: 5px;
 	margin-top:24px;
 }
 
 .right13 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 156px;
 	width: 5px;
 	margin-right: 1.7px;
@@ -155,7 +156,7 @@
 }
 
 .right22 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 264px;
 	width: 5px;
 	margin-left:34px;
@@ -174,7 +175,7 @@
 }
 
 .bottom4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	margin-top: 355px;
 	width: 48px;
@@ -182,7 +183,7 @@
 }
 
 .bottom6 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	margin-top: 355px;
 	margin-left:4px;
@@ -190,7 +191,7 @@
 }
 
 .bottom9 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	margin-top: 355px;
 	width: 108px;
@@ -200,8 +201,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-  <img src="/map-it/images/wid/wid-P2.jpg" alt="Widener P2" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/wid/wid-P2.jpg" alt="Widener P2" class="print-map" />
         <div id="mapP2" class="map">
         	<div id="topfull">
        			<span id="row35" class="left6"></span><span id="row36" class="right6"></span>
@@ -256,6 +258,8 @@
        			<span id="row" class="row69addl wall4"></span>
        		</div>
        	</div>  
+       </div>
+       <include href="{{ @footer }}" />
   </div>
 </body>
 </html>

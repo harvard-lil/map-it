@@ -376,6 +376,21 @@ class callno
 		$inp = $letters . $numbers;
 	
 		$letter = $inp[0];
+		
+		$letter_array = str_split($letters);
+		foreach($letter_array as $letter){
+		    $ret_string .= (ord($letter) - 64);
+		}
+		
+		$letters_length = strlen($letters);
+          if($letters_length < 6) {
+            $loop = 6 - $letters_length;
+            for($j=0; $j<$loop; $j++){
+              $ret_string .= '0';
+            }
+          }
+		// COMMENTING THIS OUT FOR NOW
+		/*
 		$ret_string .= (ord($letter) - 64);
 	
 		# Check if there's a subclass, or null
@@ -408,7 +423,10 @@ class callno
 		$pref = "";
 		$int_part = substr($inp, $int_start_index, strlen($inp) - $int_start_index);
 		
-		$dec_split = explode(".", $int_part);
+		$dec_split = explode(".", $int_part);*/
+		
+		$dec_split = explode(".", $numbers);
+		
 		if (sizeof($dec_split) > 0)
 			$before_dec = $dec_split[0];
 		if (sizeof($dec_split) > 1)

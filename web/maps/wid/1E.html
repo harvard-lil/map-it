@@ -3,10 +3,11 @@
 #map1E {
 	width:740px;
 	height: 500px;
+	margin-left:-360px;
 }
 
 .map {
-  top: 166px;
+  top: 146px;
 }
 
 #toprow {
@@ -23,9 +24,9 @@
 .left2 {
 	display:block;
 	float: left;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 24px;
 	width: 5px;
 	margin-top: 72px;
@@ -34,7 +35,7 @@
 .right2 {
 	display:block;
 	float: left;
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 24px;
 	width: 5px;
 	margin-right: 5px;
@@ -44,9 +45,9 @@
 .left3 {
 	display:block;
 	float: left;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 36px;
 	width: 5px;
 }
@@ -54,7 +55,7 @@
 .right3 {
 	display:block;
 	float: left;
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 36px;
 	width: 5px;
 	margin-right: 5px;
@@ -63,9 +64,9 @@
 .left7 {
 	display:block;
 	float: left;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 84px;
 	width: 5px;
 	margin-top:12px;
@@ -74,7 +75,7 @@
 .right7 {
 	display:block;
 	float: left;
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 84px;
 	width: 5px;
 	margin-right: 5px;
@@ -84,9 +85,9 @@
 .left8 {
 	display:block;
 	float: left;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
-	border-top: 1px solid #6a8012;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
 	height: 96px;
 	width: 5px;
 }
@@ -94,21 +95,21 @@
 .right8 {
 	display:block;
 	float: left;
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 96px;
 	width: 5px;
 	margin-right: 5px;
 }
 
 .closed {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	margin-top:60px;
 }
 
 .top5 {
 	display:block;
 	float:left;
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 60px;
 }
@@ -116,9 +117,9 @@
 .bottom5 {
 	display:block;
 	float:left;
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: 5px;
 	width: 60px;
@@ -127,8 +128,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-  <img src="/map-it/images/wid/wid-1E.jpg" alt="Widener 1E" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/wid/wid-1E.jpg" alt="Widener 1E" class="print-map" />
         <div id="map1E" class="map">
         	<div id="toprow">
        			<span id="row1" class="left2"></span><span id="row2" class="right2"></span>
@@ -182,5 +184,7 @@
        			<span id="row90" class="top5"></span>
        		</div>
        	</div> 
+       	</div>
+       	<include href="{{ @footer }}" />
     </div>
 </body>

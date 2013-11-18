@@ -3,16 +3,11 @@
 #map1 {
 	width:400px;
 	height: 775px;
-}
-
-.print-map {
-  position:relative;
-  display:inline;
-  z-index:2;
+	margin-left:-184px;
 }
 
 .map {
-  top:209px;
+  top:189px;
 }
 
 .clear {
@@ -64,16 +59,16 @@
 }
 
 .top1 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 15px;
 	margin-left:120px;
 }
 
 .bottom1 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 15px;
 	margin-bottom:12px;
@@ -81,7 +76,7 @@
 }
 
 .top3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 6px;
 	width: 55px;
 	margin-left:80px;
@@ -89,38 +84,38 @@
 }
 
 .top4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 70px;
 	margin-left:65px;
 }
 
 .top5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 90px;
 }
 
 .bottom5 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 90px;
 	margin-bottom:12px;
 }
 
 .top7 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 115px;
 	margin-left:20px;
 }
 
 .bottom7 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 115px;
 	margin-bottom:12px;
@@ -132,15 +127,15 @@
 }
 
 .top8 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 135px;
 }
 
 .bottom8 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 135px;
 	margin-bottom:12px;
@@ -151,7 +146,7 @@
 }
 
 .left5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 80px;
 	width: 6px;
 	margin-left:8px;
@@ -159,7 +154,7 @@
 }
 
 .right5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 80px;
 	width: 6px;
 	margin-bottom:12px;
@@ -167,7 +162,7 @@
 }
 
 .left8 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 135px;
 	width: 6px;
 }
@@ -176,8 +171,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-    <img src="/map-it/images/law/law-ILS4.jpg" alt="Yenching 1" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/law/law-ILS4.jpg" alt="Yenching 1" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <span id="row38" class="top3"></span><span id="row39" class="top3"></span>
@@ -235,5 +231,7 @@
             </div>
        		</div>
        	</div> 
+       </div>
+       <include href="{{ @footer }}" />
   </div>
 </body>

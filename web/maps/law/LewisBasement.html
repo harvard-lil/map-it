@@ -3,16 +3,11 @@
 #map1 {
 	width:400px;
 	height: 865px;
-}
-
-.print-map {
-  position:relative;
-  display:inline;
-  z-index:2;
+	margin-left:-179px;
 }
 
 .map {
-  top:157px;
+  top:137px;
 }
 
 .clear {
@@ -56,29 +51,29 @@
 }
 
 .top2 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 34px;
 }
 
 .bottom2 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 34px;
 	margin-bottom:15px;
 }
 
 .top3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 6px;
 	width: 50px;
 	margin-top: 63px;
 }
 
 .stairs4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 70px;
 	margin-top:15px;
@@ -87,45 +82,45 @@
 }
 
 .top4 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 70px;
 	margin-left: 65px;
 }
 
 .top5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 83px;
 	margin-left: 8px;
 }
 
 .bottom5 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 90px;
 	margin-bottom:12px;
 }
 
 .top6 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 105px;
 	margin-left:30px;
 }
 
 .top7 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 115px;
 }
 
 .bottom7 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 115px;
 	margin-bottom:14px;
@@ -144,15 +139,15 @@
 }
 
 .top8 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 7px;
 	width: 135px;
 }
 
 .bottom8 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 7px;
 	width: 135px;
 	margin-bottom:14px;
@@ -167,7 +162,7 @@
 }
 
 .left3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 50px;
 	width: 6px;
 }
@@ -176,8 +171,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-    <img src="/map-it/images/law/law-ILSBasement.jpg" alt="Law ILSBasement" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/law/law-ILSBasement.jpg" alt="Law ILSBasement" class="print-map" />
         <div id="map1" class="map">
           <div class="main">
             <div class="column1">
@@ -249,5 +245,7 @@
             </div>
        		</div>
        	</div>  
+       </div>
+       <include href="{{ @footer }}" />
   </div>
 </body>

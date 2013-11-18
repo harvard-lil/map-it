@@ -3,10 +3,11 @@
 #mapP3 {
 	width:720px;
 	height: 835px;
+	margin-left:-265px;
 }
 
 .map {
-  top:170px;
+  top:150px;
 }
 
 #leftcolumn {
@@ -22,11 +23,11 @@
 }
 
 .closed {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 }
 
 .bottom2 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 24px;
 	margin-left:5px;
@@ -34,16 +35,16 @@
 }
 
 .top3 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 36px;
 	margin-left:54px;
 }
 
 .bottom3 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	width: 36px;
 	margin-left:54px;
@@ -51,16 +52,16 @@
 }
 
 .top5 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 60px;
 	margin-left:84px;
 }
 
 .bottom5 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: 2.7px;
 	width: 60px;
@@ -68,46 +69,46 @@
 }
 
 .top7 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 78px;
 }
 
 .bottom7 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: 2.8px;
 	width: 78px;
 }
 
 .top10 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 120px;
 }
 
 .bottom10 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: 3.2px;
 	width: 120px;
 }
 
 .top11 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 132px;
 	margin-left:78px;
 }
 
 .bottom11 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: .9px;
 	width: 132px;
@@ -115,30 +116,30 @@
 }
 
 .top12 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 144px;
 }
 
 .bottom12 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: .9px;
 	width: 144px;
 }
 
 .top18 {
-	border: 1px solid #6a8012;
+	border: 1px solid;
 	height: 5px;
 	width: 212px;
 }
 
 .bottom18 {
-	border-right: 1px solid #6a8012;
-	border-left: 1px solid #6a8012;
-	border-bottom: 1px solid #6a8012;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	height: 5px;
 	margin-bottom: 2.8px;
 	width: 212px;
@@ -171,8 +172,9 @@
 </head>
 <body>
   <div class="container">
-    <include href="{{ @headermap }}" />
-  <img src="/map-it/images/wid/wid-P3.jpg" alt="Widener P3" class="print-map" />
+    <div class="wrapper">
+        <include href="{{ @headermap }}" />
+        <img src="/map-it/images/wid/wid-P3.jpg" alt="Widener P3" class="print-map" />
         <div id="mapP3" class="map">
         	<div id="leftcolumn">
        			<span id="row194" class="bottom12"></span>
@@ -269,6 +271,8 @@
        			<span id="row3" class="top11"></span><span id="row2" class="bottom11 gap"></span>
        		</div>
        	</div>  
+       </div>
+       <include href="{{ @footer }}" />
   </div>
 </body>
 </html>

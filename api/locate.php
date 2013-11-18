@@ -86,7 +86,7 @@ class Locate extends Controller {
         {
           $cur = $all_callno_array[$j];
           
-          //echo $callno->str_callno . " ::: " . $cur->str_callno . "<br>";
+          echo $callno->str_callno . " ::: " . $cur->str_callno . "<br>";
           if (cmp_callno($cur, $callno) == 0)
           {
             $begin = $all_callno_array[$j-1];
@@ -123,8 +123,8 @@ class Locate extends Controller {
         $_tmparr  = array_combine($FIELDS, $_datas);
         array_push($JSON, $_tmparr);
         $callback = $_GET['callback'];
-        header('Content-type: application/json');
-        echo $callback . '(' . json_encode($JSON) . ')';
+        //header('Content-type: application/json');
+        //echo $callback . '(' . json_encode($JSON) . ')';
       }
       
       mysql_close();

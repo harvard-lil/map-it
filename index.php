@@ -69,6 +69,7 @@ $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $f3->set('display',$library_names[$params['library']]);
     $f3->set('header','web/header.html');
     $f3->set('headermap', 'web/headermap.html');
+    $f3->set('footer', 'web/footer.html');
 
     $template = new Template;
     echo $template->render($template_path);
