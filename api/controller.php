@@ -19,7 +19,7 @@ class Controller {
 		
 		// Save frequently used variables
 		$this->framework=$f3;
-		$this->db=$db;
+		//$this->db=$db;
 	}
 
 }
