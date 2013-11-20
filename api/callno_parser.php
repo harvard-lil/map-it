@@ -38,6 +38,8 @@ function cmp_callno($callno1, $callno2)
 					{
 						if ($callno1->prefix == $callno2->prefix)
 						{
+							if ($callno1->subclass1 == $callno2->subclass1)
+							{
 							if ($callno1->subclass == $callno2->subclass)
 							{
 								if ($callno1->index_1 == $callno2->index_1)
@@ -53,6 +55,8 @@ function cmp_callno($callno1, $callno2)
 								return ($callno1->index_1 < $callno2->index_1) ? -1 : 1;
 							}
 							return ($callno1->subclass < $callno2->subclass) ? -1 : 1;
+							}
+							return strnatcasecmp($callno1->subclass1 , $callno2->subclass1);
 						}
 						return ($callno1->prefix < $callno2->prefix) ? -1 : 1;
 					}
@@ -210,7 +214,7 @@ class callno
 		if($this->moody == '0')
 		  $this->subclass = $this->parse_moody_subclass($this->str_callno);
 		elseif($this->prefix == '0')
-			$this->subclass = $this->parse_old_subclass($split[0]);
+			$this->parse_old_subclass($split[0]);
 		else
 			$this->subclass = $this->parse_subclass($split[0]);
 		
@@ -362,7 +366,8 @@ class callno
 		$ret_string = ""; //echo $inp . '<br />';
 		
 		if(isInteger($inp)){
-			return $inp;
+			$this->subclass1 = 0;
+			$this->subclass = $inp;
 		}
 		else {
 		preg_match("/[A-Z]+/", $inp, $matches);
@@ -373,7 +378,7 @@ class callno
 		
 		//echo $letters . ' + ' . $numbers;
 		
-		$inp = $letters . $numbers;
+		/*$inp = $letters . $numbers;
 	
 		$letter = $inp[0];
 		
@@ -383,12 +388,14 @@ class callno
 		}
 		
 		$letters_length = strlen($letters);
-          if($letters_length < 6) {
-            $loop = 6 - $letters_length;
+          if($letters_length < 7) {
+            $loop = 7 - $letters_length;
             for($j=0; $j<$loop; $j++){
               $ret_string .= '0';
             }
-          }
+          }*/
+          $this->subclass1 = $letters;
+          
 		// COMMENTING THIS OUT FOR NOW
 		/*
 		$ret_string .= (ord($letter) - 64);
@@ -426,6 +433,7 @@ class callno
 		$dec_split = explode(".", $int_part);*/
 		
 		$dec_split = explode(".", $numbers);
+		$ret_string1 = '';
 		
 		if (sizeof($dec_split) > 0)
 			$before_dec = $dec_split[0];
@@ -442,14 +450,14 @@ class callno
 			$pref .= $before_dec;
 		}
 		
-		$ret_string .= $pref;
+		$ret_string1 .= $pref;
 		if (isset($after_dec))
-			$ret_string .= "." . $after_dec;
+			$ret_string1 .= "." . $after_dec;
 	
 	#	for ($i=$int_start_index;$i<strlen($inp);$i++)
 	#		$ret_string .= $inp[$i];
 		//echo '<br />';
-		return $ret_string;
+		$this->subclass = $ret_string1;
 		}
 	}
 
