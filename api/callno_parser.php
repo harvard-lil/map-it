@@ -132,6 +132,7 @@ class callno
     # Determine whether this is a folio or not
 		if(preg_match('/\s(F|PF)\z/i', $this->str_callno)) {
 			$this->folio = 0;
+			$inp = preg_replace('/\s(F|PF)\z/i', '', $inp, 1);
 		}
 		else
 		{

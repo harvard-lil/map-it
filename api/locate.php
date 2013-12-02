@@ -80,7 +80,8 @@ class Locate extends Controller {
       {
         // Find the Range
         array_push($all_callno_array, $callno);
-        usort($all_callno_array, "cmp_callno");
+        usort($all_callno_array, "cmp_callno"); 
+        //print_r($all_callno_array);
       
         for ($j=0;$j<sizeof($all_callno_array);$j++)
         {
