@@ -367,7 +367,8 @@ class callno
 		$ret_string = ""; //echo $inp . '<br />';
 		
 		if(isInteger($inp)){
-			$this->subclass1 = 0;
+		    // place an all integer Old Widener call number after those with letters
+			$this->subclass1 = 'ZZ';
 			$this->subclass = $inp;
 		}
 		else {
