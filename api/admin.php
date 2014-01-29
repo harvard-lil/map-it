@@ -395,6 +395,7 @@ class Admin extends Controller {
       $user_email = $_POST['user_email'];
       $feedback_text = $_POST['feedback_text'];
       $visited_page = $_POST['visited_page'];
+      $hollis = $_POST['hollis'];
       
       $from = "<".stripslashes($user_email).">";
       //$to="acain@law.harvard.edu" . ', ';
@@ -402,7 +403,7 @@ class Admin extends Controller {
       $to = "acain@law.harvard.edu, hlcollmgmt@gmail.com";
       //$to = "acain@law.harvard.edu";
       $subject="[map-it] New Map It feedback item";
-      $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."</body></html>";
+      $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."<br /><br />".$hollis."</body></html>";
     
       // now we'll build the message headers
       $headers = "From: $from\n" .

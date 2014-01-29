@@ -2,6 +2,27 @@
 
 class Locate extends Controller {
 
+    function map_w_item() {
+        $f3 = $this->framework;
+        $template_path = 'web/maps/' . $f3->get('PARAMS.library') . '/' . $f3->get('PARAMS.floor') . '.html';
+        $f3->set('library',$f3->get('PARAMS.library'));
+        $f3->set('floor',$f3->get('PARAMS.floor'));
+        $f3->set('row',$f3->get('PARAMS.row'));
+        $f3->set('hollis',$f3->get('PARAMS.hollis'));
+        $f3->set('www_root',$f3->get('MAP_IT_HOME'));
+        $f3->set('ga_key', $f3->get('GOOGLE_ANALYTICS_KEY'));
+        $f3->set('ga_domain', $f3->get('GOOGLE_ANALYTICS_DOMAIN'));
+        $library_names = $f3->get('library_names');
+        $f3->set('display',$library_names[$f3->get('library')]);
+        $f3->set('header','web/header.html');
+        $f3->set('headermap', 'web/headermap.html');
+        $f3->set('footer', 'web/footer.html');
+    
+        $template = new Template;
+        echo $template->render($template_path);
+
+    }
+
     function call_number() {
       $f3=$this->framework;
       $db = $f3->get('DB');
@@ -24,6 +45,7 @@ class Locate extends Controller {
       $location = $f3->get('PARAMS.location');
       $this_library = strtolower($location);
       $collection = $f3->get('PARAMS.collection');
+      $hollis = $f3->get('PARAMS.hollis');
       
       if($location == "LAW" && preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $callno_text)) {
         $something = "Moody";
@@ -115,7 +137,7 @@ class Locate extends Controller {
         echo json_encode($JSON);
       }else {
         $location = strtolower($location);
-        $maplink = "http://librarylab.law.harvard.edu/map-it/map/$location/$floor/$range";
+        $maplink = "http://librarylab.law.harvard.edu/map-it/map/$location/$floor/$range/$hollis";
       
         $FIELDS     = array('floor','range', 'maplink');
         $JSON = array();

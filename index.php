@@ -44,6 +44,7 @@ $f3->set('AUTOLOAD','api/; web/;');
 
 $f3->route('GET /api/locate', 'Locate->call_number');
 $f3->route('GET /api/locate/@location/@collection/@callno', 'Locate->call_number');
+$f3->route('GET /api/locate/@location/@collection/@callno/@hollis', 'Locate->call_number');
 $f3->route('GET /api/locate/barcode', 'Locate->barcode');
 $f3->route('GET /api/locate/transfer', 'Locate->transfer');
 
@@ -57,6 +58,8 @@ $f3->route('POST /api/admin/update/row', 'Admin->update_row');
 $f3->route('POST /api/admin/update/collection', 'Admin->update_collection');
 $f3->route('POST /api/admin/feedback', 'Admin->send_feedback');
 $f3->route('GET /api/admin/mail', 'Admin->mail_test');
+
+$f3->route('GET /map/@library/@floor/@row/@hollis', 'Locate->map_w_item');
 
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.html';
