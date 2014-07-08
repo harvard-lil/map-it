@@ -3,6 +3,37 @@ map-it
 
 Helping users locate items in the library stacks.
 
+## Install
+
+### MySQL
+
+You will need a database with three tables
+
+    CREATE TABLE `all_callno` (`id` mediumint(11) NOT NULL AUTO_INCREMENT,
+    `library` varchar(11) NOT NULL DEFAULT '',
+    `begin_callno` varchar(255) NOT NULL,
+    `collection` varchar(11) NOT NULL DEFAULT '',
+    `floor` varchar(255) NOT NULL,
+    `range` varchar(255) NOT NULL,
+    `lastmodified` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+    )
+    
+
+    CREATE TABLE `key_lookup` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `key` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+    )
+    
+
+    CREATE TABLE `libraries` (
+    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+    `code` varchar(11) DEFAULT NULL,
+    `display` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+    )
+
 ## License
 
 Dual licensed under the MIT license (below) and [GPL license](http://www.gnu.org/licenses/gpl-3.0.html).
