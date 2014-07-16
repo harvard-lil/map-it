@@ -33,7 +33,19 @@ You will need a database with three tables
     `display` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
     )
+    
+### .htaccess
 
+Save the .htaccess file.  You shouldn't need to edit it.
+
+    cp .htaccess.example .htaccess
+    
+### Settings
+
+Copy the example and fill in the details.
+
+    cd api; cp config.sample.ini config.ini
+    
 ## License
 
 Dual licensed under the MIT license (below) and [GPL license](http://www.gnu.org/licenses/gpl-3.0.html).
