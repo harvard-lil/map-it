@@ -45,7 +45,9 @@ $f3->set('AUTOLOAD','api/; web/;');
 $f3->route('GET /api/locate', 'Locate->call_number');
 $f3->route('GET /api/locate/@location/@collection/@callno', 'Locate->call_number');
 $f3->route('GET /api/locate/@location/@collection/@callno/@hollis', 'Locate->call_number');
+$f3->route('POST /api/locate/batch-call-number', 'Locate->batch_call_number');
 $f3->route('GET /api/locate/barcode', 'Locate->barcode');
+$f3->route('POST /api/locate/batch-barcode', 'Locate->batch_barcode');
 $f3->route('GET /api/locate/transfer', 'Locate->transfer');
 
 $f3->route('GET /api/admin/display/@library', 'Admin->display');
@@ -135,6 +137,15 @@ $f3->route('GET /admin/maps', function($f3) {
     $f3->set('www',$f3->get('MAP_IT_HOME'));
     $view=new View;
     echo $view->render('web/admin/maps.html');
+});
+
+$f3->route('GET /admin/batch', function($f3) {
+    $f3->set('key',$f3->get('map_it_key'));
+    $f3->set('user',$f3->get('ADMIN_USER'));
+    $f3->set('password',$f3->get('ADMIN_PASSWORD'));
+    $f3->set('www',$f3->get('MAP_IT_HOME'));
+    $view=new View;
+    echo $view->render('web/admin/batch.html');
 });
 
 $f3->run();

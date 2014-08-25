@@ -1,0 +1,96 @@
+<?php
+// An array of allowed users and their passwords
+$users = array(
+  $user => $password
+);
+
+// If there's no Authentication header, exit
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('This page requires authentication');
+}
+
+// If the user name doesn't exist, exit
+if (!isset($users[$_SERVER['PHP_AUTH_USER']])) {
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+// Is the password doesn't match the username, exit
+if ($users[$_SERVER['PHP_AUTH_USER']] != $_SERVER['PHP_AUTH_PW'])
+{
+  header('HTTP/1.1 401 Unauthorized');
+  header('WWW-Authenticate: Basic realm="Map It admin"');
+  exit('Unauthorized!');
+}
+
+?>
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="/map-it/images/favicon.png" type="image/x-icon" />
+		
+		<title>Map It Batch Locations</title>
+		
+		<link href="/map-it/css/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+      body {
+        padding-top: 25px;
+      }
+    </style>
+
+		<script>
+		  var www = '<?php echo $www ?>';
+		</script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="/map-it/js/batch.js"></script>
+
+	</head>
+	<body>
+	  <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a href="/map-it/admin">Map It Admin</a></li>
+            <li><a href="/map-it/admin/data">Data Editing</a></li>
+            <li><a href="/map-it/admin/check">Barcode Check</a></li>
+            <li class="active"><a href="/map-it/admin/batch">Batch Barcode Check</a></li>
+            <li><a href="/map-it/admin/maps">Maps</a></li>
+            <li><a href="/map-it/admin/app">iOS App</a></li>
+          </ul>
+        </div>
+        <!-- Barcodes are slow
+        <div class="span4 offset1">
+          <h3>Paste a list of barcodes</h3>
+          <form id="batch-form">
+            <textarea type="text" rows="10" id="barcodes"></textarea>
+            <br/>
+            <button type="submit" class="btn btn-primary">Locate these</button> <img class="loading" src="/map-it/images/ajax-loader.gif" style="display:none;">
+          </form>
+        </div>
+        <div class=span4 offset1">
+            <h3>Locations</h3>
+            <div id="results"><textarea class="locations" rows="10"></textarea></div>
+        </div>
+      </div>-->
+        <div class="span4 offset1">
+          <h3>Paste a list of call numbers</h3>
+          <form id="batch-form-callno">
+            <textarea type="text" rows="20" id="items"></textarea>
+            <br/>
+            <button type="submit" class="btn btn-primary">Locate these</button> <img class="loading-callno" src="/map-it/images/ajax-loader.gif" style="display:none;">
+          </form>
+        </div>
+        <div class=span4 offset1">
+            <h3>Locations</h3>
+            <div id="results-callno"><textarea class="locations" rows="20"></textarea></div>
+        </div>
+      </div>
+    </div>
+	</body>
+</html>

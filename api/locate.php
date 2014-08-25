@@ -25,48 +25,76 @@ class Locate extends Controller {
 
     function call_number() {
       $f3=$this->framework;
-      $db = $f3->get('DB');
-      $db_user = $f3->get('DB_USER');
-      $db_password = $f3->get('DB_PASSWORD');
-      $db_host = $f3->get('DB_HOST');
-      
-      require(dirname(__FILE__).'/callno_parser.php');
-        
-      /*$this->set('results', json_decode($results, true));
-      $path_to_template = 'api/templates/direct_access_json.php';
-      echo $this->render($path_to_template);*/
-      mysql_connect($db_host, $db_user, $db_password)
-      or die ("Could not connect to resource");
-
-      mysql_select_db($db)
-      or die ("Could not connect to database");
       
       $callno_text = $f3->get('PARAMS.callno');
       $location = $f3->get('PARAMS.location');
-      $this_library = strtolower($location);
       $collection = $f3->get('PARAMS.collection');
       $hollis = $f3->get('PARAMS.hollis');
       
-      if($location == "LAW" && preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $callno_text)) {
+      $location = $this->call_number_locate($callno_text, $location, $collection, $hollis);
+      
+      if (!$location)
+      {
+        $FIELDS     = array('floor','range');
+        $JSON = array();
+        $_datas   = array('not found', 'not found');        
+        $_tmparr  = array_combine($FIELDS, $_datas);
+        array_push($JSON, $_tmparr);
+        echo json_encode($JSON);
+      }else {  
+        $callback = $_GET['callback'];
+        header('Content-type: application/json');
+        echo $callback . '(' . json_encode($location) . ')';
+      }
+      mysql_close();
+    }
+    
+    function batch_call_number() {
+        $items = $_POST['items'];
+        $locations = array();
+        foreach($items as $item) {
+            if (strpos($item,'WID-LC') !== false) {
+                $collection = 'widlc';
+                $call_number = trim(str_replace('WID-LC', '', $item));
+            }
+            else {
+                $collection = 'gen';
+                $call_number = trim($item);
+            }
+            if($call_number != '') {
+                $location = $this->call_number_locate($call_number, 'wid', $collection, '');
+                echo $location['floor'] . ' ' . $location['range'] . '<br>';
+            }
+        }
+    }
+    
+    function call_number_locate($callno_text, $location, $collection, $hollis){ 
+        $f3=$this->framework;
+        $db = $f3->get('DB');
+        $db_user = $f3->get('DB_USER');
+        $db_password = $f3->get('DB_PASSWORD');
+        $db_host = $f3->get('DB_HOST');
+          
+        require_once(dirname(__FILE__).'/callno_parser.php');
+            
+        mysql_connect($db_host, $db_user, $db_password)
+        or die ("Could not connect to resource");
+    
+        mysql_select_db($db)
+        or die ("Could not connect to database");
+        
+        $this_library = strtolower($location);
+        
+        if($location == "LAW" && preg_match('/^[A-Z]{1,7} +[0-9]{3}[A-Z. ].*/', $callno_text)) {
         $something = "Moody";
       }
       elseif(preg_match('/^[a-zA-Z]* +[0-9]*.*/', $callno_text)) {
         $callno_text = preg_replace('/ /', '', $callno_text, 1);
       }
       
-      /*$folio = false;
-      
-      if(preg_match('/\s(F|PF)\z/i', $callno_text)) {
-        $folio = true;
-        $collection = 'FOLIO';
-      }*/
-      
       $callno = new callno($callno_text);
       
       $urlcallno = str_replace(" ","+",$callno->str_callno);
-
-      //$location = strtolower($location);
-      //$table = $location . "_callno";
       
       $hashes = array($callno->subclass, $callno->index_1, $callno->index_2, $callno->index_3);
       
@@ -125,8 +153,40 @@ class Locate extends Controller {
         $floor = $row['floor'];
         $range = $row['range'];
       }
+    if (!isset($floor))
+      {
+        return false;
+      }else {
+        $location = strtolower($location);
+        $maplink = "http://librarylab.law.harvard.edu/map-it/map/$location/$floor/$range/$hollis";
       
-      if (!isset($floor))
+        $json = array();
+        $json['floor'] = $floor;
+        $json['range'] = $range;
+        $json['maplink'] = $maplink;
+        return $json;
+      }
+    }
+    
+    function batch_barcode() {
+        $barcodes = $_POST['barcodes'];
+        $locations = array();
+        foreach($barcodes as $barcode) {
+            $barcode = str_replace('*', '', $barcode);
+            if($barcode != '') {
+                $location = $this->barcode_locate($barcode);
+                echo $location['floor'] . ' ' . $location['range'] . '<br>';
+            }
+        }
+    }
+    
+    function barcode() {
+      //$barcode = $f3->get('PARAMS.barcode');
+      $barcode = $_REQUEST['barcode'];
+        $json = array();
+        $location = $this->barcode_locate($barcode);
+        
+    if (!$location)
       {
         $FIELDS     = array('floor','range');
         $JSON = array();
@@ -136,30 +196,15 @@ class Locate extends Controller {
         array_push($JSON, $_tmparr);
         echo json_encode($JSON);
       }else {
-        $location = strtolower($location);
-        $maplink = "http://librarylab.law.harvard.edu/map-it/map/$location/$floor/$range/$hollis";
       
-        $FIELDS     = array('floor','range', 'maplink');
-        $JSON = array();
-        $_datas   = array($floor, $range, $maplink);
-                  
-        $_tmparr  = array_combine($FIELDS, $_datas);
-        array_push($JSON, $_tmparr);
-        $callback = $_GET['callback'];
         header('Content-type: application/json');
-        echo $callback . '(' . json_encode($JSON) . ')';
+        echo json_encode($location);
       }
       
-      mysql_close();
     }
     
-    function barcode() {
-      $f3=$this->framework;
-      //$barcode = $f3->get('PARAMS.barcode');
-      $barcode = $_REQUEST['barcode'];
-
-      $json = array();
-
+    function barcode_locate($barcode) {
+        $f3=$this->framework;
       $url = $f3->get('BARCODE_API') . $barcode;
       
       $ch = curl_init();
@@ -200,6 +245,7 @@ class Locate extends Controller {
         
       $xml = simplexml_load_string($libraries);
       
+      if($xml->xpath("//item[@barcode='$barcode']")) {
       $item = $xml->xpath("//item[@barcode='$barcode']");
 
       $itemparent = $item[0]->xpath("parent::*");
@@ -209,7 +255,7 @@ class Locate extends Controller {
       $callno = $xml->xpath("//item[@barcode='$barcode']/@callno");
       $callno = (string) $callno[0]['callno'];
       if($callno === "")
-        $callno = "";
+        return false;
       
       $collection = $xml->xpath("//xserverrawdata[@barcode='$barcode']/@collection");
       $collection = (string) $collection[0]['collection'];
@@ -241,7 +287,7 @@ class Locate extends Controller {
       $db_password = $f3->get('DB_PASSWORD');
       $db_host = $f3->get('DB_HOST');
       
-      require(dirname(__FILE__).'/callno_parser.php');
+      require_once(dirname(__FILE__).'/callno_parser.php');
         
       mysql_connect($db_host, $db_user, $db_password)
       or die ("Could not connect to resource");
@@ -307,24 +353,17 @@ class Locate extends Controller {
         $range = $row['range'];
       }
       
+      }
+      
       if (!isset($floor))
       {
-        $FIELDS     = array('floor','range');
-        $JSON = array();
-        $_datas   = array('not found', 'not found');
-                  
-        $_tmparr  = array_combine($FIELDS, $_datas);
-        array_push($JSON, $_tmparr);
-        echo json_encode($JSON);
+        return false;
       }else {
-      
         $json = array();
         $json['floor'] = $floor;
         $json['range'] = $range;
-        //if($folio) $json['range'] = 'FOLIO';
         $json['library'] = $library;
-        header('Content-type: application/json');
-        echo json_encode($json);
+        return $json;
       }
       
       mysql_close();
