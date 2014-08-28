@@ -6,16 +6,14 @@
 	margin-left:-184px;
 }
 
-.map {
-  top:189px;
-}
-
-.clear {
-  clear:both;
+@media print, (max-width:1024px) {
+    #map1 {
+        margin-left:-500px;
+    }
 }
 
 .main {
-  padding:6px 15px 10px 5px;
+  padding:58px 15px 10px 5px;
   width:390px;
   position:relative;
   float:left;
@@ -35,7 +33,7 @@
 }
 
 .column2 {
-	padding: 15px 0px 10px 45px;
+	padding: 15px 0px 10px 68px;
 	width:145px;
 	float:left;
 }
@@ -48,7 +46,7 @@
 
 .column4 {
 	padding:0px 0px 10px 82px;
-	width:78px;
+	width:122px;
 	float:left;
 }
 
@@ -171,8 +169,8 @@
 </head>
 <body>
   <div class="container">
+    <include href="{{ @headermap }}" />
     <div class="wrapper">
-        <include href="{{ @headermap }}" />
         <img src="/map-it/images/law/law-ILS4.jpg" alt="Yenching 1" class="print-map" />
         <div id="map1" class="map">
           <div class="main">

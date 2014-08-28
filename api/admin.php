@@ -403,7 +403,7 @@ class Admin extends Controller {
       $to = "acain@law.harvard.edu, hlcollmgmt@gmail.com";
       //$to = "acain@law.harvard.edu";
       $subject="[map-it] New Map It feedback item";
-      $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."<br /><br />HOLLIS number: ".$hollis."</body></html>";
+      $message = "<html><body>".$feedback_text."<br /><br />User was on the following page<br />".$visited_page."<br /><br />Barcode number: ".$hollis."</body></html>";
     
       // now we'll build the message headers
       $headers = "From: $from\n" .

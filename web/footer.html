@@ -1,22 +1,31 @@
-<div id="feedback-form" class="modal hide fade in center">
-    <div class="modal-header">
-        <a class="close" data-dismiss="modal">×</a>
+<!-- Modal -->
+<div class="modal fade" id="feedbackForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <div class="logo-condensed-header">
             <a href="http://librarylab.law.harvard.edu/map-it"><img src="/map-it/images/map-it.png"></a>
         </div>
-        <h4>Map It feedback</h4>
-    </div>
-    <div class="modal-body">
-        <form class="feedback" name="feedback">
+        <h4 class="modal-title" id="myModalLabel">Map It feedback</h4>
+      </div>
+      <div class="modal-body">
+        <form class="feedback" name="feedback" role="form">
+            <div class="form-group">
             <label for="user_email">Your email</label>
-            <input type="email" name="user_email" class="input-xlarge">
+            <input type="email" name="user_email" class="form-control">
+            </div>
+            <div class="form-group">
             <label for="feedback_text">Your feedback</label>
-            <textarea name="feedback_text" class="input-xlarge"></textarea>
+            <textarea name="feedback_text" class="form-control"></textarea>
+            </div>
             <input type="hidden" name="hollis" value="{{@hollis}}">
         </form>
       </div>
       <div class="modal-footer">
-        <input class="btn pull-right" value="Send" id="submit-feedback">
-        <a href="#" data-dismiss="modal" id="cancel-feedback" class="pull-right">cancel</a>
+        <button type="button" class="btn btn-link" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-default" id="submit-feedback">Send</button>
       </div>
+    </div>
+  </div>
 </div>

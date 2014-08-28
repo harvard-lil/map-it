@@ -6,15 +6,18 @@
 	margin-left:-360px;
 }
 
-.map {
-  top: 146px;
+@media print, (max-width:1024px) {
+    #mapLoker {
+        margin-left:-500px;
+    }
 }
+
 </style>
 </head>
 <body>
   <div class="container">
+    <include href="{{ @headermap }}" />
     <div class="wrapper">
-        <include href="{{ @headermap }}" />
         <img src="/map-it/images/wid/wid-loker.jpg" alt="Widener Loker Reading Room" class="print-map" />
         <div id="mapLoker" class="map">
         	

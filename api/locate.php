@@ -17,6 +17,74 @@ class Locate extends Controller {
         $f3->set('header','web/header.html');
         $f3->set('headermap', 'web/headermap.html');
         $f3->set('footer', 'web/footer.html');
+        
+        //lookup item info
+        $url = $f3->get('BARCODE_API') . $f3->get('PARAMS.hollis');
+      
+        $ch = curl_init();
+          
+        curl_setopt($ch, CURLOPT_URL, $url);
+          
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+          
+        curl_setopt($ch,CURLOPT_HTTPHEADER,array('Accept: application/json'));
+          
+        $contents = curl_exec($ch);
+          
+        curl_close ($ch);
+                  
+        $contents = json_decode($contents, true);
+        $contents = $contents['rlistFormat']['hollis'];
+        
+        $title = $contents['title'];
+        
+        //$callnum = $contents->mods->location->shelfLocator;
+        
+        $creators = $contents['authors']['authorName'];
+        if(is_array($creators[0])) {
+            if(strlen($creators[0]['authorLast']) > 0) {
+                $creator = $creators[0]['authorLast'];
+                if(!is_array($creators[0]['authorFirst']))
+                    $creator .= ', ' . $creators[0]['authorFirst'];
+            }
+            else
+                $creator = $creators['authorFirst'];
+        }
+        else {
+            if(strlen($creators['authorLast']) > 0) {
+                $creator = $creators['authorLast'];
+                if(!is_array($creators['authorFirst']))
+                    $creator .= ', ' . $creators['authorFirst'];
+            }
+            else
+                $creator = $creators['authorFirst'];
+        }
+        
+        if(strlen($creator) == 0) {
+            $creators = $contents['authors']['editorName'];
+            if(is_array($creators[0])) {
+                if(strlen($creators[0]['editorLast']) > 0) {
+                    $creator = $creators[0]['editorLast'];
+                    if(!is_array($creators[0]['editorFirst']))
+                        $creator .= ', ' . $creators[0]['editorFirst'];
+                }
+                else
+                    $creator = $creators['editorFirst'];
+            }
+            else {
+                if(strlen($creators['editorLast']) > 0) {
+                    $creator = $creators['editorLast'];
+                    if(!is_array($creators['editorFirst']))
+                        $creator .= ', ' . $creators['editorFirst'];
+                }
+                else
+                    $creator = $creators['editorFirst'];
+            }
+        }
+
+        $f3->set('title', $title);
+        //$f3->set('callnum', $callnum);
+        $f3->set('creator', $creator);
     
         $template = new Template;
         echo $template->render($template_path);

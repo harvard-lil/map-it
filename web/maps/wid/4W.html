@@ -6,8 +6,10 @@
 	margin-left:-358px;
 }
 
-.map {
-  top:140px;
+@media print, (max-width:1024px) {
+    #map4W {
+        margin-left:-500px;
+    }
 }
 
 #bottomfull {
@@ -118,8 +120,8 @@
 </head>
 <body>
   <div class="container">
+    <include href="{{ @headermap }}" />
     <div class="wrapper">
-        <include href="{{ @headermap }}" />
         <img src="/map-it/images/wid/wid-4W.jpg" alt="Widener 4W" class="print-map" />
         <div id="map4W" class="map">
         	<div id="rightcolumntop">

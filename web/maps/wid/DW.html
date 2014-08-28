@@ -6,8 +6,10 @@
 	margin-left:-340px;
 }
 
-.map {
-  top:137px;
+@media print, (max-width:1024px) {
+    #mapDW {
+        margin-left:-500px;
+    }
 }
 
 #toprow {
@@ -160,8 +162,8 @@
 </head>
 <body>
   <div class="container">
+    <include href="{{ @headermap }}" />
     <div class="wrapper">
-        <include href="{{ @headermap }}" />
         <img src="/map-it/images/wid/wid-DW.jpg" alt="Widener DW" class="print-map" />
         <div id="mapDW" class="map">
         	<div id="toprow">

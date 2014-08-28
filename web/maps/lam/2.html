@@ -1,30 +1,25 @@
 <include href="{{ @header }}" />
 <style>
-body{
-	font-size:75%;
-	font-family:Arial, Verdana, sans-serif;
-	background:#fff;
-	color:#333;
-}
-
 #map2 {
 	width:700px;
 	height: 335px;
 	margin-left:-342px;
 }
 
-.map {
-  top: 168px;
+@media print, (max-width:1024px) {
+    #map2 {
+        margin-left:-499px;
+    }
 }
 
 .row1 {
-	margin:53px 15px 10px 85px;
+	margin:80px 15px 0px 85px;
 	width:600px;
 	float:left;
 }
 
 .row2 {
-	margin:8px 5px 10px 60px;
+	margin:2px 5px 10px 60px;
 	width:600px;
 	float:left;
 }
@@ -128,8 +123,8 @@ body{
 </head>
 <body>
   <div class="container">
-    <div class="wrapper">
     <include href="{{ @headermap }}" />
+    <div class="wrapper">
   <img src="/map-it/images/lam/lam-2.jpg" alt="Lamont 2" class="print-map" />
         <div id="map2" class="map">
           <div class="row1">

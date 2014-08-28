@@ -6,12 +6,14 @@
 	margin-left:-268px;
 }
 
-.map {
-  top:141px;
+@media print, (max-width:1024px) {
+    #map1 {
+        margin-left:-500px;
+    }
 }
 
 .main {
-  margin:18px 15px 10px 5px;
+  margin:21px 15px 10px 5px;
   width:500px;
   position:relative;
   float:left;
@@ -89,8 +91,8 @@
 </head>
 <body>
   <div class="container">
+    <include href="{{ @headermap }}" />
     <div class="wrapper">
-        <include href="{{ @headermap }}" />
         <img src="/map-it/images/law/law-4S.jpg" alt="Law 4 South" class="print-map" />
         <div id="map1" class="map">
           <div class="main">

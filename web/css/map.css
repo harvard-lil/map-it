@@ -1,8 +1,4 @@
 body{
-	font-size:75%;
-	font-family:Arial, Verdana, sans-serif;
-	background:#fff;
-	color:#333;
 	padding-top:20px;
 }
 
@@ -14,9 +10,6 @@ body{
 
 .print-map {
   display:block;
-  margin-left:auto;
-  margin-right:auto;
-
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
   filter: alpha(opacity=40);
   -moz-opacity: 0.4;
@@ -28,6 +21,7 @@ body{
   position:absolute;
   z-index:3;
   left:50%;
+  top:0px;
 }
 
 .harvard-logo {
@@ -39,21 +33,46 @@ body{
 }
 
 .header h2 {
-  text-align:center;
 }
 
 .header p {
-  font-size:1.2em;
   color:#666;
-  text-align:center;
 }
 
 .row-text {
   color:#FF4105;
 }
 
-.have-feedback {
-  color: #005d81;
+.item-info {
+    margin-top:20px;
+}
+
+.item-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom:5px;
+    line-height:1.3em;
+}
+
+@media (min-width:768px)
+{
+  .text-right-responsive {text-align:right;}
+  .text-left-responsive {text-align:left;}
+} 
+
+@media (min-width: 1024px) {
+    .print-map {
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+@media print {
+    .print-map {
+        margin-left:0;
+        margin-right:0;
+    }
 }
 
 .map span {
@@ -62,6 +81,7 @@ body{
 	float:left;
 	overflow:hidden;
 	border-color:#005d81;
+	box-sizing:content-box;
 }
 
 .map span img {
@@ -81,17 +101,11 @@ body{
    }
 }
 
-#feedback-form {
-  width:320px;
-  margin-left:-157px;
+.have-feedback {
+    padding:0px;
+    color: #005d81;
 }
 
 #submit-feedback {
-  margin-right:25px;
   width:100px;
-}
-
-#cancel-feedback {
-  margin-right:15px;
-  padding-top:5px;
 }

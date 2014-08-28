@@ -1,6 +1,24 @@
-  <div class=" header">
+  <div class="header">
+    <div class="row">
+        <div class="col-sm-7 column">
     <a href="http://library.harvard.edu"><img src="http://library.harvard.edu/sites/all/themes/HarvardLibraryPortalTheme/logo.png" class="harvard-logo"></a>
-    <a href="#feedback-form" class="pull-right have-feedback" data-toggle="modal">Have feedback?</a>
-    <h2>{{@display}} Floor {{@floor}} <span class="row-text">Row {{@row}}</span></h2>
-    <p>Is this item not on the shelf?  Ask at the circulation desk.</p>
+    </div>
+    <div class="col-sm-5 column">
+    <p class="text-right-responsive">
+    <button class="btn btn-link have-feedback text-right-responsive" data-toggle="modal" data-target="#feedbackForm">Have feedback?</button><br><small>Is this item not on the shelf?  Ask at the circulation desk.</small></p>
+    </div>
+    </div>
+    
+    <div class="row">
+    <div class="col-sm-6 column">
+    <h2>{{@display}} Floor {{@floor}} <span class="row-text">Row {{@row}}</span><br><small>{{@callnum}}</small></h2>
+    </div>
+    <div class="col-sm-6 column item-info">
+    <h4 class="item-title">{{@title}}</h4>
+    <p>{{@creator}}</p>
+    <!--<h4 class="item-title">Paper tiger : an obsessed golfer’s quest to play with the pros</h4>
+    <h4 class="item-title">Turbulent souls : a Catholic son’s return to his Jewish family</h4>
+    <p>Levitt, Steven D.</p>-->
+    </div>
+    </div>
   </div>

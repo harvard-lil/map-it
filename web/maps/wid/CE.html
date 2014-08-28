@@ -6,8 +6,10 @@
 	margin-left:-354px;
 }
 
-.map {
-  top: 137px;
+@media print, (max-width:1024px) {
+    #mapCE {
+        margin-left:-500px;
+    }
 }
 
 #toprow {
@@ -140,8 +142,8 @@
 </head>
 <body>
   <div class="container">
+    <include href="{{ @headermap }}" />
     <div class="wrapper">
-        <include href="{{ @headermap }}" />
         <img src="/map-it/images/wid/wid-CE.jpg" alt="Widener CE" class="print-map" />
         <div id="mapCE" class="map">
         	<div id="toprow">

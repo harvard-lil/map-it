@@ -6,18 +6,20 @@
 	margin-left:-265px;
 }
 
-.map {
-  top:150px;
+@media print, (max-width:1024px) {
+    #mapP3 {
+        margin-left:-500px;
+    }
 }
 
 #leftcolumn {
-	margin:4px 15px 10px 32px;
+	margin:17px 15px 10px 32px;
 	width:200px;
 	float:left;
 }
 
 #rightcolumn {
-	margin:164px 15px 10px 40px;
+	margin:177px 15px 10px 40px;
 	width:235px;
 	float:left;
 }
@@ -172,8 +174,8 @@
 </head>
 <body>
   <div class="container">
+    <include href="{{ @headermap }}" />
     <div class="wrapper">
-        <include href="{{ @headermap }}" />
         <img src="/map-it/images/wid/wid-P3.jpg" alt="Widener P3" class="print-map" />
         <div id="mapP3" class="map">
         	<div id="leftcolumn">
