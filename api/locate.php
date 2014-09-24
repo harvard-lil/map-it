@@ -9,6 +9,7 @@ class Locate extends Controller {
         $f3->set('floor',$f3->get('PARAMS.floor'));
         $f3->set('row',$f3->get('PARAMS.row'));
         $f3->set('hollis',$f3->get('PARAMS.hollis'));
+        $f3->set('callno',$f3->get('PARAMS.callno'));
         $f3->set('www_root',$f3->get('MAP_IT_HOME'));
         $f3->set('ga_key', $f3->get('GOOGLE_ANALYTICS_KEY'));
         $f3->set('ga_domain', $f3->get('GOOGLE_ANALYTICS_DOMAIN'));
@@ -226,7 +227,8 @@ class Locate extends Controller {
         return false;
       }else {
         $location = strtolower($location);
-        $maplink = "http://librarylab.law.harvard.edu/map-it/map/$location/$floor/$range/$hollis";
+        $www_root = $f3->get('MAP_IT_HOME');
+        $maplink = $www_root . "map/$location/$floor/$range/$hollis/$callno_text";
       
         $json = array();
         $json['floor'] = $floor;

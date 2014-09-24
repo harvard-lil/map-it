@@ -62,6 +62,7 @@ $f3->route('POST /api/admin/feedback', 'Admin->send_feedback');
 $f3->route('GET /api/admin/mail', 'Admin->mail_test');
 
 $f3->route('GET /map/@library/@floor/@row/@hollis', 'Locate->map_w_item');
+$f3->route('GET /map/@library/@floor/@row/@hollis/@callno', 'Locate->map_w_item');
 
 $f3->route('GET /map/@library/@floor/@row', function($f3, $params) {
     $template_path = 'web/maps/' . $params['library'] . '/' . $params['floor'] . '.html';
