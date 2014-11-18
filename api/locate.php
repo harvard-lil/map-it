@@ -231,9 +231,14 @@ class Locate extends Controller {
         $maplink = $www_root . "map/$location/$floor/$range/$hollis/$callno_text";
       
         $json = array();
-        $json['floor'] = $floor;
+        /*$json['floor'] = $floor;
         $json['range'] = $range;
-        $json['maplink'] = $maplink;
+        $json['maplink'] = $maplink;*/
+        $fields     = array('floor','range', 'maplink');
+        $_datas   = array($floor, $range, $maplink);
+                  
+        $_tmparr  = array_combine($fields, $_datas);
+        array_push($json, $_tmparr);
         return $json;
       }
     }
